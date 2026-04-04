@@ -1,694 +1,942 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <meta name="description" content="NexaGrowth — Award-winning digital marketing agency. We craft data-driven strategies, stunning content & high-converting campaigns. Content, Ads, Influencer & Web Dev."/>
-  <meta name="keywords" content="digital marketing agency, content marketing, paid ads, influencer management, web development, SEO, NexaGrowth, Pakistan"/>
-  <meta name="author" content="NexaGrowth"/>
-  <meta name="robots" content="index, follow"/>
-  <meta name="theme-color" content="#0a0a0f"/>
-  <link rel="canonical" href="https://nexagrowth.com/"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description"
+    content="NexaGrowth — Award-winning digital marketing agency. We craft data-driven strategies, stunning content & high-converting campaigns. Content, Ads, Influencer & Web Dev." />
+  <meta name="keywords"
+    content="digital marketing agency, content marketing, paid ads, influencer management, web development, SEO, NexaGrowth, Pakistan" />
+  <meta name="author" content="NexaGrowth" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <link rel="canonical" href="https://nexagrowth.com/" />
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://nexagrowth.com/"/>
-  <meta property="og:title" content="NexaGrowth — Premium Digital Marketing Agency"/>
-  <meta property="og:description" content="We grow brands that mean business. Data-driven strategies, stunning content & award-winning campaigns."/>
-  <meta property="og:image" content="https://nexagrowth.com/og-image.jpg"/>
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nexagrowth.com/" />
+  <meta property="og:title" content="NexaGrowth — Premium Digital Marketing Agency" />
+  <meta property="og:description"
+    content="We grow brands that mean business. Data-driven strategies, stunning content & award-winning campaigns." />
+  <meta property="og:image" content="https://nexagrowth.com/og-image.jpg" />
 
   <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="NexaGrowth — Premium Digital Marketing Agency"/>
-  <meta name="twitter:description" content="We grow brands that mean business."/>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NexaGrowth — Premium Digital Marketing Agency" />
+  <meta name="twitter:description" content="We grow brands that mean business." />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"MarketingAgency","name":"NexaGrowth","url":"https://nexagrowth.com","description":"Premium digital marketing agency specializing in Content Marketing, Paid Advertising, Influencer Management, and Web Development.","address":{"@type":"PostalAddress","addressLocality":"Karachi","addressCountry":"PK"},"contactPoint":{"@type":"ContactPoint","telephone":"0339-0061165","email":"ranatalhamajid@gmail.com","contactType":"customer service"},"sameAs":["https://www.linkedin.com/company/nexagrowth-agency/","https://www.instagram.com/nexa_growthagency/","https://www.facebook.com/profile.php?id=61575415000689"]}
   </script>
 
+  <link rel="icon" id="favicon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <script>
+    (function () {
+      var img = new Image();
+      img.onload = function () {
+        var size = 64;
+        var c = document.createElement('canvas');
+        c.width = c.height = size;
+        var ctx = c.getContext('2d');
+        ctx.beginPath();
+        ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.clip();
+        ctx.drawImage(img, 0, 0, size, size);
+        var link = document.getElementById('favicon');
+        link.href = c.toDataURL('image/png');
+      };
+      img.src = 'logo.png';
+    })();
+  </script>
   <title>NexaGrowth — Premium Digital Marketing Agency</title>
 
   <!-- Preload critical fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<!-- ░░ NOISE OVERLAY ░░ -->
-<div class="noise" aria-hidden="true"></div>
+  <!-- ░░ NOISE OVERLAY ░░ -->
+  <div class="noise" aria-hidden="true"></div>
 
-<!-- ░░ LOADER ░░ -->
-<div id="loader" class="loader" aria-label="Loading NexaGrowth" role="status">
-  <canvas id="loader-canvas"></canvas>
-  <div class="loader-content">
-    <div class="loader-wordmark">
-      <span data-char="N">N</span><span data-char="e">e</span><span data-char="x">x</span><span data-char="a">a</span><span class="loader-accent" data-char="G">G</span><span data-char="r">r</span><span data-char="o">o</span><span data-char="w">w</span><span data-char="t">t</span><span data-char="h">h</span>
-    </div>
-    <div class="loader-line"><div class="loader-fill"></div></div>
-    <div class="loader-pct" id="loader-pct">0%</div>
-  </div>
-</div>
-
-<!-- ░░ CURSOR ░░ -->
-<div id="c-dot" class="c-dot" aria-hidden="true"></div>
-<div id="c-ring" class="c-ring" aria-hidden="true"><div class="c-ring-inner"></div></div>
-
-<!-- ░░ PROGRESS BAR ░░ -->
-<div id="progress-bar" class="progress-bar" aria-hidden="true"></div>
-
-<!-- ░░ NAVBAR ░░ -->
-<nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="#hero" class="nav-logo" aria-label="NexaGrowth — Home">
-      <div class="logo-gem" aria-hidden="true">
-        <div class="gem-face gem-top"></div>
-        <div class="gem-face gem-left"></div>
-        <div class="gem-face gem-right"></div>
-        <span>NG</span>
+  <!-- ░░ LOADER ░░ -->
+  <div id="loader" class="loader" aria-label="Loading NexaGrowth" role="status">
+    <canvas id="loader-canvas"></canvas>
+    <div class="loader-content">
+      <div class="loader-wordmark">
+        <span data-char="N">N</span><span data-char="e">e</span><span data-char="x">x</span><span
+          data-char="a">a</span><span class="loader-accent" data-char="G">G</span><span data-char="r">r</span><span
+          data-char="o">o</span><span data-char="w">w</span><span data-char="t">t</span><span data-char="h">h</span>
       </div>
-      <span class="logo-name">NexaGrowth</span>
-    </a>
-
-    <ul class="nav-links" role="list">
-      <li><a href="#services" class="nl" data-text="Services">Services</a></li>
-      <li><a href="#work" class="nl" data-text="Work">Work</a></li>
-      <li><a href="#about" class="nl" data-text="About">About</a></li>
-      <li><a href="#results" class="nl" data-text="Results">Results</a></li>
-      <li><a href="#contact" class="nl" data-text="Contact">Contact</a></li>
-    </ul>
-
-    <div class="nav-right">
-      <button id="theme-btn" class="icon-btn" aria-label="Toggle theme" title="Toggle dark/light mode">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      </button>
-      <a href="#contact" class="mag-btn nav-cta" id="nav-cta-btn"><span>Let's Talk</span></a>
-      <button id="burger" class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
-        <span></span><span></span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile Nav -->
-  <div id="mobile-nav" class="mobile-nav" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
-    <ul>
-      <li><a href="#services" class="mn-link">Services</a></li>
-      <li><a href="#work" class="mn-link">Work</a></li>
-      <li><a href="#about" class="mn-link">About</a></li>
-      <li><a href="#results" class="mn-link">Results</a></li>
-      <li><a href="#contact" class="mn-link">Contact</a></li>
-    </ul>
-    <a href="#contact" class="mag-btn mn-cta mn-link"><span>Let's Talk</span></a>
-  </div>
-</nav>
-
-<!-- ░░ HERO ░░ -->
-<section id="hero" class="hero" aria-label="Hero — NexaGrowth">
-  <canvas id="hero-canvas" aria-hidden="true"></canvas>
-  <div class="hero-orb orb-1" aria-hidden="true"></div>
-  <div class="hero-orb orb-2" aria-hidden="true"></div>
-  <div class="hero-orb orb-3" aria-hidden="true"></div>
-
-  <div class="hero-body">
-    <div class="hero-eyebrow reveal-up" data-delay="0">
-      <span class="pulse-dot"></span>
-      <span>Now accepting new clients — 2026</span>
-    </div>
-
-    <h1 class="hero-h1">
-      <span class="split-line reveal-up" data-delay="1">We Grow Brands</span>
-      <span class="split-line hero-gradient reveal-up" data-delay="2">That Mean Business</span>
-    </h1>
-
-    <p class="hero-sub reveal-up" data-delay="3">
-      NexaGrowth is a full-service digital marketing agency crafting data-driven<br class="d-break"/> strategies, stunning content &amp; campaigns that dominate every channel.
-    </p>
-
-    <div class="hero-actions reveal-up" data-delay="4">
-      <a href="#contact" class="mag-btn btn-glow" id="hero-primary"><span>Start Growing →</span></a>
-      <a href="#work" class="btn-ghost" id="hero-secondary">View Our Work</a>
-    </div>
-
-    <div class="hero-stats reveal-up" data-delay="5" aria-label="Quick stats">
-      <div class="hs"><strong>120+</strong><span>Clients</span></div>
-      <div class="hs-div" aria-hidden="true"></div>
-      <div class="hs"><strong>350+</strong><span>Campaigns</span></div>
-      <div class="hs-div" aria-hidden="true"></div>
-      <div class="hs"><strong>$8M+</strong><span>Revenue</span></div>
-      <div class="hs-div" aria-hidden="true"></div>
-      <div class="hs"><strong>98%</strong><span>Satisfaction</span></div>
-    </div>
-  </div>
-
-  <div class="hero-scroll-hint" aria-hidden="true">
-    <div class="scroll-line"><div class="scroll-pip"></div></div>
-    <span>Scroll</span>
-  </div>
-</section>
-
-<!-- ░░ MARQUEE ░░ -->
-<div class="marquee-wrap" aria-hidden="true">
-  <div class="marquee-row mt-fade">
-    <div class="marquee-track">
-      <span>Content Marketing</span><em>◆</em><span>Paid Advertising</span><em>◆</em><span>Influencer Management</span><em>◆</em><span>Web Development</span><em>◆</em><span>SEO &amp; Growth</span><em>◆</em><span>Brand Strategy</span><em>◆</em><span>Social Media</span><em>◆</em><span>Email Marketing</span><em>◆</em>
-      <span>Content Marketing</span><em>◆</em><span>Paid Advertising</span><em>◆</em><span>Influencer Management</span><em>◆</em><span>Web Development</span><em>◆</em><span>SEO &amp; Growth</span><em>◆</em><span>Brand Strategy</span><em>◆</em><span>Social Media</span><em>◆</em><span>Email Marketing</span><em>◆</em>
-    </div>
-  </div>
-</div>
-
-<!-- ░░ SERVICES ░░ -->
-<section id="services" class="services section" aria-label="Our services">
-  <div class="container">
-    <header class="sec-header reveal-up">
-      <div class="sec-tag">What We Do</div>
-      <h2 class="sec-h2">Services Built<br/><em class="gradient-em">for Growth</em></h2>
-    </header>
-
-    <div class="services-grid" id="services-grid">
-
-      <article class="glass-card svc-card tilt-card" id="svc-content" data-index="0" aria-label="Content Marketing service">
-        <div class="card-glow" aria-hidden="true"></div>
-        <div class="svc-icon-wrap">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          </div>
-        </div>
-        <div class="svc-num" aria-hidden="true">01</div>
-        <h3>Content Marketing</h3>
-        <p>Compelling stories &amp; viral-worthy content that positions your brand as the authority — and brings organic traffic on autopilot.</p>
-        <ul class="svc-list">
-          <li>Blog &amp; Article Writing</li><li>Video Scripts</li><li>Social Content</li><li>Email Newsletters</li>
-        </ul>
-        <a href="#contact" class="svc-arrow" aria-label="Learn more about Content Marketing">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </article>
-
-      <article class="glass-card svc-card tilt-card svc-featured" id="svc-ads" data-index="1" aria-label="Paid Advertising service">
-        <div class="card-glow" aria-hidden="true"></div>
-        <div class="svc-icon-wrap">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-          </div>
-        </div>
-        <div class="svc-num" aria-hidden="true">02</div>
-        <div class="svc-badge">Most Popular</div>
-        <h3>Paid Advertising</h3>
-        <p>Precision-targeted campaigns across Google, Meta &amp; TikTok that maximize every dollar — delivering outstanding ROAS consistently.</p>
-        <ul class="svc-list">
-          <li>Google &amp; YouTube Ads</li><li>Meta Ads</li><li>TikTok &amp; Snap</li><li>Retargeting</li>
-        </ul>
-        <a href="#contact" class="svc-arrow" aria-label="Learn more about Paid Advertising">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </article>
-
-      <article class="glass-card svc-card tilt-card" id="svc-influencer" data-index="2" aria-label="Influencer Management service">
-        <div class="card-glow" aria-hidden="true"></div>
-        <div class="svc-icon-wrap">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-        </div>
-        <div class="svc-num" aria-hidden="true">03</div>
-        <h3>Influencer Management</h3>
-        <p>Connect your brand with exactly the right creators — we handle everything from outreach and briefs to analytics and payments.</p>
-        <ul class="svc-list">
-          <li>Discovery &amp; Vetting</li><li>Campaign Strategy</li><li>Contract Negotiation</li><li>Performance Reports</li>
-        </ul>
-        <a href="#contact" class="svc-arrow" aria-label="Learn more about Influencer Management">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </article>
-
-      <article class="glass-card svc-card tilt-card" id="svc-web" data-index="3" aria-label="Web Development service">
-        <div class="card-glow" aria-hidden="true"></div>
-        <div class="svc-icon-wrap">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-        </div>
-        <div class="svc-num" aria-hidden="true">04</div>
-        <h3>Web Development</h3>
-        <p>Award-winning websites &amp; landing pages engineered for conversion — fast, beautiful, and built to turn visitors into loyal customers.</p>
-        <ul class="svc-list">
-          <li>Landing Pages</li><li>E-Commerce</li><li>UI/UX Design</li><li>CRO Optimization</li>
-        </ul>
-        <a href="#contact" class="svc-arrow" aria-label="Learn more about Web Development">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ░░ ABOUT ░░ -->
-<section id="about" class="about section" aria-label="About NexaGrowth">
-  <div class="container">
-    <div class="about-layout">
-      <div class="about-visual reveal-left" aria-hidden="true">
-        <div class="av-outer">
-          <div class="av-ring r1"></div>
-          <div class="av-ring r2"></div>
-          <div class="av-ring r3"></div>
-          <div class="av-center">
-            <div class="av-logo-big">NG</div>
-            <div class="av-tagline">since 2020</div>
-          </div>
-          <div class="av-orbit" id="av-orbit">
-            <div class="av-planet p1" style="--angle:0deg" aria-label="100+ Clients"><span>🏆</span><em>Clients</em></div>
-            <div class="av-planet p2" style="--angle:90deg" aria-label="350+ Campaigns"><span>🚀</span><em>Campaigns</em></div>
-            <div class="av-planet p3" style="--angle:180deg" aria-label="15+ Industries"><span>🌍</span><em>Industries</em></div>
-            <div class="av-planet p4" style="--angle:270deg" aria-label="8M Revenue"><span>💰</span><em>Revenue</em></div>
-          </div>
-        </div>
-        <div class="av-floats" aria-hidden="true">
-          <div class="av-float f1 glass-sm">Data-Driven</div>
-          <div class="av-float f2 glass-sm">ROI Focused</div>
-          <div class="av-float f3 glass-sm">Creative First</div>
-        </div>
+      <div class="loader-line">
+        <div class="loader-fill"></div>
       </div>
-
-      <div class="about-copy">
-        <div class="sec-tag reveal-up">About NexaGrowth</div>
-        <h2 class="sec-h2 reveal-up" data-delay="1">Your Growth Is<br/><em class="gradient-em">Our Mission</em></h2>
-        <p class="about-p reveal-up" data-delay="2">We're a team of strategists, creatives &amp; technologists obsessed with one thing — helping brands grow beyond what they thought possible. No cookie-cutter solutions, every strategy is tailored, backed by data and built for real ROI.</p>
-        <p class="about-p reveal-up" data-delay="3">Founded in 2020, we've helped 120+ brands across 15+ industries achieve measurable, sustainable growth — and we're just getting started.</p>
-
-        <div class="process-steps reveal-up" data-delay="4">
-          <div class="ps" id="ps-1"><div class="ps-n">01</div><div><h4>Discovery &amp; Audit</h4><p>Deep-dive into your brand, audience &amp; competition.</p></div></div>
-          <div class="ps" id="ps-2"><div class="ps-n">02</div><div><h4>Strategy &amp; Roadmap</h4><p>Custom plan aligned with your goals and budget.</p></div></div>
-          <div class="ps" id="ps-3"><div class="ps-n">03</div><div><h4>Execute &amp; Launch</h4><p>Precision execution with speed and creativity.</p></div></div>
-          <div class="ps" id="ps-4"><div class="ps-n">04</div><div><h4>Track &amp; Optimize</h4><p>Continuous A/B testing to maximize every result.</p></div></div>
-        </div>
-      </div>
+      <div class="loader-pct" id="loader-pct">0%</div>
     </div>
   </div>
-</section>
 
-<!-- ░░ RESULTS / STATS ░░ -->
-<section id="results" class="results section" aria-label="Our results and track record">
-  <div class="results-bg" aria-hidden="true"><canvas id="results-canvas"></canvas></div>
-  <div class="container">
-    <header class="sec-header reveal-up">
-      <div class="sec-tag">Track Record</div>
-      <h2 class="sec-h2">Numbers That<br/><em class="gradient-em">Speak Loudly</em></h2>
-    </header>
-    <div class="stats-grid" role="list">
-      <div class="glass-card stat-card tilt-card" id="stat-1" data-target="120" data-suffix="+" role="listitem" aria-label="120+ Happy Clients">
-        <div class="stat-emoji" aria-hidden="true">🏆</div>
-        <div class="stat-val"><span class="count-num">0</span><span class="count-suffix">+</span></div>
-        <div class="stat-lbl">Happy Clients</div>
-        <div class="stat-bar"><div class="stat-bar-fill" style="--pct:85%"></div></div>
-      </div>
-      <div class="glass-card stat-card tilt-card" id="stat-2" data-target="350" data-suffix="+" role="listitem" aria-label="350+ Campaigns Launched">
-        <div class="stat-emoji" aria-hidden="true">🚀</div>
-        <div class="stat-val"><span class="count-num">0</span><span class="count-suffix">+</span></div>
-        <div class="stat-lbl">Campaigns Launched</div>
-        <div class="stat-bar"><div class="stat-bar-fill" style="--pct:92%"></div></div>
-      </div>
-      <div class="glass-card stat-card tilt-card" id="stat-3" data-target="8" data-suffix="M+" role="listitem" aria-label="$8M+ Revenue Generated">
-        <div class="stat-emoji" aria-hidden="true">💰</div>
-        <div class="stat-val">$<span class="count-num">0</span><span class="count-suffix">M+</span></div>
-        <div class="stat-lbl">Revenue Generated</div>
-        <div class="stat-bar"><div class="stat-bar-fill" style="--pct:76%"></div></div>
-      </div>
-      <div class="glass-card stat-card tilt-card" id="stat-4" data-target="98" data-suffix="%" role="listitem" aria-label="98% Client Satisfaction">
-        <div class="stat-emoji" aria-hidden="true">⭐</div>
-        <div class="stat-val"><span class="count-num">0</span><span class="count-suffix">%</span></div>
-        <div class="stat-lbl">Client Satisfaction</div>
-        <div class="stat-bar"><div class="stat-bar-fill" style="--pct:98%"></div></div>
-      </div>
-    </div>
+  <!-- ░░ CURSOR ░░ -->
+  <div id="c-dot" class="c-dot" aria-hidden="true"></div>
+  <div id="c-ring" class="c-ring" aria-hidden="true">
+    <div class="c-ring-inner"></div>
   </div>
-</section>
 
-<!-- ░░ PORTFOLIO ░░ -->
-<section id="work" class="portfolio section" aria-label="Portfolio and case studies">
-  <div class="container">
-    <header class="sec-header reveal-up">
-      <div class="sec-tag">Our Work</div>
-      <h2 class="sec-h2">Case Studies &amp;<br/><em class="gradient-em">Real Results</em></h2>
-      <p class="sec-sub">Real campaigns, real results — a snapshot of what we've built for forward-thinking brands.</p>
-    </header>
+  <!-- ░░ PROGRESS BAR ░░ -->
+  <div id="progress-bar" class="progress-bar" aria-hidden="true"></div>
 
-    <div class="portfolio-filters reveal-up" role="tablist" aria-label="Filter portfolio by category">
-      <button class="pf-btn active" data-filter="all" role="tab" aria-selected="true" id="pf-all">All</button>
-      <button class="pf-btn" data-filter="ads" role="tab" aria-selected="false" id="pf-ads">Paid Ads</button>
-      <button class="pf-btn" data-filter="content" role="tab" aria-selected="false" id="pf-content">Content</button>
-      <button class="pf-btn" data-filter="web" role="tab" aria-selected="false" id="pf-web">Web Dev</button>
-      <button class="pf-btn" data-filter="influencer" role="tab" aria-selected="false" id="pf-influencer">Influencer</button>
-    </div>
+  <!-- ░░ NAVBAR ░░ -->
+  <nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="NexaGrowth — Home">
+        <img src="logo.png" alt="NexaGrowth Logo" class="nav-logo-img" />
+      </a>
 
-    <div class="portfolio-grid" id="pgrid">
+      <ul class="nav-links" role="list">
+        <li><a href="#services" class="nl" data-text="Services">Services</a></li>
+        <li><a href="#work" class="nl" data-text="Work">Work</a></li>
+        <li><a href="#about" class="nl" data-text="About">About</a></li>
+        <li><a href="#results" class="nl" data-text="Results">Results</a></li>
+        <li><a href="#contact" class="nl" data-text="Contact">Contact</a></li>
+      </ul>
 
-      <article class="port-card tilt-card" data-cat="ads" id="pc-luxe" aria-label="LuxeVibe Fashion case study">
-        <div class="port-img" style="--g:linear-gradient(135deg,#7c3aed,#a855f7)">
-          <div class="port-mockup pm-chart" aria-hidden="true">
-            <div class="bar-group"><div class="pbar" style="--h:40%"></div><div class="pbar" style="--h:65%"></div><div class="pbar" style="--h:80%"></div><div class="pbar" style="--h:55%"></div><div class="pbar" style="--h:90%"></div></div>
-            <div class="pm-num">+340% ROAS</div>
-          </div>
-          <div class="port-overlay">
-            <span class="port-cat-tag">Paid Ads</span>
-            <a href="#contact" class="port-view-btn">View Project</a>
-          </div>
-        </div>
-        <div class="port-info">
-          <h3>LuxeVibe Fashion</h3>
-          <p>Meta &amp; Google campaign delivering 340% ROAS in 3 months for a premium fashion brand.</p>
-          <div class="port-tags"><span>340% ROAS</span><span>$1.2M Revenue</span><span>3 Months</span></div>
-        </div>
-      </article>
-
-      <article class="port-card tilt-card" data-cat="content" id="pc-green" aria-label="GreenEarth Organics case study">
-        <div class="port-img" style="--g:linear-gradient(135deg,#047857,#10b981)">
-          <div class="port-mockup pm-content" aria-hidden="true">
-            <div class="pm-post"><div class="pm-avatar"></div><div class="pm-lines"><i></i><i></i><i></i></div></div>
-            <div class="pm-num">500K Reach</div>
-          </div>
-          <div class="port-overlay">
-            <span class="port-cat-tag">Content</span>
-            <a href="#contact" class="port-view-btn">View Project</a>
-          </div>
-        </div>
-        <div class="port-info">
-          <h3>GreenEarth Organics</h3>
-          <p>Organic reach grew from 10K to 500K in 6 months through a full content strategy overhaul.</p>
-          <div class="port-tags"><span>50× Growth</span><span>500K Reach</span><span>6 Months</span></div>
-        </div>
-      </article>
-
-      <article class="port-card tilt-card" data-cat="web" id="pc-saas" aria-label="NexaBuild SaaS case study">
-        <div class="port-img" style="--g:linear-gradient(135deg,#0369a1,#38bdf8)">
-          <div class="port-mockup pm-browser" aria-hidden="true">
-            <div class="pm-bar"><s></s><s></s><s></s></div>
-            <div class="pm-lines"><i style="--w:90%"></i><i style="--w:70%"></i><i style="--w:80%"></i><i style="--w:50%"></i></div>
-            <div class="pm-num">+220% CVR</div>
-          </div>
-          <div class="port-overlay">
-            <span class="port-cat-tag">Web Dev</span>
-            <a href="#contact" class="port-view-btn">View Project</a>
-          </div>
-        </div>
-        <div class="port-info">
-          <h3>NexaBuild SaaS</h3>
-          <p>CRO-optimized redesign increased conversion rates by 220% within 30 days of launch.</p>
-          <div class="port-tags"><span>+220% CVR</span><span>30 Days</span><span>SaaS</span></div>
-        </div>
-      </article>
-
-      <article class="port-card tilt-card" data-cat="influencer" id="pc-spark" aria-label="SparkFit Apparel case study">
-        <div class="port-img" style="--g:linear-gradient(135deg,#b45309,#fbbf24)">
-          <div class="port-mockup pm-influencer" aria-hidden="true">
-            <div class="pm-avatars"><div class="pma" style="--c:#f97316"></div><div class="pma" style="--c:#ec4899"></div><div class="pma" style="--c:#8b5cf6"></div><div class="pma" style="--c:#06b6d4"></div></div>
-            <div class="pm-num">2M+ Impressions</div>
-          </div>
-          <div class="port-overlay">
-            <span class="port-cat-tag">Influencer</span>
-            <a href="#contact" class="port-view-btn">View Project</a>
-          </div>
-        </div>
-        <div class="port-info">
-          <h3>SparkFit Apparel</h3>
-          <p>Coordinated 40+ creators generating 2M+ impressions and 15K new customers in one campaign.</p>
-          <div class="port-tags"><span>2M+ Impressions</span><span>15K Customers</span><span>40+ Creators</span></div>
-        </div>
-      </article>
-
-      <article class="port-card tilt-card" data-cat="ads" id="pc-tech" aria-label="TechStart B2B case study">
-        <div class="port-img" style="--g:linear-gradient(135deg,#be123c,#f43f5e)">
-          <div class="port-mockup pm-chart" aria-hidden="true">
-            <div class="bar-group"><div class="pbar" style="--h:30%"></div><div class="pbar" style="--h:50%"></div><div class="pbar" style="--h:70%"></div><div class="pbar" style="--h:85%"></div><div class="pbar" style="--h:95%"></div></div>
-            <div class="pm-num">-60% CPA</div>
-          </div>
-          <div class="port-overlay">
-            <span class="port-cat-tag">Paid Ads</span>
-            <a href="#contact" class="port-view-btn">View Project</a>
-          </div>
-        </div>
-        <div class="port-info">
-          <h3>TechStart B2B</h3>
-          <p>LinkedIn lead gen campaign that cut cost-per-acquisition by 60% while tripling qualified leads.</p>
-          <div class="port-tags"><span>-60% CPA</span><span>3× Leads</span><span>B2B</span></div>
-        </div>
-      </article>
-
-      <article class="port-card tilt-card" data-cat="content" id="pc-bloom" aria-label="Bloom Beauty case study">
-        <div class="port-img" style="--g:linear-gradient(135deg,#9d174d,#ec4899)">
-          <div class="port-mockup pm-content" aria-hidden="true">
-            <div class="pm-post"><div class="pm-avatar" style="opacity:0.7"></div><div class="pm-lines"><i></i><i style="--w:60%"></i><i style="--w:75%"></i></div></div>
-            <div class="pm-num">1M+ Views</div>
-          </div>
-          <div class="port-overlay">
-            <span class="port-cat-tag">Content</span>
-            <a href="#contact" class="port-view-btn">View Project</a>
-          </div>
-        </div>
-        <div class="port-info">
-          <h3>Bloom Beauty</h3>
-          <p>Viral TikTok &amp; Reels strategy driving 1M+ views and 200% growth in monthly sales for beauty brand.</p>
-          <div class="port-tags"><span>1M+ Views</span><span>+200% Sales</span><span>Beauty</span></div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ░░ TESTIMONIALS ░░ -->
-<section id="testimonials" class="testimonials section" aria-label="Client testimonials">
-  <div class="container">
-    <header class="sec-header reveal-up">
-      <div class="sec-tag">Testimonials</div>
-      <h2 class="sec-h2">What Our<br/><em class="gradient-em">Clients Say</em></h2>
-    </header>
-    <div class="testi-slider reveal-up">
-      <div class="testi-track" id="testi-track" aria-live="polite">
-
-        <div class="glass-card testi-card" id="tc-1" role="group" aria-label="Testimonial 1 of 4">
-          <div class="tc-stars" aria-label="5 stars">★★★★★</div>
-          <blockquote>"NexaGrowth transformed our digital presence. In 4 months, our leads tripled and CAC dropped by half. Truly remarkable team — best investment we've ever made."</blockquote>
-          <footer class="tc-author">
-            <div class="tc-av" style="--g:linear-gradient(135deg,#7c3aed,#a855f7)" aria-hidden="true">SA</div>
-            <div><strong>Sara Ahmed</strong><span>CEO, LuxeVibe Fashion</span></div>
-          </footer>
-        </div>
-
-        <div class="glass-card testi-card" id="tc-2" role="group" aria-label="Testimonial 2 of 4">
-          <div class="tc-stars" aria-label="5 stars">★★★★★</div>
-          <blockquote>"The influencer campaign blew past every expectation. Professional, creative, data-driven. We hit 2M impressions in the first month — unbelievable ROI."</blockquote>
-          <footer class="tc-author">
-            <div class="tc-av" style="--g:linear-gradient(135deg,#047857,#10b981)" aria-hidden="true">MK</div>
-            <div><strong>Maaz Khan</strong><span>Founder, SparkFit Apparel</span></div>
-          </footer>
-        </div>
-
-        <div class="glass-card testi-card" id="tc-3" role="group" aria-label="Testimonial 3 of 4">
-          <div class="tc-stars" aria-label="5 stars">★★★★★</div>
-          <blockquote>"Our website conversion rate went up 220% after NexaGrowth redesigned our landing page. The team is incredibly talented, communicative, and results-obsessed."</blockquote>
-          <footer class="tc-author">
-            <div class="tc-av" style="--g:linear-gradient(135deg,#0369a1,#38bdf8)" aria-hidden="true">RN</div>
-            <div><strong>Rania Nasser</strong><span>CMO, NexaBuild SaaS</span></div>
-          </footer>
-        </div>
-
-        <div class="glass-card testi-card" id="tc-4" role="group" aria-label="Testimonial 4 of 4">
-          <div class="tc-stars" aria-label="5 stars">★★★★★</div>
-          <blockquote>"Working with NexaGrowth was the best marketing decision we made. Their content strategy brought us from obscurity to 500K organic reach in just 6 months."</blockquote>
-          <footer class="tc-author">
-            <div class="tc-av" style="--g:linear-gradient(135deg,#b45309,#fbbf24)" aria-hidden="true">JL</div>
-            <div><strong>James Liu</strong><span>Brand Director, GreenEarth Organics</span></div>
-          </footer>
-        </div>
-
-      </div>
-      <div class="testi-nav" aria-label="Testimonial navigation">
-        <button id="t-prev" class="icon-btn" aria-label="Previous testimonial">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      <div class="nav-right">
+        <button id="theme-btn" class="icon-btn" aria-label="Toggle theme" title="Toggle dark/light mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
         </button>
-        <div class="testi-dots" id="testi-dots" role="group" aria-label="Testimonial indicators">
-          <button class="td active" data-i="0" aria-label="Go to testimonial 1" aria-current="true"></button>
-          <button class="td" data-i="1" aria-label="Go to testimonial 2"></button>
-          <button class="td" data-i="2" aria-label="Go to testimonial 3"></button>
-          <button class="td" data-i="3" aria-label="Go to testimonial 4"></button>
-        </div>
-        <button id="t-next" class="icon-btn" aria-label="Next testimonial">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        <a href="#contact" class="mag-btn nav-cta" id="nav-cta-btn"><span>Let's Talk</span></a>
+        <button id="burger" class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span>
         </button>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ░░ CONTACT ░░ -->
-<section id="contact" class="contact section" aria-label="Contact NexaGrowth">
-  <div class="contact-bg" aria-hidden="true"></div>
-  <div class="container">
-    <div class="contact-grid">
-      <div class="contact-left reveal-left">
-        <div class="sec-tag">Get In Touch</div>
-        <h2 class="sec-h2">Ready to<br/><em class="gradient-em">Grow?</em></h2>
-        <p class="contact-sub">Tell us about your brand. We'll respond within 24 hours with a free, tailored growth strategy — no strings attached.</p>
-        <div class="c-infos">
-          <a href="mailto:ranatalhamajid@gmail.com" class="c-info-item" id="ci-email">
-            <div class="c-info-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div><small>Email</small><span>ranatalhamajid@gmail.com</span></div>
-          </a>
-          <a href="https://wa.me/923390061165" class="c-info-item" id="ci-phone" target="_blank" rel="noopener noreferrer">
-            <div class="c-info-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-            </div>
-            <div><small>WhatsApp</small><span>0339-0061165</span></div>
-          </a>
-          <div class="c-info-item" id="ci-loc">
-            <div class="c-info-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div><small>Location</small><span>Karachi, Pakistan 🇵🇰</span></div>
-          </div>
-        </div>
-        <div class="socials" aria-label="Social media links">
-          <a href="https://www.linkedin.com/company/nexagrowth-agency/" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="https://www.instagram.com/nexa_growthagency/" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-          <a href="https://www.facebook.com/profile.php?id=61575415000689" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        </div>
+    <!-- Mobile Nav -->
+    <div id="mobile-nav" class="mobile-nav" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
+      <ul>
+        <li><a href="#services" class="mn-link">Services</a></li>
+        <li><a href="#work" class="mn-link">Work</a></li>
+        <li><a href="#about" class="mn-link">About</a></li>
+        <li><a href="#results" class="mn-link">Results</a></li>
+        <li><a href="#contact" class="mn-link">Contact</a></li>
+      </ul>
+      <a href="#contact" class="mag-btn mn-cta mn-link"><span>Let's Talk</span></a>
+    </div>
+  </nav>
+
+  <!-- ░░ HERO ░░ -->
+  <section id="hero" class="hero" aria-label="Hero — NexaGrowth">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-orb orb-1" aria-hidden="true"></div>
+    <div class="hero-orb orb-2" aria-hidden="true"></div>
+    <div class="hero-orb orb-3" aria-hidden="true"></div>
+
+    <div class="hero-body">
+      <div class="hero-eyebrow reveal-up" data-delay="0">
+        <span class="pulse-dot"></span>
+        <span>Now accepting new clients — 2026</span>
       </div>
 
-      <div class="contact-right reveal-right">
-        <div class="glass-card contact-form-wrap">
-          <form id="cform" novalidate aria-label="Contact form">
-            <div class="frow">
-              <div class="fg">
-                <label for="f-name">Full Name *</label>
-                <input type="text" id="f-name" name="name" placeholder="John Smith" required autocomplete="name"/>
-                <span class="ferr" id="e-name" role="alert"></span>
+      <h1 class="hero-h1">
+        <span class="split-line reveal-up" data-delay="1">We Grow Brands</span>
+        <span class="split-line hero-gradient reveal-up" data-delay="2">That Mean Business</span>
+      </h1>
+
+      <p class="hero-sub reveal-up" data-delay="3">
+        NexaGrowth is a full-service digital marketing agency crafting data-driven<br class="d-break" /> strategies,
+        stunning content &amp; campaigns that dominate every channel.
+      </p>
+
+      <div class="hero-actions reveal-up" data-delay="4">
+        <a href="#contact" class="mag-btn btn-glow" id="hero-primary"><span>Start Growing →</span></a>
+        <a href="#work" class="btn-ghost" id="hero-secondary">View Our Work</a>
+      </div>
+
+      <div class="hero-stats reveal-up" data-delay="5" aria-label="Quick stats">
+        <div class="hs"><strong>120+</strong><span>Clients</span></div>
+        <div class="hs-div" aria-hidden="true"></div>
+        <div class="hs"><strong>350+</strong><span>Campaigns</span></div>
+        <div class="hs-div" aria-hidden="true"></div>
+        <div class="hs"><strong>$100K</strong><span>Revenue</span></div>
+        <div class="hs-div" aria-hidden="true"></div>
+        <div class="hs"><strong>98%</strong><span>Satisfaction</span></div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <div class="scroll-line">
+        <div class="scroll-pip"></div>
+      </div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ░░ MARQUEE ░░ -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-row mt-fade">
+      <div class="marquee-track">
+        <span>Content Marketing</span><em>◆</em><span>Paid Advertising</span><em>◆</em><span>Influencer
+          Management</span><em>◆</em><span>Web Development</span><em>◆</em><span>SEO &amp;
+          Growth</span><em>◆</em><span>Brand Strategy</span><em>◆</em><span>Social Media</span><em>◆</em><span>Email
+          Marketing</span><em>◆</em>
+        <span>Content Marketing</span><em>◆</em><span>Paid Advertising</span><em>◆</em><span>Influencer
+          Management</span><em>◆</em><span>Web Development</span><em>◆</em><span>SEO &amp;
+          Growth</span><em>◆</em><span>Brand Strategy</span><em>◆</em><span>Social Media</span><em>◆</em><span>Email
+          Marketing</span><em>◆</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- ░░ SERVICES ░░ -->
+  <section id="services" class="services section" aria-label="Our services">
+    <div class="container">
+      <header class="sec-header reveal-up">
+        <div class="sec-tag">What We Do</div>
+        <h2 class="sec-h2">Services Built<br /><em class="gradient-em">for Growth</em></h2>
+      </header>
+
+      <div class="services-grid" id="services-grid">
+
+        <article class="glass-card svc-card tilt-card" id="svc-content" data-index="0"
+          aria-label="Content Marketing service">
+          <div class="card-glow" aria-hidden="true"></div>
+          <div class="svc-icon-wrap">
+            <div class="svc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 20h9" />
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+              </svg>
+            </div>
+          </div>
+          <div class="svc-num" aria-hidden="true">01</div>
+          <h3>Content Marketing</h3>
+          <p>Compelling stories &amp; viral-worthy content that positions your brand as the authority — and brings
+            organic traffic on autopilot.</p>
+          <ul class="svc-list">
+            <li>Blog &amp; Article Writing</li>
+            <li>Video Scripts</li>
+            <li>Social Content</li>
+            <li>Email Newsletters</li>
+          </ul>
+          <a href="#contact" class="svc-arrow" aria-label="Learn more about Content Marketing">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        </article>
+
+        <article class="glass-card svc-card tilt-card svc-featured" id="svc-ads" data-index="1"
+          aria-label="Paid Advertising service">
+          <div class="card-glow" aria-hidden="true"></div>
+          <div class="svc-icon-wrap">
+            <div class="svc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                <polyline points="16 7 22 7 22 13" />
+              </svg>
+            </div>
+          </div>
+          <div class="svc-num" aria-hidden="true">02</div>
+          <div class="svc-badge">Most Popular</div>
+          <h3>Paid Advertising</h3>
+          <p>Precision-targeted campaigns across Google, Meta &amp; TikTok that maximize every dollar — delivering
+            outstanding ROAS consistently.</p>
+          <ul class="svc-list">
+            <li>Google &amp; YouTube Ads</li>
+            <li>Meta Ads</li>
+            <li>TikTok &amp; Snap</li>
+            <li>Retargeting</li>
+          </ul>
+          <a href="#contact" class="svc-arrow" aria-label="Learn more about Paid Advertising">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        </article>
+
+        <article class="glass-card svc-card tilt-card" id="svc-influencer" data-index="2"
+          aria-label="Influencer Management service">
+          <div class="card-glow" aria-hidden="true"></div>
+          <div class="svc-icon-wrap">
+            <div class="svc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+          </div>
+          <div class="svc-num" aria-hidden="true">03</div>
+          <h3>Influencer Management</h3>
+          <p>Connect your brand with exactly the right creators — we handle everything from outreach and briefs to
+            analytics and payments.</p>
+          <ul class="svc-list">
+            <li>Discovery &amp; Vetting</li>
+            <li>Campaign Strategy</li>
+            <li>Contract Negotiation</li>
+            <li>Performance Reports</li>
+          </ul>
+          <a href="#contact" class="svc-arrow" aria-label="Learn more about Influencer Management">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        </article>
+
+        <article class="glass-card svc-card tilt-card" id="svc-web" data-index="3" aria-label="Web Development service">
+          <div class="card-glow" aria-hidden="true"></div>
+          <div class="svc-icon-wrap">
+            <div class="svc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+            </div>
+          </div>
+          <div class="svc-num" aria-hidden="true">04</div>
+          <h3>Web Development</h3>
+          <p>Award-winning websites &amp; landing pages engineered for conversion — fast, beautiful, and built to turn
+            visitors into loyal customers.</p>
+          <ul class="svc-list">
+            <li>Landing Pages</li>
+            <li>E-Commerce</li>
+            <li>UI/UX Design</li>
+            <li>CRO Optimization</li>
+          </ul>
+          <a href="#contact" class="svc-arrow" aria-label="Learn more about Web Development">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ ABOUT ░░ -->
+  <section id="about" class="about section" aria-label="About NexaGrowth">
+    <div class="container">
+      <div class="about-layout">
+        <div class="about-visual reveal-left" aria-hidden="true">
+          <div class="av-outer">
+            <div class="av-ring r1"></div>
+            <div class="av-ring r2"></div>
+            <div class="av-ring r3"></div>
+            <div class="av-center">
+              <div class="av-logo-big">NG</div>
+              <div class="av-tagline">since 2020</div>
+            </div>
+            <div class="av-orbit" id="av-orbit">
+              <div class="av-planet p1" style="--angle:0deg" aria-label="100+ Clients"><span>🏆</span><em>Clients</em>
               </div>
-              <div class="fg">
-                <label for="f-email">Email *</label>
-                <input type="email" id="f-email" name="email" placeholder="john@company.com" required autocomplete="email"/>
-                <span class="ferr" id="e-email" role="alert"></span>
+              <div class="av-planet p2" style="--angle:90deg" aria-label="350+ Campaigns">
+                <span>🚀</span><em>Campaigns</em></div>
+              <div class="av-planet p3" style="--angle:180deg" aria-label="15+ Industries">
+                <span>🌍</span><em>Industries</em></div>
+              <div class="av-planet p4" style="--angle:270deg" aria-label="10K+ Revenue"><span>💰</span><em>Revenue</em>
               </div>
             </div>
-            <div class="frow">
-              <div class="fg">
-                <label for="f-co">Company</label>
-                <input type="text" id="f-co" name="company" placeholder="Your Company" autocomplete="organization"/>
+          </div>
+          <div class="av-floats" aria-hidden="true">
+            <div class="av-float f1 glass-sm">Data-Driven</div>
+            <div class="av-float f2 glass-sm">ROI Focused</div>
+            <div class="av-float f3 glass-sm">Creative First</div>
+          </div>
+        </div>
+
+        <div class="about-copy">
+          <div class="sec-tag reveal-up">About NexaGrowth</div>
+          <h2 class="sec-h2 reveal-up" data-delay="1">Your Growth Is<br /><em class="gradient-em">Our Mission</em></h2>
+          <p class="about-p reveal-up" data-delay="2">We're a team of strategists, creatives &amp; technologists
+            obsessed with one thing — helping brands grow beyond what they thought possible. No cookie-cutter solutions,
+            every strategy is tailored, backed by data and built for real ROI.</p>
+          <p class="about-p reveal-up" data-delay="3">Founded in 2020, we've helped 120+ brands across 15+ industries
+            achieve measurable, sustainable growth — and we're just getting started.</p>
+
+          <div class="process-steps reveal-up" data-delay="4">
+            <div class="ps" id="ps-1">
+              <div class="ps-n">01</div>
+              <div>
+                <h4>Discovery &amp; Audit</h4>
+                <p>Deep-dive into your brand, audience &amp; competition.</p>
               </div>
-              <div class="fg">
-                <label for="f-svc">Service *</label>
-                <div class="sel-wrap">
-                  <select id="f-svc" name="service" required>
-                    <option value="">Select service…</option>
-                    <option value="content">Content Marketing</option>
-                    <option value="ads">Paid Advertising</option>
-                    <option value="influencer">Influencer Management</option>
-                    <option value="web">Web Development</option>
-                    <option value="multiple">Multiple Services</option>
-                    <option value="other">Other</option>
-                  </select>
-                  <svg class="sel-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="ps" id="ps-2">
+              <div class="ps-n">02</div>
+              <div>
+                <h4>Strategy &amp; Roadmap</h4>
+                <p>Custom plan aligned with your goals and budget.</p>
+              </div>
+            </div>
+            <div class="ps" id="ps-3">
+              <div class="ps-n">03</div>
+              <div>
+                <h4>Execute &amp; Launch</h4>
+                <p>Precision execution with speed and creativity.</p>
+              </div>
+            </div>
+            <div class="ps" id="ps-4">
+              <div class="ps-n">04</div>
+              <div>
+                <h4>Track &amp; Optimize</h4>
+                <p>Continuous A/B testing to maximize every result.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ RESULTS / STATS ░░ -->
+  <section id="results" class="results section" aria-label="Our results and track record">
+    <div class="results-bg" aria-hidden="true"><canvas id="results-canvas"></canvas></div>
+    <div class="container">
+      <header class="sec-header reveal-up">
+        <div class="sec-tag">Track Record</div>
+        <h2 class="sec-h2">Numbers That<br /><em class="gradient-em">Speak Loudly</em></h2>
+      </header>
+      <div class="stats-grid" role="list">
+        <div class="glass-card stat-card tilt-card" id="stat-1" data-target="120" data-suffix="+" role="listitem"
+          aria-label="120+ Happy Clients">
+          <div class="stat-emoji" aria-hidden="true">🏆</div>
+          <div class="stat-val"><span class="count-num">0</span><span class="count-suffix">+</span></div>
+          <div class="stat-lbl">Happy Clients</div>
+          <div class="stat-bar">
+            <div class="stat-bar-fill" style="--pct:85%"></div>
+          </div>
+        </div>
+        <div class="glass-card stat-card tilt-card" id="stat-2" data-target="350" data-suffix="+" role="listitem"
+          aria-label="350+ Campaigns Launched">
+          <div class="stat-emoji" aria-hidden="true">🚀</div>
+          <div class="stat-val"><span class="count-num">0</span><span class="count-suffix">+</span></div>
+          <div class="stat-lbl">Campaigns Launched</div>
+          <div class="stat-bar">
+            <div class="stat-bar-fill" style="--pct:92%"></div>
+          </div>
+        </div>
+        <div class="glass-card stat-card tilt-card" id="stat-3" data-target="100" data-suffix="K" role="listitem"
+          aria-label="$100K Revenue Generated">
+          <div class="stat-emoji" aria-hidden="true">💰</div>
+          <div class="stat-val">$<span class="count-num">0</span><span class="count-suffix">K</span></div>
+          <div class="stat-lbl">Revenue Generated</div>
+          <div class="stat-bar">
+            <div class="stat-bar-fill" style="--pct:76%"></div>
+          </div>
+        </div>
+        <div class="glass-card stat-card tilt-card" id="stat-4" data-target="98" data-suffix="%" role="listitem"
+          aria-label="98% Client Satisfaction">
+          <div class="stat-emoji" aria-hidden="true">⭐</div>
+          <div class="stat-val"><span class="count-num">0</span><span class="count-suffix">%</span></div>
+          <div class="stat-lbl">Client Satisfaction</div>
+          <div class="stat-bar">
+            <div class="stat-bar-fill" style="--pct:98%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ PORTFOLIO ░░ -->
+  <section id="work" class="portfolio section" aria-label="Portfolio and case studies">
+    <div class="container">
+      <header class="sec-header reveal-up">
+        <div class="sec-tag">Our Work</div>
+        <h2 class="sec-h2">Case Studies &amp;<br /><em class="gradient-em">Real Results</em></h2>
+        <p class="sec-sub">Real campaigns, real results — a snapshot of what we've built for forward-thinking brands.
+        </p>
+      </header>
+
+      <div class="portfolio-filters reveal-up" role="tablist" aria-label="Filter portfolio by category">
+        <button class="pf-btn active" data-filter="all" role="tab" aria-selected="true" id="pf-all">All</button>
+        <button class="pf-btn" data-filter="ads" role="tab" aria-selected="false" id="pf-ads">Paid Ads</button>
+        <button class="pf-btn" data-filter="content" role="tab" aria-selected="false" id="pf-content">Content</button>
+        <button class="pf-btn" data-filter="web" role="tab" aria-selected="false" id="pf-web">Web Dev</button>
+        <button class="pf-btn" data-filter="influencer" role="tab" aria-selected="false"
+          id="pf-influencer">Influencer</button>
+      </div>
+
+      <div class="portfolio-grid" id="pgrid">
+
+        <article class="port-card tilt-card" data-cat="ads" id="pc-luxe" aria-label="LuxeVibe Fashion case study">
+          <div class="port-img" style="--g:linear-gradient(135deg,#7c3aed,#a855f7)">
+            <div class="port-mockup pm-chart" aria-hidden="true">
+              <div class="bar-group">
+                <div class="pbar" style="--h:40%"></div>
+                <div class="pbar" style="--h:65%"></div>
+                <div class="pbar" style="--h:80%"></div>
+                <div class="pbar" style="--h:55%"></div>
+                <div class="pbar" style="--h:90%"></div>
+              </div>
+              <div class="pm-num">+340% ROAS</div>
+            </div>
+            <div class="port-overlay">
+              <span class="port-cat-tag">Paid Ads</span>
+              <a href="#contact" class="port-view-btn">View Project</a>
+            </div>
+          </div>
+          <div class="port-info">
+            <h3>LuxeVibe Fashion</h3>
+            <p>Meta &amp; Google campaign delivering 340% ROAS in 3 months for a premium fashion brand.</p>
+            <div class="port-tags"><span>340% ROAS</span><span>$5K Revenue</span><span>3 Months</span></div>
+          </div>
+        </article>
+
+        <article class="port-card tilt-card" data-cat="content" id="pc-green"
+          aria-label="GreenEarth Organics case study">
+          <div class="port-img" style="--g:linear-gradient(135deg,#047857,#10b981)">
+            <div class="port-mockup pm-content" aria-hidden="true">
+              <div class="pm-post">
+                <div class="pm-avatar"></div>
+                <div class="pm-lines"><i></i><i></i><i></i></div>
+              </div>
+              <div class="pm-num">500K Reach</div>
+            </div>
+            <div class="port-overlay">
+              <span class="port-cat-tag">Content</span>
+              <a href="#contact" class="port-view-btn">View Project</a>
+            </div>
+          </div>
+          <div class="port-info">
+            <h3>GreenEarth Organics</h3>
+            <p>Organic reach grew from 10K to 500K in 6 months through a full content strategy overhaul.</p>
+            <div class="port-tags"><span>50× Growth</span><span>500K Reach</span><span>6 Months</span></div>
+          </div>
+        </article>
+
+        <article class="port-card tilt-card" data-cat="web" id="pc-saas" aria-label="NexaBuild SaaS case study">
+          <div class="port-img" style="--g:linear-gradient(135deg,#0369a1,#38bdf8)">
+            <div class="port-mockup pm-browser" aria-hidden="true">
+              <div class="pm-bar"><s></s><s></s><s></s></div>
+              <div class="pm-lines"><i style="--w:90%"></i><i style="--w:70%"></i><i style="--w:80%"></i><i
+                  style="--w:50%"></i></div>
+              <div class="pm-num">+220% CVR</div>
+            </div>
+            <div class="port-overlay">
+              <span class="port-cat-tag">Web Dev</span>
+              <a href="#contact" class="port-view-btn">View Project</a>
+            </div>
+          </div>
+          <div class="port-info">
+            <h3>NexaBuild SaaS</h3>
+            <p>CRO-optimized redesign increased conversion rates by 220% within 30 days of launch.</p>
+            <div class="port-tags"><span>+220% CVR</span><span>30 Days</span><span>SaaS</span></div>
+          </div>
+        </article>
+
+        <article class="port-card tilt-card" data-cat="influencer" id="pc-spark"
+          aria-label="SparkFit Apparel case study">
+          <div class="port-img" style="--g:linear-gradient(135deg,#b45309,#fbbf24)">
+            <div class="port-mockup pm-influencer" aria-hidden="true">
+              <div class="pm-avatars">
+                <div class="pma" style="--c:#f97316"></div>
+                <div class="pma" style="--c:#ec4899"></div>
+                <div class="pma" style="--c:#8b5cf6"></div>
+                <div class="pma" style="--c:#06b6d4"></div>
+              </div>
+              <div class="pm-num">10.2K Impressions</div>
+            </div>
+            <div class="port-overlay">
+              <span class="port-cat-tag">Influencer</span>
+              <a href="#contact" class="port-view-btn">View Project</a>
+            </div>
+          </div>
+          <div class="port-info">
+            <h3>SparkFit Apparel</h3>
+            <p>Coordinated 40+ creators generating 10.2K impressions and 15K new customers in one campaign.</p>
+            <div class="port-tags"><span>10.2K Impressions</span><span>15K Customers</span><span>40+ Creators</span></div>
+          </div>
+        </article>
+
+        <article class="port-card tilt-card" data-cat="ads" id="pc-tech" aria-label="TechStart B2B case study">
+          <div class="port-img" style="--g:linear-gradient(135deg,#be123c,#f43f5e)">
+            <div class="port-mockup pm-chart" aria-hidden="true">
+              <div class="bar-group">
+                <div class="pbar" style="--h:30%"></div>
+                <div class="pbar" style="--h:50%"></div>
+                <div class="pbar" style="--h:70%"></div>
+                <div class="pbar" style="--h:85%"></div>
+                <div class="pbar" style="--h:95%"></div>
+              </div>
+              <div class="pm-num">-60% CPA</div>
+            </div>
+            <div class="port-overlay">
+              <span class="port-cat-tag">Paid Ads</span>
+              <a href="#contact" class="port-view-btn">View Project</a>
+            </div>
+          </div>
+          <div class="port-info">
+            <h3>TechStart B2B</h3>
+            <p>LinkedIn lead gen campaign that cut cost-per-acquisition by 60% while tripling qualified leads.</p>
+            <div class="port-tags"><span>-60% CPA</span><span>3× Leads</span><span>B2B</span></div>
+          </div>
+        </article>
+
+        <article class="port-card tilt-card" data-cat="content" id="pc-bloom" aria-label="Bloom Beauty case study">
+          <div class="port-img" style="--g:linear-gradient(135deg,#9d174d,#ec4899)">
+            <div class="port-mockup pm-content" aria-hidden="true">
+              <div class="pm-post">
+                <div class="pm-avatar" style="opacity:0.7"></div>
+                <div class="pm-lines"><i></i><i style="--w:60%"></i><i style="--w:75%"></i></div>
+              </div>
+              <div class="pm-num">1M+ Views</div>
+            </div>
+            <div class="port-overlay">
+              <span class="port-cat-tag">Content</span>
+              <a href="#contact" class="port-view-btn">View Project</a>
+            </div>
+          </div>
+          <div class="port-info">
+            <h3>Bloom Beauty</h3>
+            <p>Viral TikTok &amp; Reels strategy driving 1M+ views and 200% growth in monthly sales for beauty brand.
+            </p>
+            <div class="port-tags"><span>1M+ Views</span><span>+200% Sales</span><span>Beauty</span></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ TESTIMONIALS ░░ -->
+  <section id="testimonials" class="testimonials section" aria-label="Client testimonials">
+    <div class="container">
+      <header class="sec-header reveal-up">
+        <div class="sec-tag">Testimonials</div>
+        <h2 class="sec-h2">What Our<br /><em class="gradient-em">Clients Say</em></h2>
+      </header>
+      <div class="testi-slider reveal-up">
+        <div class="testi-track" id="testi-track" aria-live="polite">
+
+          <div class="glass-card testi-card" id="tc-1" role="group" aria-label="Testimonial 1 of 4">
+            <div class="tc-stars" aria-label="5 stars">★★★★★</div>
+            <blockquote>"NexaGrowth transformed our digital presence. In 4 months, our leads tripled and CAC dropped by
+              half. Truly remarkable team — best investment we've ever made."</blockquote>
+            <footer class="tc-author">
+              <div class="tc-av" style="--g:linear-gradient(135deg,#7c3aed,#a855f7)" aria-hidden="true">SA</div>
+              <div><strong>Sara Ahmed</strong><span>CEO, LuxeVibe Fashion</span></div>
+            </footer>
+          </div>
+
+          <div class="glass-card testi-card" id="tc-2" role="group" aria-label="Testimonial 2 of 4">
+            <div class="tc-stars" aria-label="5 stars">★★★★★</div>
+            <blockquote>"The influencer campaign blew past every expectation. Professional, creative, data-driven. We
+              hit 10.2K impressions in the first month — unbelievable ROI."</blockquote>
+            <footer class="tc-author">
+              <div class="tc-av" style="--g:linear-gradient(135deg,#047857,#10b981)" aria-hidden="true">MK</div>
+              <div><strong>Maaz Khan</strong><span>Founder, SparkFit Apparel</span></div>
+            </footer>
+          </div>
+
+          <div class="glass-card testi-card" id="tc-3" role="group" aria-label="Testimonial 3 of 4">
+            <div class="tc-stars" aria-label="5 stars">★★★★★</div>
+            <blockquote>"Our website conversion rate went up 220% after NexaGrowth redesigned our landing page. The team
+              is incredibly talented, communicative, and results-obsessed."</blockquote>
+            <footer class="tc-author">
+              <div class="tc-av" style="--g:linear-gradient(135deg,#0369a1,#38bdf8)" aria-hidden="true">RN</div>
+              <div><strong>Rania Nasser</strong><span>CMO, NexaBuild SaaS</span></div>
+            </footer>
+          </div>
+
+          <div class="glass-card testi-card" id="tc-4" role="group" aria-label="Testimonial 4 of 4">
+            <div class="tc-stars" aria-label="5 stars">★★★★★</div>
+            <blockquote>"Working with NexaGrowth was the best marketing decision we made. Their content strategy brought
+              us from obscurity to 500K organic reach in just 6 months."</blockquote>
+            <footer class="tc-author">
+              <div class="tc-av" style="--g:linear-gradient(135deg,#b45309,#fbbf24)" aria-hidden="true">JL</div>
+              <div><strong>James Liu</strong><span>Brand Director, GreenEarth Organics</span></div>
+            </footer>
+          </div>
+
+        </div>
+        <div class="testi-nav" aria-label="Testimonial navigation">
+          <button id="t-prev" class="icon-btn" aria-label="Previous testimonial">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <div class="testi-dots" id="testi-dots" role="group" aria-label="Testimonial indicators">
+            <button class="td active" data-i="0" aria-label="Go to testimonial 1" aria-current="true"></button>
+            <button class="td" data-i="1" aria-label="Go to testimonial 2"></button>
+            <button class="td" data-i="2" aria-label="Go to testimonial 3"></button>
+            <button class="td" data-i="3" aria-label="Go to testimonial 4"></button>
+          </div>
+          <button id="t-next" class="icon-btn" aria-label="Next testimonial">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ CONTACT ░░ -->
+  <section id="contact" class="contact section" aria-label="Contact NexaGrowth">
+    <div class="contact-bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-left reveal-left">
+          <div class="sec-tag">Get In Touch</div>
+          <h2 class="sec-h2">Ready to<br /><em class="gradient-em">Grow?</em></h2>
+          <p class="contact-sub">Tell us about your brand. We'll respond within 24 hours with a free, tailored growth
+            strategy — no strings attached.</p>
+          <div class="c-infos">
+            <a href="mailto:ranatalhamajid@gmail.com" class="c-info-item" id="ci-email">
+              <div class="c-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div><small>Email</small><span>ranatalhamajid@gmail.com</span></div>
+            </a>
+            <a href="https://wa.me/923390061165" class="c-info-item" id="ci-phone" target="_blank"
+              rel="noopener noreferrer">
+              <div class="c-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                </svg>
+              </div>
+              <div><small>WhatsApp</small><span>0339-0061165</span></div>
+            </a>
+            <div class="c-info-item" id="ci-loc">
+              <div class="c-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div><small>Location</small><span>Karachi, Pakistan 🇵🇰</span></div>
+            </div>
+          </div>
+          <div class="socials" aria-label="Social media links">
+            <a href="https://www.linkedin.com/company/nexagrowth-agency/" target="_blank" rel="noopener noreferrer"
+              class="soc-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg></a>
+            <a href="https://www.instagram.com/nexa_growthagency/" target="_blank" rel="noopener noreferrer"
+              class="soc-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg></a>
+            <a href="https://www.facebook.com/profile.php?id=61575415000689" target="_blank" rel="noopener noreferrer"
+              class="soc-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg></a>
+          </div>
+        </div>
+
+        <div class="contact-right reveal-right">
+          <div class="glass-card contact-form-wrap">
+            <form id="cform" novalidate aria-label="Contact form">
+              <div class="frow">
+                <div class="fg">
+                  <label for="f-name">Full Name *</label>
+                  <input type="text" id="f-name" name="name" placeholder="John Smith" required autocomplete="name" />
+                  <span class="ferr" id="e-name" role="alert"></span>
                 </div>
-                <span class="ferr" id="e-svc" role="alert"></span>
+                <div class="fg">
+                  <label for="f-email">Email *</label>
+                  <input type="email" id="f-email" name="email" placeholder="john@company.com" required
+                    autocomplete="email" />
+                  <span class="ferr" id="e-email" role="alert"></span>
+                </div>
               </div>
-            </div>
-            <div class="fg">
-              <label for="f-budget">Monthly Budget</label>
-              <div class="sel-wrap">
-                <select id="f-budget" name="budget">
-                  <option value="">Select budget range…</option>
-                  <option>Under $1,000</option>
-                  <option>$1,000 – $5,000</option>
-                  <option>$5,000 – $10,000</option>
-                  <option>$10,000+</option>
-                </select>
-                <svg class="sel-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <div class="frow">
+                <div class="fg">
+                  <label for="f-co">Company</label>
+                  <input type="text" id="f-co" name="company" placeholder="Your Company" autocomplete="organization" />
+                </div>
+                <div class="fg">
+                  <label for="f-svc">Service *</label>
+                  <div class="sel-wrap">
+                    <select id="f-svc" name="service" required>
+                      <option value="">Select service…</option>
+                      <option value="content">Content Marketing</option>
+                      <option value="ads">Paid Advertising</option>
+                      <option value="influencer">Influencer Management</option>
+                      <option value="web">Web Development</option>
+                      <option value="multiple">Multiple Services</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <svg class="sel-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </div>
+                  <span class="ferr" id="e-svc" role="alert"></span>
+                </div>
               </div>
-            </div>
-            <div class="fg">
-              <label for="f-msg">Message *</label>
-              <textarea id="f-msg" name="message" rows="4" placeholder="Tell us about your brand, goals, and challenges…" required></textarea>
-              <span class="ferr" id="e-msg" role="alert"></span>
-            </div>
-            <button type="submit" class="mag-btn submit-btn" id="submit-btn"><span>Send Message →</span><div class="btn-loader" aria-hidden="true"></div></button>
-            <div class="form-ok" id="form-ok" role="status" aria-live="polite" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <div><strong>Message sent!</strong><p>We'll get back to you within 24 hours.</p></div>
-            </div>
-          </form>
+              <div class="fg">
+                <label for="f-budget">Monthly Budget</label>
+                <div class="sel-wrap">
+                  <select id="f-budget" name="budget">
+                    <option value="">Select budget range…</option>
+                    <option>Under $1,000</option>
+                    <option>$1,000 – $5,000</option>
+                    <option>$5,000 – $10,000</option>
+                    <option>$10,000+</option>
+                  </select>
+                  <svg class="sel-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </div>
+              </div>
+              <div class="fg">
+                <label for="f-msg">Message *</label>
+                <textarea id="f-msg" name="message" rows="4"
+                  placeholder="Tell us about your brand, goals, and challenges…" required></textarea>
+                <span class="ferr" id="e-msg" role="alert"></span>
+              </div>
+              <button type="submit" class="mag-btn submit-btn" id="submit-btn"><span>Send Message →</span>
+                <div class="btn-loader" aria-hidden="true"></div>
+              </button>
+              <div class="form-ok" id="form-ok" role="status" aria-live="polite" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+                <div><strong>Message sent!</strong>
+                  <p>We'll get back to you within 24 hours.</p>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ░░ FOOTER ░░ -->
-<footer class="footer" role="contentinfo" aria-label="Site footer">
-  <div class="footer-aurora" aria-hidden="true"></div>
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#hero" class="nav-logo" aria-label="NexaGrowth Home">
-          <div class="logo-gem" aria-hidden="true"><div class="gem-face gem-top"></div><div class="gem-face gem-left"></div><div class="gem-face gem-right"></div><span>NG</span></div>
-          <span class="logo-name">NexaGrowth</span>
-        </a>
-        <p>Building brands that grow, scale, and dominate their market.</p>
-        <div class="socials" aria-label="Social media links">
-          <a href="https://www.linkedin.com/company/nexagrowth-agency/" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="https://www.instagram.com/nexa_growthagency/" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-          <a href="https://www.facebook.com/profile.php?id=61575415000689" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+  <!-- ░░ FOOTER ░░ -->
+  <footer class="footer" role="contentinfo" aria-label="Site footer">
+    <div class="footer-aurora" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#hero" class="nav-logo" aria-label="NexaGrowth Home">
+            <img src="logo.png" alt="NexaGrowth Logo" class="nav-logo-img" />
+          </a>
+          <p>Building brands that grow, scale, and dominate their market.</p>
+          <div class="socials" aria-label="Social media links">
+            <a href="https://www.linkedin.com/company/nexagrowth-agency/" target="_blank" rel="noopener noreferrer"
+              class="soc-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg></a>
+            <a href="https://www.instagram.com/nexa_growthagency/" target="_blank" rel="noopener noreferrer"
+              class="soc-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg></a>
+            <a href="https://www.facebook.com/profile.php?id=61575415000689" target="_blank" rel="noopener noreferrer"
+              class="soc-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg></a>
+          </div>
         </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="fn-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#services">Content Marketing</a></li>
+              <li><a href="#services">Paid Advertising</a></li>
+              <li><a href="#services">Influencer Mgmt</a></li>
+              <li><a href="#services">Web Development</a></li>
+              <li><a href="#services">SEO &amp; Growth</a></li>
+            </ul>
+          </div>
+          <div class="fn-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#work">Portfolio</a></li>
+              <li><a href="#results">Results</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="fn-col">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="mailto:ranatalhamajid@gmail.com">ranatalhamajid@gmail.com</a></li>
+              <li><a href="https://wa.me/923390061165" target="_blank" rel="noopener noreferrer">WhatsApp:
+                  0339-0061165</a></li>
+              <li><span>Karachi, Pakistan 🇵🇰</span></li>
+            </ul>
+          </div>
+        </nav>
       </div>
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <div class="fn-col">
-          <h4>Services</h4>
-          <ul>
-            <li><a href="#services">Content Marketing</a></li>
-            <li><a href="#services">Paid Advertising</a></li>
-            <li><a href="#services">Influencer Mgmt</a></li>
-            <li><a href="#services">Web Development</a></li>
-            <li><a href="#services">SEO &amp; Growth</a></li>
-          </ul>
-        </div>
-        <div class="fn-col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#work">Portfolio</a></li>
-            <li><a href="#results">Results</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="fn-col">
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="mailto:ranatalhamajid@gmail.com">ranatalhamajid@gmail.com</a></li>
-            <li><a href="https://wa.me/923390061165" target="_blank" rel="noopener noreferrer">WhatsApp: 0339-0061165</a></li>
-            <li><span>Karachi, Pakistan 🇵🇰</span></li>
-          </ul>
-        </div>
-      </nav>
+      <div class="footer-bottom">
+        <p>© 2026 NexaGrowth. All rights reserved.</p>
+        <div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+      </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 NexaGrowth. All rights reserved.</p>
-      <div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- ░░ BACK TO TOP ░░ -->
-<button id="btt" class="btt" aria-label="Back to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
-</button>
+  <!-- ░░ BACK TO TOP ░░ -->
+  <button id="btt" class="btt" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+      stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15" />
+    </svg>
+  </button>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
