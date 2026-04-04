@@ -517,9 +517,25 @@ $$('a[href^="#"]').forEach(a => {
     submitBtn.classList.add('loading');
     submitBtn.disabled = true;
 
-    setTimeout(() => {
+    fetch('https://formsubmit.co/ajax/ranatalhamajid@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: 'New Lead from NexaGrowth Website',
+        Name: document.getElementById('f-name').value,
+        Email: document.getElementById('f-email').value,
+        Company: document.getElementById('f-co').value || 'Not provided',
+        Service: document.getElementById('f-svc').options[document.getElementById('f-svc').selectedIndex].text,
+        Budget: document.getElementById('f-budget').value || 'Not provided',
+        Message: document.getElementById('f-msg').value
+      })
+    }).then(res => res.json()).then(data => {
       submitBtn.classList.remove('loading');
       submitBtn.disabled = false;
+      
       form.reset();
       Object.keys(fields).forEach(id => {
         const el = document.getElementById(id); if (el) el.classList.remove('err');
@@ -527,7 +543,12 @@ $$('a[href^="#"]').forEach(a => {
       });
       if (ok) { ok.classList.add('show'); ok.setAttribute('aria-hidden', 'false'); }
       setTimeout(() => { if (ok) { ok.classList.remove('show'); ok.setAttribute('aria-hidden', 'true'); } }, 5500);
-    }, 1800);
+      
+    }).catch(err => {
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+      alert('Oops! Something went wrong while sending the message. Please try again.');
+    });
   });
 })();
 
