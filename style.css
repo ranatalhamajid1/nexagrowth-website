@@ -214,7 +214,8 @@ h1,h2,h3,h4{font-family:var(--fh);line-height:1.15;letter-spacing:-0.02em}
 
 .logo-name{font-family:var(--fh);font-size:1.1rem;font-weight:700;color:var(--tx)}
 
-.nav-links{display:flex;align-items:center;gap:4px;margin-left:auto}
+.nav-links{display:none;align-items:center;gap:4px;margin-left:auto}
+@media(min-width:900px){.nav-links{display:flex}}
 .nl{
   font-size:.88rem;font-weight:500;color:var(--tx2);
   padding:7px 14px;border-radius:8px;
@@ -519,7 +520,7 @@ h1,h2,h3,h4{font-family:var(--fh);line-height:1.15;letter-spacing:-0.02em}
 @keyframes orbitSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 .av-planet{
   position:absolute;top:50%;left:50%;
-  transform:rotate(var(--angle)) translateX(150px) rotate(calc(-1 * var(--angle)));
+  transform:rotate(var(--angle)) translateX(var(--radius, 150px)) rotate(calc(-1 * (var(--angle) + var(--baseAngle, 0deg))));
   display:flex;flex-direction:column;align-items:center;gap:4px;margin:-24px 0 0 -24px;
 }
 .av-planet span{
@@ -682,7 +683,7 @@ h1,h2,h3,h4{font-family:var(--fh);line-height:1.15;letter-spacing:-0.02em}
 .fg input,.fg textarea,.fg select{
   background:var(--bg2);border:1.5px solid var(--brd);color:var(--tx);
   padding:12px 16px;border-radius:12px;outline:none;
-  transition:.3s;width:100%;-webkit-appearance:none;
+  transition:.3s;width:100%;-webkit-appearance:none;appearance:none;
 }
 .fg input::placeholder,.fg textarea::placeholder{color:var(--tx3)}
 .fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--a);box-shadow:0 0 0 3px rgba(139,92,246,.15)}
@@ -767,9 +768,10 @@ h1,h2,h3,h4{font-family:var(--fh);line-height:1.15;letter-spacing:-0.02em}
   .services-grid{grid-template-columns:1fr}
   .testi-card{padding:32px 24px}
   .btt{bottom:20px;right:20px}
-  .av-outer{width:240px;height:240px}
+  .av-outer{width:220px;height:220px;--radius:110px}
 }
 @media(max-width:480px){
+  .container{padding:0 20px}
   .hero-actions{flex-direction:column;align-items:stretch}
   .hero-actions .mag-btn,.hero-actions .btn-ghost{width:100%;justify-content:center}
   .stats-grid{grid-template-columns:1fr 1fr}

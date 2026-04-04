@@ -411,10 +411,7 @@ $$('a[href^="#"]').forEach(a => {
     baseAngle += delta * .05;
     lastY = window.scrollY;
     orbit.style.transform = `rotate(${baseAngle}deg)`;
-    // keep planets upright
-    $$('.av-planet', orbit).forEach(p => {
-      p.style.transform = `rotate(var(--angle)) translateX(130px) rotate(calc(-1 * (var(--angle) + ${baseAngle}deg)))`;
-    });
+    orbit.style.setProperty('--baseAngle', baseAngle + 'deg');
   }, { passive: true });
 })();
 
