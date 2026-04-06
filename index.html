@@ -4,8 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993"
     crossorigin="anonymous"></script>
+
   <!-- ══════════════════════════════════════════════════════════
        SECURITY HEADERS (via meta tags)
        For full protection, mirror these on your server / CDN.
@@ -17,12 +19,12 @@
                framing by third parties, and unknown origins. -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src  'self' https://challenges.cloudflare.com;
+    script-src  'self' https://challenges.cloudflare.com https://pagead2.googlesyndication.com https://adsby.google.com;
     style-src   'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src    'self' https://fonts.gstatic.com;
     img-src     'self' data: https:;
-    connect-src 'self' https://formsubmit.co;
-    frame-src   https://challenges.cloudflare.com;
+    connect-src 'self' https://formsubmit.co https://pagead2.googlesyndication.com;
+    frame-src   https://challenges.cloudflare.com https://googleads.g.doubleclick.net;
     object-src  'none';
     base-uri    'self';
     form-action 'self' https://formsubmit.co;
