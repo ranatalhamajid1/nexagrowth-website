@@ -4,33 +4,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECURITY HEADERS (via meta tags)
+       For full protection, mirror these on your server / CDN.
+  ═══════════════════════════════════════════════════════════ -->
+
+  <!-- Content Security Policy
+       Allows: self, Google Fonts, Cloudflare Turnstile, formsubmit.co
+       Blocks: inline event handlers (onclick=…), data: URIs in scripts,
+               framing by third parties, and unknown origins. -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src  'self' https://challenges.cloudflare.com;
+    style-src   'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src    'self' https://fonts.gstatic.com;
+    img-src     'self' data: https:;
+    connect-src 'self' https://formsubmit.co;
+    frame-src   https://challenges.cloudflare.com;
+    object-src  'none';
+    base-uri    'self';
+    form-action 'self' https://formsubmit.co;
+    upgrade-insecure-requests;
+  " />
+
+  <!-- Prevent MIME-type sniffing -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+
+  <!-- Block this page from being embedded in iframes (clickjacking) -->
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+
+  <!-- Control referrer information sent to third-party sites -->
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- Disable browser features not needed by this site -->
+  <meta http-equiv="Permissions-Policy"
+    content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()" />
+
+  <!-- ══════════════════════════════════════════════════════════
+       SEO & IDENTITY
+  ═══════════════════════════════════════════════════════════ -->
   <meta name="description"
-    content="NexaGrowth — Award-winning digital marketing agency. We craft data-driven strategies, stunning content & high-converting campaigns. Content, Ads, Influencer & Web Dev." />
+    content="NexaGrowth — Award-winning digital marketing agency. We craft data-driven strategies, stunning content &amp; high-converting campaigns. Content, Ads, Influencer &amp; Web Dev." />
   <meta name="keywords"
     content="digital marketing agency, content marketing, paid ads, influencer management, web development, SEO, NexaGrowth, Pakistan" />
   <meta name="author" content="NexaGrowth" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="theme-color" content="#0a0a0f" />
-  <link rel="canonical" href="https://nexagrowth.com/" />
+  <!-- Canonical — always HTTPS -->
+  <link rel="canonical" href="https://nexagrowth.xyz/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://nexagrowth.com/" />
+  <meta property="og:url" content="https://nexagrowth.xyz/" />
   <meta property="og:title" content="NexaGrowth — Premium Digital Marketing Agency" />
   <meta property="og:description"
-    content="We grow brands that mean business. Data-driven strategies, stunning content & award-winning campaigns." />
-  <meta property="og:image" content="https://nexagrowth.com/og-image.jpg" />
+    content="We grow brands that mean business. Data-driven strategies, stunning content &amp; award-winning campaigns." />
+  <meta property="og:image" content="https://nexagrowth.xyz/og-image.jpg" />
+  <meta property="og:site_name" content="NexaGrowth" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@nexagrowth" />
   <meta name="twitter:title" content="NexaGrowth — Premium Digital Marketing Agency" />
   <meta name="twitter:description" content="We grow brands that mean business." />
+  <meta name="twitter:image" content="https://nexagrowth.xyz/og-image.jpg" />
 
-  <!-- Structured Data -->
+  <!-- Structured Data (LD+JSON — safe, not inline JS) -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"MarketingAgency","name":"NexaGrowth","url":"https://nexagrowth.com","description":"Premium digital marketing agency specializing in Content Marketing, Paid Advertising, Influencer Management, and Web Development.","address":{"@type":"PostalAddress","addressLocality":"Karachi","addressCountry":"PK"},"contactPoint":{"@type":"ContactPoint","telephone":"0339-0061165","email":"ranatalhamajid@gmail.com","contactType":"customer service"},"sameAs":["https://www.linkedin.com/company/nexagrowth-agency/","https://www.instagram.com/nexa_growthagency/","https://www.facebook.com/profile.php?id=61575415000689"]}
+  {"@context":"https://schema.org","@type":"MarketingAgency","name":"NexaGrowth","url":"https://nexagrowth.xyz","description":"Premium digital marketing agency specializing in Content Marketing, Paid Advertising, Influencer Management, and Web Development.","address":{"@type":"PostalAddress","addressLocality":"Karachi","addressCountry":"PK"},"contactPoint":{"@type":"ContactPoint","telephone":"0339-0061165","email":"ranatalhamajid@gmail.com","contactType":"customer service"},"sameAs":["https://www.linkedin.com/company/nexagrowth-agency/","https://www.instagram.com/nexa_growthagency/","https://www.facebook.com/profile.php?id=61575415000689"]}
   </script>
 
+  <!-- ══════════════════════════════════════════════════════════
+       FAVICON (circular crop — safe inline canvas script)
+  ═══════════════════════════════════════════════════════════ -->
   <link rel="icon" id="favicon" type="image/png" href="logo.png" />
   <link rel="apple-touch-icon" href="logo.png" />
   <script>
@@ -47,20 +94,28 @@
         ctx.clip();
         ctx.drawImage(img, 0, 0, size, size);
         var link = document.getElementById('favicon');
-        link.href = c.toDataURL('image/png');
+        if (link) link.href = c.toDataURL('image/png');
       };
       img.src = 'logo.png';
     })();
   </script>
   <title>NexaGrowth — Premium Digital Marketing Agency</title>
 
-  <!-- Preload critical fonts -->
+  <!-- ══════════════════════════════════════════════════════════
+       FONTS — preconnect first, then load (non-blocking)
+  ═══════════════════════════════════════════════════════════ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Preconnect to Cloudflare Turnstile CDN -->
+  <link rel="preconnect" href="https://challenges.cloudflare.com" />
+  <!-- Load font non-blocking -->
   <link rel="preload" as="style"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
+
+  <!-- Cloudflare Turnstile — loaded once, used by contact form -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -959,11 +1014,32 @@
               </div>
               <div class="fg">
                 <label for="f-msg">Message *</label>
-                <textarea id="f-msg" name="message" rows="4"
+                <textarea id="f-msg" name="message" rows="4" maxlength="2000"
                   placeholder="Tell us about your brand, goals, and challenges…" required></textarea>
                 <span class="ferr" id="e-msg" role="alert"></span>
               </div>
-              <button type="submit" class="mag-btn submit-btn" id="submit-btn"><span>Send Message →</span>
+
+              <!-- ── Honeypot: hidden field bots fill, humans don't ── -->
+              <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+                <label for="f-hp">Leave this empty</label>
+                <input type="text" id="f-hp" name="_honey" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <!-- ── Cloudflare Turnstile widget ── -->
+              <div class="cf-turnstile-wrap">
+                <div class="cf-turnstile"
+                  data-sitekey="0x4AAAAAAA_REPLACE_WITH_YOUR_SITEKEY"
+                  data-theme="dark"
+                  data-size="flexible"
+                  data-callback="onTurnstileSuccess"
+                  data-error-callback="onTurnstileError"
+                  id="cf-turnstile-widget"
+                  aria-label="Bot protection challenge">
+                </div>
+                <span class="ferr" id="e-turnstile" role="alert"></span>
+              </div>
+
+              <button type="submit" class="mag-btn submit-btn" id="submit-btn" disabled><span>Send Message →</span>
                 <div class="btn-loader" aria-hidden="true"></div>
               </button>
               <div class="form-ok" id="form-ok" role="status" aria-live="polite" aria-hidden="true">
@@ -974,6 +1050,17 @@
                 </svg>
                 <div><strong>Message sent!</strong>
                   <p>We'll get back to you within 24 hours.</p>
+                </div>
+              </div>
+              <div class="form-err-msg" id="form-err-msg" role="alert" aria-live="assertive" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+                <div><strong>Something went wrong.</strong>
+                  <p id="form-err-text">Please try again or email us directly.</p>
                 </div>
               </div>
             </form>
@@ -1047,7 +1134,7 @@
       </div>
       <div class="footer-bottom">
         <p>© 2026 NexaGrowth. All rights reserved.</p>
-        <div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+        <div><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
       </div>
     </div>
   </footer>

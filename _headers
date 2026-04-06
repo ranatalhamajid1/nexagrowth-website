@@ -1,0 +1,29 @@
+/*
+  # ── Security Headers ─────────────────────────────────────────────────────
+  # These override / supplement any meta-tag headers in your HTML.
+  # Applied to ALL routes on the site.
+
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formsubmit.co; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; upgrade-insecure-requests
+
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+
+  # ── HSTS — forces HTTPS for 1 year (add to hstspreload.org after confirming HTTPS works)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # ── Isolation headers — prevent cross-origin data leaks
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+
+  # ── Cache-Control — assets
+/style.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/script.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/logo.png
+  Cache-Control: public, max-age=31536000, immutable

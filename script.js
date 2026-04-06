@@ -475,79 +475,219 @@ $$('a[href^="#"]').forEach(a => {
 })();
 
 /* ════════════════════════════════════════
-   CONTACT FORM
+   SECURITY — Input sanitizer
+   Strips HTML/script tags before use.
+════════════════════════════════════════ */
+function sanitizeInput(str) {
+  if (typeof str !== 'string') return '';
+  return str
+    .trim()
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;')
+    .replace(/\//g, '&#x2F;');
+}
+
+/* ════════════════════════════════════════
+   CLOUDFLARE TURNSTILE — global callbacks
+   The widget enables/disables submit.
+════════════════════════════════════════ */
+let _turnstileToken = null;
+
+// Called by Turnstile when the user passes the challenge.
+window.onTurnstileSuccess = function(token) {
+  _turnstileToken = token;
+  const btn = document.getElementById('submit-btn');
+  if (btn) btn.disabled = false;
+  const errEl = document.getElementById('e-turnstile');
+  if (errEl) errEl.textContent = '';
+};
+
+// Called by Turnstile on widget error (network, etc.).
+window.onTurnstileError = function() {
+  _turnstileToken = null;
+  const btn = document.getElementById('submit-btn');
+  if (btn) btn.disabled = true;
+  const errEl = document.getElementById('e-turnstile');
+  if (errEl) errEl.textContent = 'Bot verification failed. Please refresh and try again.';
+};
+
+/* ════════════════════════════════════════
+   CONTACT FORM — hardened handler
 ════════════════════════════════════════ */
 (function Form() {
-  const form = $('#cform');
+  const form      = $('#cform');
   const submitBtn = $('#submit-btn');
-  const ok = $('#form-ok');
+  const ok        = $('#form-ok');
+  const errBanner = $('#form-err-msg');
+  const errText   = $('#form-err-text');
   if (!form) return;
 
+  /* ── Field validators ── */
+  const LIMITS = { name: 100, email: 254, company: 150, message: 2000 };
   const fields = {
-    'f-name':  v => v.trim().length >= 2 ? '' : 'Please enter your full name.',
-    'f-email': v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? '' : 'Enter a valid email address.',
+    'f-name':  v => {
+      if (!v.trim() || v.trim().length < 2) return 'Please enter your full name.';
+      if (v.trim().length > LIMITS.name)    return `Name must be under ${LIMITS.name} characters.`;
+      return '';
+    },
+    'f-email': v => {
+      if (!/^[^\s@]{1,64}@[^\s@]{1,255}\.[^\s@]{2,}$/.test(v.trim())) return 'Enter a valid email address.';
+      if (v.length > LIMITS.email) return 'Email address is too long.';
+      return '';
+    },
     'f-svc':   v => v ? '' : 'Please select a service.',
-    'f-msg':   v => v.trim().length >= 10 ? '' : 'Message must be at least 10 characters.',
+    'f-msg':   v => {
+      if (v.trim().length < 10)             return 'Message must be at least 10 characters.';
+      if (v.trim().length > LIMITS.message) return `Message must be under ${LIMITS.message} characters.`;
+      return '';
+    },
   };
 
   const errMap = { 'f-name': 'e-name', 'f-email': 'e-email', 'f-svc': 'e-svc', 'f-msg': 'e-msg' };
+
+  const setFieldError = (id, msg) => {
+    const el  = document.getElementById(id);
+    const err = document.getElementById(errMap[id]);
+    if (el)  el.classList.toggle('err', !!msg);
+    if (err) err.textContent = msg;
+  };
 
   const validate = id => {
     const el = document.getElementById(id);
     if (!el) return true;
     const msg = fields[id](el.value);
-    el.classList.toggle('err', !!msg);
-    const err = document.getElementById(errMap[id]);
-    if (err) err.textContent = msg;
+    setFieldError(id, msg);
     return !msg;
   };
 
+  /* ── Live validation on blur/change ── */
   Object.keys(fields).forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
-    el.addEventListener('blur', () => validate(id));
+    el.addEventListener('blur',  () => validate(id));
     el.addEventListener('input', () => { if (el.classList.contains('err')) validate(id); });
   });
 
+  /* ── Rate limiter: one submission per 60 s ── */
+  const COOLDOWN_MS   = 60_000;
+  let   lastSubmitAt  = 0;
+
+  /* ── Show / hide the inline error banner ── */
+  const showError = (msg) => {
+    if (errText)   errText.textContent = msg || 'Please try again or email us directly.';
+    if (errBanner) {
+      errBanner.classList.add('show');
+      errBanner.setAttribute('aria-hidden', 'false');
+    }
+    setTimeout(() => {
+      if (errBanner) {
+        errBanner.classList.remove('show');
+        errBanner.setAttribute('aria-hidden', 'true');
+      }
+    }, 7000);
+  };
+
+  /* ── Form submit ── */
   form.addEventListener('submit', e => {
     e.preventDefault();
+
+    /* 1. Honeypot check — bots fill hidden fields */
+    const honey = document.getElementById('f-hp');
+    if (honey && honey.value.trim() !== '') {
+      // Silent reject: looks like success to the bot
+      return;
+    }
+
+    /* 2. Turnstile token check */
+    if (!_turnstileToken) {
+      const errEl = document.getElementById('e-turnstile');
+      if (errEl) errEl.textContent = 'Please complete the verification challenge.';
+      return;
+    }
+
+    /* 3. Input validation */
     const valid = Object.keys(fields).map(validate).every(Boolean);
     if (!valid) return;
 
+    /* 4. Rate limiting */
+    const now = Date.now();
+    if (now - lastSubmitAt < COOLDOWN_MS) {
+      const secsLeft = Math.ceil((COOLDOWN_MS - (now - lastSubmitAt)) / 1000);
+      showError(`Please wait ${secsLeft} seconds before sending another message.`);
+      return;
+    }
+
+    /* 5. Read & sanitize values */
+    const rawName    = document.getElementById('f-name').value;
+    const rawEmail   = document.getElementById('f-email').value;
+    const rawCompany = (document.getElementById('f-co')?.value) || '';
+    const rawMsg     = document.getElementById('f-msg').value;
+    const svcEl      = document.getElementById('f-svc');
+    const rawSvc     = svcEl?.options[svcEl.selectedIndex]?.text || '';
+    const rawBudget  = document.getElementById('f-budget')?.value || '';
+
+    /* 6. Submit */
     submitBtn.classList.add('loading');
     submitBtn.disabled = true;
+    lastSubmitAt = Date.now();
 
     fetch('https://formsubmit.co/ajax/ranatalhamajid@gmail.com', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
       },
       body: JSON.stringify({
-        _subject: 'New Lead from NexaGrowth Website',
-        Name: document.getElementById('f-name').value,
-        Email: document.getElementById('f-email').value,
-        Company: document.getElementById('f-co').value || 'Not provided',
-        Service: document.getElementById('f-svc').options[document.getElementById('f-svc').selectedIndex].text,
-        Budget: document.getElementById('f-budget').value || 'Not provided',
-        Message: document.getElementById('f-msg').value
-      })
-    }).then(res => res.json()).then(data => {
+        _subject : 'New Lead from NexaGrowth Website',
+        Name     : sanitizeInput(rawName),
+        Email    : sanitizeInput(rawEmail),
+        Company  : sanitizeInput(rawCompany) || 'Not provided',
+        Service  : sanitizeInput(rawSvc),
+        Budget   : sanitizeInput(rawBudget) || 'Not provided',
+        Message  : sanitizeInput(rawMsg),
+        _honey   : '',   // formsubmit.co honeypot field
+        _captcha : 'false', // we use Turnstile ourselves
+      }),
+    })
+    .then(res => {
+      if (!res.ok) throw new Error(`Server responded with ${res.status}`);
+      return res.json();
+    })
+    .then(() => {
       submitBtn.classList.remove('loading');
       submitBtn.disabled = false;
-      
+
+      /* Reset form + error states */
       form.reset();
+      _turnstileToken = null;
       Object.keys(fields).forEach(id => {
         const el = document.getElementById(id); if (el) el.classList.remove('err');
         const er = document.getElementById(errMap[id]); if (er) er.textContent = '';
       });
+
+      /* Reset Turnstile widget */
+      if (window.turnstile && document.getElementById('cf-turnstile-widget')) {
+        window.turnstile.reset('#cf-turnstile-widget');
+      }
+
+      /* Show success message */
       if (ok) { ok.classList.add('show'); ok.setAttribute('aria-hidden', 'false'); }
       setTimeout(() => { if (ok) { ok.classList.remove('show'); ok.setAttribute('aria-hidden', 'true'); } }, 5500);
-      
-    }).catch(err => {
+    })
+    .catch(() => {
       submitBtn.classList.remove('loading');
       submitBtn.disabled = false;
-      alert('Oops! Something went wrong while sending the message. Please try again.');
+      lastSubmitAt = 0; // allow retry on hard error
+
+      /* Reset Turnstile */
+      if (window.turnstile && document.getElementById('cf-turnstile-widget')) {
+        window.turnstile.reset('#cf-turnstile-widget');
+      }
+
+      showError('Could not send your message. Please try again or email us directly at ranatalhamajid@gmail.com');
     });
   });
 })();

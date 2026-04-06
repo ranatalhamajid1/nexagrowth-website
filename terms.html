@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src  'self';
+    style-src   'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src    'self' https://fonts.gstatic.com;
+    img-src     'self' data: https:;
+    object-src  'none';
+    base-uri    'self';
+    upgrade-insecure-requests;
+  " />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
+
+  <!-- SEO -->
+  <meta name="description" content="NexaGrowth Terms of Service — the rules and guidelines that govern use of our services." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nexagrowth.xyz/terms.html" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <title>Terms of Service — NexaGrowth</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Tokens ── */
+    :root {
+      --a: #8b5cf6; --a2: #06b6d4;
+      --ag: linear-gradient(135deg,#8b5cf6 0%,#a78bfa 40%,#06b6d4 100%);
+      --bg: #060608; --bg1: #0c0c12;
+      --tx: #f0eefb; --tx2: #9490b0; --tx3: #4e4a6a;
+      --brd: rgba(255,255,255,0.06); --brd2: rgba(139,92,246,0.4); --brd3: rgba(255,255,255,0.12);
+      --glass: rgba(255,255,255,0.04);
+      --r: 14px; --r2: 20px;
+      --nav-h: 70px;
+      --ease: cubic-bezier(0.4,0,0.2,1);
+    }
+    [data-theme="light"] {
+      --bg: #f5f4fb; --bg1: #eeecf8;
+      --tx: #0d0c1a; --tx2: #4e4a6a; --tx3: #9490b0;
+      --brd: rgba(0,0,0,0.06); --brd3: rgba(0,0,0,0.10);
+      --glass: rgba(255,255,255,0.6);
+    }
+
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tx); line-height: 1.65; overflow-x: hidden; transition: background .4s, color .4s; }
+    a { color: var(--a); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul { list-style: disc; padding-left: 24px; }
+    h1,h2,h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 700; }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--a); border-radius: 99px; }
+
+    /* ── Navbar ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900; height: var(--nav-h);
+      background: rgba(6,6,8,.85); backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--brd);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+    }
+    .nav-logo-wrap { display: flex; align-items: center; gap: 12px; }
+    .nav-logo-img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+    .nav-brand { font-weight: 800; font-size: 1.1rem; background: var(--ag); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .85rem; font-weight: 600; color: var(--tx2);
+      padding: 8px 18px; border-radius: 99px;
+      border: 1px solid var(--brd3); transition: .3s;
+    }
+    .nav-back:hover { color: var(--a); border-color: var(--brd2); text-decoration: none; }
+    .nav-back svg { width: 14px; height: 14px; }
+
+    /* ── Hero ── */
+    .page-hero {
+      padding: calc(var(--nav-h) + 80px) 40px 80px;
+      text-align: center;
+      background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(6,182,212,.12) 0%, transparent 70%);
+      border-bottom: 1px solid var(--brd);
+    }
+    .page-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--a2); background: rgba(6,182,212,.1);
+      border: 1px solid rgba(6,182,212,.25);
+      padding: 5px 16px; border-radius: 99px; margin-bottom: 20px;
+    }
+    .page-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--tx); margin-bottom: 14px; }
+    .page-hero p { color: var(--tx2); font-size: .95rem; }
+
+    /* ── Content ── */
+    .content { max-width: 780px; margin: 0 auto; padding: 72px 24px 100px; }
+    .section {
+      margin-bottom: 56px; padding: 36px 40px;
+      background: var(--glass); border: 1px solid var(--brd); border-radius: var(--r2);
+    }
+    .section h2 {
+      font-size: 1.2rem; font-weight: 700; color: var(--tx);
+      margin-bottom: 18px; padding-bottom: 14px;
+      border-bottom: 1px solid var(--brd);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section h2 .num {
+      width: 28px; height: 28px; border-radius: 8px;
+      background: rgba(6,182,212,.12); border: 1px solid rgba(6,182,212,.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .72rem; font-weight: 700; color: var(--a2); flex-shrink: 0;
+    }
+    .section p { color: var(--tx2); font-size: .925rem; line-height: 1.8; margin-bottom: 14px; }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul { color: var(--tx2); font-size: .925rem; line-height: 1.8; display: flex; flex-direction: column; gap: 8px; }
+    .section ul li { padding-left: 4px; }
+
+    /* ── Highlight box ── */
+    .highlight {
+      background: rgba(139,92,246,.06); border: 1px solid rgba(139,92,246,.2);
+      border-radius: 12px; padding: 18px 22px; margin-bottom: 14px;
+    }
+    .highlight p { margin: 0; font-weight: 500; color: var(--tx); }
+
+    /* ── Contact box ── */
+    .contact-box {
+      text-align: center; padding: 40px;
+      background: rgba(6,182,212,.06);
+      border: 1px solid rgba(6,182,212,.2);
+      border-radius: var(--r2); margin-top: 48px;
+    }
+    .contact-box h3 { font-size: 1.2rem; margin-bottom: 10px; }
+    .contact-box p { color: var(--tx2); margin-bottom: 20px; font-size: .9rem; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px; border-radius: 99px;
+      background: var(--ag); color: #fff; font-weight: 600; font-size: .9rem;
+      transition: .3s; box-shadow: 0 4px 20px rgba(139,92,246,.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(139,92,246,.6); text-decoration: none; }
+
+    /* ── Footer ── */
+    .page-footer {
+      text-align: center; padding: 32px; border-top: 1px solid var(--brd);
+      color: var(--tx3); font-size: .82rem;
+    }
+    .page-footer a { color: var(--tx3); }
+    .page-footer a:hover { color: var(--a); }
+
+    @media (max-width: 600px) {
+      .nav { padding: 0 20px; }
+      .page-hero { padding: calc(var(--nav-h) + 48px) 20px 48px; }
+      .section { padding: 24px 20px; }
+      .contact-box { padding: 28px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav class="nav" role="navigation" aria-label="Page navigation">
+    <a href="index.html" class="nav-logo-wrap" style="text-decoration:none;">
+      <img src="logo.png" alt="NexaGrowth Logo" class="nav-logo-img" />
+      <span class="nav-brand">NexaGrowth</span>
+    </a>
+    <a href="index.html" class="nav-back" aria-label="Back to homepage">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Site
+    </a>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <header class="page-hero">
+    <div class="page-tag">Legal</div>
+    <h1>Terms of Service</h1>
+    <p>Last updated: April 6, 2026 &nbsp;·&nbsp; Please read carefully before using our services</p>
+  </header>
+
+  <!-- ── Content ── -->
+  <main class="content" aria-label="Terms of Service content">
+
+    <div class="section">
+      <h2><span class="num">01</span> Agreement to Terms</h2>
+      <div class="highlight">
+        <p>By accessing or using our website at nexagrowth.xyz, you agree to be bound by these Terms of Service. If you disagree with any part, you may not use our website.</p>
+      </div>
+      <p>These Terms of Service ("Terms") govern your use of the NexaGrowth website and any related services provided by NexaGrowth ("Company," "we," "us," or "our"), a digital marketing agency based in Karachi, Pakistan.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">02</span> Our Services</h2>
+      <p>NexaGrowth provides professional digital marketing services including but not limited to:</p>
+      <ul>
+        <li>Content Marketing (blog writing, social media content, email campaigns)</li>
+        <li>Paid Advertising (Google Ads, Meta Ads, TikTok Ads)</li>
+        <li>Influencer Management (discovery, campaign coordination, analytics)</li>
+        <li>Web Development (landing pages, e-commerce, UI/UX design)</li>
+        <li>SEO &amp; Growth strategy</li>
+        <li>Brand Strategy and Consulting</li>
+      </ul>
+      <p>Specific service deliverables, timelines, and pricing are agreed upon separately in individual client contracts or proposals.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">03</span> Acceptable Use</h2>
+      <p>When using our website, you agree <strong>not</strong> to:</p>
+      <ul>
+        <li>Use the site for any unlawful purpose or in violation of any applicable laws</li>
+        <li>Attempt to gain unauthorized access to any part of our website or systems</li>
+        <li>Transmit spam, malicious code, or any harmful content through our contact form</li>
+        <li>Scrape, crawl, or data-mine our website without prior written consent</li>
+        <li>Impersonate any person or entity or misrepresent your affiliation with any entity</li>
+        <li>Engage in any conduct that restricts or inhibits any other user's use of the website</li>
+        <li>Submit false, misleading, or fraudulent information through our contact form</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">04</span> Intellectual Property</h2>
+      <p>All content on this website — including but not limited to text, graphics, logos, images, animations, and the overall design — is the exclusive property of NexaGrowth and is protected by applicable copyright, trademark, and intellectual property laws.</p>
+      <p>You may not reproduce, distribute, modify, create derivative works of, publicly display, or exploit any content from this website without our prior written consent.</p>
+      <p>Work product created for clients through our services is governed separately by individual client agreements.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">05</span> Client Relationships</h2>
+      <p>Submitting a contact form on our website does <strong>not</strong> create a client-agency relationship. A formal business relationship is only established upon:</p>
+      <ul>
+        <li>Execution of a signed service agreement or contract</li>
+        <li>Receipt of a confirmed project proposal or statement of work</li>
+        <li>Written confirmation from NexaGrowth management</li>
+      </ul>
+      <p>We reserve the right to accept or decline any project at our sole discretion.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">06</span> Disclaimer of Warranties</h2>
+      <p>Our website and its content are provided on an <strong>"as is" and "as available"</strong> basis without warranties of any kind, either express or implied, including without limitation:</p>
+      <ul>
+        <li>Warranties of merchantability or fitness for a particular purpose</li>
+        <li>Warranties that the website will be uninterrupted, error-free, or secure</li>
+        <li>Warranties regarding the accuracy, completeness, or reliability of any content</li>
+      </ul>
+      <p>Marketing results and performance metrics presented on our website (case studies, statistics) represent past client results and cannot be guaranteed for future campaigns.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">07</span> Limitation of Liability</h2>
+      <p>To the maximum extent permitted by law, NexaGrowth shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from:</p>
+      <ul>
+        <li>Your use of or inability to use our website</li>
+        <li>Any errors or omissions in website content</li>
+        <li>Unauthorized access to or use of our servers or personal data stored therein</li>
+        <li>Any third-party content or services linked from our website</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">08</span> Third-Party Links</h2>
+      <p>Our website may contain links to third-party websites (LinkedIn, Instagram, Facebook, WhatsApp, partner platforms). These links are provided for your convenience only.</p>
+      <p>We have no control over the content or practices of third-party sites and accept no responsibility for their content, privacy policies, or services. We encourage you to review the privacy policy of any site you visit.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">09</span> Governing Law &amp; Jurisdiction</h2>
+      <p>These Terms are governed by and construed in accordance with the laws of Pakistan. Any disputes arising from or relating to these Terms shall be subject to the exclusive jurisdiction of the courts of Karachi, Pakistan.</p>
+      <p>If you are accessing our services from outside Pakistan, you are responsible for compliance with your local laws.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">10</span> Changes to Terms</h2>
+      <p>We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting to the website. Your continued use of the website after changes are posted constitutes your acceptance of the modified Terms.</p>
+      <p>We will update the "Last updated" date at the top of this page whenever changes are made. For significant changes, we will make reasonable efforts to notify existing clients directly.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">11</span> Contact Information</h2>
+      <p>If you have any questions, concerns, or disputes regarding these Terms of Service, please contact us:</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:ranatalhamajid@gmail.com">ranatalhamajid@gmail.com</a></li>
+        <li><strong>WhatsApp:</strong> <a href="https://wa.me/923390061165" target="_blank" rel="noopener noreferrer">+92 339-0061165</a></li>
+        <li><strong>Location:</strong> Karachi, Pakistan 🇵🇰</li>
+      </ul>
+    </div>
+
+    <div class="contact-box">
+      <h3>Questions about our Terms?</h3>
+      <p>We're happy to clarify anything. Reach out and we'll get back to you within 2 business days.</p>
+      <a href="mailto:ranatalhamajid@gmail.com" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Contact NexaGrowth
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="page-footer" role="contentinfo">
+    <p>© 2026 NexaGrowth. All rights reserved. &nbsp;|&nbsp; <a href="index.html">Home</a> &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+  </footer>
+
+</body>
+</html>

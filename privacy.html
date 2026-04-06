@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src  'self';
+    style-src   'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src    'self' https://fonts.gstatic.com;
+    img-src     'self' data: https:;
+    object-src  'none';
+    base-uri    'self';
+    upgrade-insecure-requests;
+  " />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
+
+  <!-- SEO -->
+  <meta name="description" content="NexaGrowth Privacy Policy — how we collect, use, and protect your personal data." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nexagrowth.xyz/privacy.html" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <title>Privacy Policy — NexaGrowth</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Tokens ── */
+    :root {
+      --a: #8b5cf6; --a2: #06b6d4;
+      --ag: linear-gradient(135deg,#8b5cf6 0%,#a78bfa 40%,#06b6d4 100%);
+      --bg: #060608; --bg1: #0c0c12; --bg2: #111119;
+      --tx: #f0eefb; --tx2: #9490b0; --tx3: #4e4a6a;
+      --brd: rgba(255,255,255,0.06); --brd2: rgba(139,92,246,0.4); --brd3: rgba(255,255,255,0.12);
+      --glass: rgba(255,255,255,0.04);
+      --r: 14px; --r2: 20px;
+      --nav-h: 70px;
+      --ease: cubic-bezier(0.4,0,0.2,1);
+    }
+    [data-theme="light"] {
+      --bg: #f5f4fb; --bg1: #eeecf8; --bg2: #e8e5f5;
+      --tx: #0d0c1a; --tx2: #4e4a6a; --tx3: #9490b0;
+      --brd: rgba(0,0,0,0.06); --brd3: rgba(0,0,0,0.10);
+      --glass: rgba(255,255,255,0.6);
+    }
+
+    /* ── Reset ── */
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tx); line-height: 1.65; overflow-x: hidden; transition: background .4s, color .4s; }
+    a { color: var(--a); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul { list-style: disc; padding-left: 24px; }
+    h1,h2,h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 700; }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--a); border-radius: 99px; }
+
+    /* ── Navbar ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900; height: var(--nav-h);
+      background: rgba(6,6,8,.85); backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--brd);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+    }
+    .nav-logo-wrap { display: flex; align-items: center; gap: 12px; }
+    .nav-logo-img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+    .nav-brand { font-weight: 800; font-size: 1.1rem; background: var(--ag); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .85rem; font-weight: 600; color: var(--tx2);
+      padding: 8px 18px; border-radius: 99px;
+      border: 1px solid var(--brd3); transition: .3s;
+    }
+    .nav-back:hover { color: var(--a); border-color: var(--brd2); text-decoration: none; }
+    .nav-back svg { width: 14px; height: 14px; }
+
+    /* ── Hero banner ── */
+    .page-hero {
+      padding: calc(var(--nav-h) + 80px) 40px 80px;
+      text-align: center;
+      background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(139,92,246,.15) 0%, transparent 70%);
+      border-bottom: 1px solid var(--brd);
+    }
+    .page-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--a); background: rgba(139,92,246,.1);
+      border: 1px solid rgba(139,92,246,.25);
+      padding: 5px 16px; border-radius: 99px; margin-bottom: 20px;
+    }
+    .page-hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--tx);
+      margin-bottom: 14px;
+    }
+    .page-hero p { color: var(--tx2); font-size: .95rem; }
+
+    /* ── Content ── */
+    .content {
+      max-width: 780px; margin: 0 auto; padding: 72px 24px 100px;
+    }
+    .section {
+      margin-bottom: 56px;
+      padding: 36px 40px;
+      background: var(--glass);
+      border: 1px solid var(--brd);
+      border-radius: var(--r2);
+    }
+    .section h2 {
+      font-size: 1.2rem; font-weight: 700; color: var(--tx);
+      margin-bottom: 18px; padding-bottom: 14px;
+      border-bottom: 1px solid var(--brd);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section h2 .num {
+      width: 28px; height: 28px; border-radius: 8px;
+      background: rgba(139,92,246,.15); border: 1px solid rgba(139,92,246,.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .72rem; font-weight: 700; color: var(--a); flex-shrink: 0;
+    }
+    .section p { color: var(--tx2); font-size: .925rem; line-height: 1.8; margin-bottom: 14px; }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul { color: var(--tx2); font-size: .925rem; line-height: 1.8; display: flex; flex-direction: column; gap: 8px; }
+    .section ul li { padding-left: 4px; }
+
+    /* ── Contact box ── */
+    .contact-box {
+      text-align: center; padding: 40px;
+      background: rgba(139,92,246,.06);
+      border: 1px solid rgba(139,92,246,.2);
+      border-radius: var(--r2); margin-top: 48px;
+    }
+    .contact-box h3 { font-size: 1.2rem; margin-bottom: 10px; }
+    .contact-box p { color: var(--tx2); margin-bottom: 20px; font-size: .9rem; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px; border-radius: 99px;
+      background: var(--ag); color: #fff; font-weight: 600; font-size: .9rem;
+      transition: .3s; box-shadow: 0 4px 20px rgba(139,92,246,.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(139,92,246,.6); text-decoration: none; }
+
+    /* ── Footer ── */
+    .page-footer {
+      text-align: center; padding: 32px; border-top: 1px solid var(--brd);
+      color: var(--tx3); font-size: .82rem;
+    }
+    .page-footer a { color: var(--tx3); }
+    .page-footer a:hover { color: var(--a); }
+
+    @media (max-width: 600px) {
+      .nav { padding: 0 20px; }
+      .page-hero { padding: calc(var(--nav-h) + 48px) 20px 48px; }
+      .section { padding: 24px 20px; }
+      .contact-box { padding: 28px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav class="nav" role="navigation" aria-label="Page navigation">
+    <a href="index.html" class="nav-logo-wrap" style="text-decoration:none;">
+      <img src="logo.png" alt="NexaGrowth Logo" class="nav-logo-img" />
+      <span class="nav-brand">NexaGrowth</span>
+    </a>
+    <a href="index.html" class="nav-back" aria-label="Back to homepage">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Site
+    </a>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <header class="page-hero">
+    <div class="page-tag">Legal</div>
+    <h1>Privacy Policy</h1>
+    <p>Last updated: April 6, 2026 &nbsp;·&nbsp; Effective immediately</p>
+  </header>
+
+  <!-- ── Content ── -->
+  <main class="content" aria-label="Privacy Policy content">
+
+    <div class="section">
+      <h2><span class="num">01</span> Introduction</h2>
+      <p>Welcome to NexaGrowth ("we," "our," or "us"). We are a digital marketing agency operating at <strong>nexagrowth.xyz</strong>, headquartered in Karachi, Pakistan.</p>
+      <p>This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or contact us for our services. By using our website, you agree to the practices described in this Policy.</p>
+      <p>If you do not agree with the terms of this Privacy Policy, please do not access the site.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">02</span> Information We Collect</h2>
+      <p>We collect information in the following ways:</p>
+      <ul>
+        <li><strong>Information you provide directly</strong> — name, email address, company name, and message content submitted through our contact form.</li>
+        <li><strong>Automatically collected data</strong> — IP address, browser type, operating system, referral URLs, and pages visited, collected via server logs or analytics tools.</li>
+        <li><strong>Communications</strong> — emails or messages you send to us directly at <a href="mailto:ranatalhamajid@gmail.com">ranatalhamajid@gmail.com</a>.</li>
+      </ul>
+      <p>We do <strong>not</strong> collect payment information, passwords, or sensitive personal data through our website.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">03</span> How We Use Your Information</h2>
+      <p>The information we collect is used to:</p>
+      <ul>
+        <li>Respond to your inquiries and service requests</li>
+        <li>Provide, operate, and improve our website</li>
+        <li>Send you information relevant to your request (no unsolicited marketing without consent)</li>
+        <li>Analyze site traffic and usage patterns to improve user experience</li>
+        <li>Comply with legal obligations</li>
+        <li>Protect against fraudulent, unauthorized, or illegal activity</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">04</span> Third-Party Services</h2>
+      <p>We use the following third-party services that may process your data:</p>
+      <ul>
+        <li><strong>Formsubmit.co</strong> — email relay service that delivers contact form submissions to us. Your form data passes through their servers. See their <a href="https://formsubmit.co/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</li>
+        <li><strong>Cloudflare</strong> — CDN, DDoS protection, and bot detection (Turnstile). May set cookies or collect IP data. See their <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</li>
+        <li><strong>Google Fonts</strong> — fonts loaded from Google's servers. Google may log your IP address. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.</li>
+      </ul>
+      <p>We do not sell, trade, or otherwise transfer your personal information to outside parties except as described above.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">05</span> Cookies</h2>
+      <p>Our website uses minimal cookies:</p>
+      <ul>
+        <li><strong>Theme preference</strong> — a localStorage key (<code>ng-theme</code>) stores your dark/light mode preference. This is stored locally on your device and never sent to any server.</li>
+        <li><strong>Cloudflare Turnstile</strong> — may set session cookies as part of bot verification. These are strictly necessary and functional.</li>
+      </ul>
+      <p>We do not use tracking or advertising cookies. You can clear cookies at any time through your browser settings.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">06</span> Data Retention</h2>
+      <p>We retain contact form submissions (name, email, message) in our email inbox for as long as necessary to provide our services or respond to enquiries, typically no longer than <strong>2 years</strong>.</p>
+      <p>You may request deletion of your data at any time by contacting us at <a href="mailto:ranatalhamajid@gmail.com">ranatalhamajid@gmail.com</a>.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">07</span> Your Rights (GDPR / Global)</h2>
+      <p>Depending on your jurisdiction, you may have the following rights:</p>
+      <ul>
+        <li><strong>Access</strong> — request a copy of data we hold about you</li>
+        <li><strong>Rectification</strong> — request correction of inaccurate data</li>
+        <li><strong>Erasure</strong> — request deletion of your data ("right to be forgotten")</li>
+        <li><strong>Restriction</strong> — request that we limit how we process your data</li>
+        <li><strong>Portability</strong> — receive your data in a structured, machine-readable format</li>
+        <li><strong>Objection</strong> — object to certain types of processing</li>
+      </ul>
+      <p>To exercise any of these rights, email us at <a href="mailto:ranatalhamajid@gmail.com">ranatalhamajid@gmail.com</a>. We will respond within 30 days.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">08</span> Security</h2>
+      <p>We implement industry-standard security measures to protect your data, including:</p>
+      <ul>
+        <li>HTTPS encryption for all data in transit</li>
+        <li>Content Security Policy (CSP) headers to prevent XSS attacks</li>
+        <li>Cloudflare bot protection and DDoS mitigation</li>
+        <li>Input validation and sanitization on all form submissions</li>
+        <li>Rate limiting on contact form submissions</li>
+      </ul>
+      <p>However, no method of transmission over the internet is 100% secure. We cannot guarantee absolute security.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">09</span> Children's Privacy</h2>
+      <p>Our website is not directed to children under the age of 13. We do not knowingly collect personal information from children. If we become aware that a child has provided us with personal data, we will delete such information immediately.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">10</span> Changes to This Policy</h2>
+      <p>We may update this Privacy Policy periodically. We will notify you of significant changes by updating the "Last updated" date at the top of this page. Continued use of our website after changes constitutes acceptance of the updated policy.</p>
+    </div>
+
+    <div class="contact-box">
+      <h3>Questions about your privacy?</h3>
+      <p>We're committed to transparency. Reach out and we'll respond within 2 business days.</p>
+      <a href="mailto:ranatalhamajid@gmail.com" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        ranatalhamajid@gmail.com
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="page-footer" role="contentinfo">
+    <p>© 2026 NexaGrowth. All rights reserved. &nbsp;|&nbsp; <a href="index.html">Home</a> &nbsp;|&nbsp; <a href="terms.html">Terms of Service</a></p>
+  </footer>
+
+</body>
+</html>

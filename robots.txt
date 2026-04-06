@@ -1,0 +1,16 @@
+# =====================================================
+# NexaGrowth — robots.txt
+# https://nexagrowth.xyz
+# =====================================================
+
+# Allow all well-behaved crawlers
+User-agent: *
+Allow: /
+
+# Block any sensitive paths (add more as needed)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+
+# Sitemap location
+Sitemap: https://nexagrowth.xyz/sitemap.xml
