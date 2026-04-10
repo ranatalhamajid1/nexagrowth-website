@@ -85,7 +85,9 @@ const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
   window.addEventListener('resize', resize, { passive: true });
 
   function createParticles() {
-    const n = Math.floor((W * H) / 15000);
+    // Reduce particle density on mobile to optimize performance
+    const density = W < 768 ? 30000 : 15000;
+    const n = Math.floor((W * H) / density);
     particles = Array.from({ length: Math.min(n, 90) }, () => ({
       x: Math.random() * W,
       y: Math.random() * H,
