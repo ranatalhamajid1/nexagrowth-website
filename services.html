@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993" crossorigin="anonymous"></script>
+
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src  'self' https://pagead2.googlesyndication.com https://www.googletagmanager.com 'unsafe-inline';
+    style-src   'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src    'self' https://fonts.gstatic.com;
+    img-src     'self' data: https:;
+    connect-src 'self' https://www.google-analytics.com;
+    frame-src   https://googleads.g.doubleclick.net https://tpc.googlesyndication.com;
+    object-src  'none';
+    base-uri    'self';
+    upgrade-insecure-requests;
+  " />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- SEO -->
+  <title>Our Services — SEO, Paid Ads, Content Marketing & Web Dev | NexaGrowth</title>
+  <meta name="description" content="Explore NexaGrowth's full range of digital marketing services — SEO, Facebook & Google Ads, content marketing, influencer management, and web development. Tailored for Pakistani businesses." />
+  <meta name="keywords" content="digital marketing services Pakistan, SEO services Pakistan, Facebook ads management, content marketing Pakistan, web development agency Pakistan, NexaGrowth services" />
+  <meta name="author" content="NexaGrowth" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nexagrowth.xyz/services.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nexagrowth.xyz/services.html" />
+  <meta property="og:title" content="Our Services — SEO, Paid Ads, Content Marketing & Web Dev | NexaGrowth" />
+  <meta property="og:description" content="Full-service digital marketing for Pakistani businesses. SEO, paid advertising, content marketing, influencer management, and web development." />
+  <meta property="og:site_name" content="NexaGrowth" />
+
+  <link rel="icon" type="image/png" href="logo.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --a: #8b5cf6; --a2: #06b6d4;
+      --ag: linear-gradient(135deg,#8b5cf6 0%,#a78bfa 40%,#06b6d4 100%);
+      --bg: #060608; --bg1: #0c0c12; --bg2: #111119;
+      --tx: #f0eefb; --tx2: #9490b0; --tx3: #4e4a6a;
+      --brd: rgba(255,255,255,0.06); --brd2: rgba(139,92,246,0.4); --brd3: rgba(255,255,255,0.12);
+      --glass: rgba(255,255,255,0.04);
+      --r: 14px; --r2: 20px;
+      --nav-h: 70px;
+      --ease: cubic-bezier(0.4,0,0.2,1);
+    }
+    [data-theme="light"] {
+      --bg: #f5f4fb; --bg1: #eeecf8; --bg2: #e8e5f5;
+      --tx: #0d0c1a; --tx2: #4e4a6a; --tx3: #9490b0;
+      --brd: rgba(0,0,0,0.06); --brd3: rgba(0,0,0,0.10);
+      --glass: rgba(255,255,255,0.6);
+    }
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tx); line-height: 1.65; overflow-x: hidden; transition: background .4s, color .4s; }
+    a { color: var(--a); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul { list-style: disc; padding-left: 24px; }
+    h1,h2,h3,h4 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 700; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--a); border-radius: 99px; }
+
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900; height: var(--nav-h);
+      background: rgba(6,6,8,.85); backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--brd);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+    }
+    [data-theme="light"] .nav { background: rgba(245,244,251,.88); }
+    .nav-logo-wrap { display: flex; align-items: center; gap: 12px; }
+    .nav-logo-img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+    .nav-brand { font-weight: 800; font-size: 1.1rem; background: var(--ag); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .85rem; font-weight: 600; color: var(--tx2);
+      padding: 8px 18px; border-radius: 99px;
+      border: 1px solid var(--brd3); transition: .3s;
+    }
+    .nav-back:hover { color: var(--a); border-color: var(--brd2); text-decoration: none; }
+    .nav-back svg { width: 14px; height: 14px; }
+
+    .page-hero {
+      padding: calc(var(--nav-h) + 80px) 40px 80px;
+      text-align: center;
+      background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(139,92,246,.15) 0%, transparent 70%);
+      border-bottom: 1px solid var(--brd);
+    }
+    .page-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--a); background: rgba(139,92,246,.1);
+      border: 1px solid rgba(139,92,246,.25);
+      padding: 5px 16px; border-radius: 99px; margin-bottom: 20px;
+    }
+    .page-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--tx); margin-bottom: 14px; }
+    .page-hero p { color: var(--tx2); font-size: .95rem; max-width: 640px; margin: 0 auto; }
+
+    .content { max-width: 900px; margin: 0 auto; padding: 72px 24px 100px; }
+
+    /* Service Card */
+    .svc-section {
+      margin-bottom: 48px; padding: 48px 44px;
+      background: var(--glass); border: 1px solid var(--brd);
+      border-radius: var(--r2); transition: border-color .35s;
+      position: relative; overflow: hidden;
+    }
+    .svc-section:hover { border-color: var(--brd2); }
+    .svc-section::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+      background: var(--ag); border-radius: 4px 0 0 4px;
+    }
+    .svc-num {
+      font-size: 3rem; font-weight: 800; line-height: 1;
+      background: var(--ag); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 8px;
+    }
+    .svc-section h2 { font-size: 1.5rem; font-weight: 800; color: var(--tx); margin-bottom: 6px; }
+    .svc-tagline { font-size: .82rem; color: var(--a); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 20px; }
+    .svc-section p { color: var(--tx2); font-size: .94rem; line-height: 1.82; margin-bottom: 16px; }
+    .svc-section h3 { font-size: 1.05rem; color: var(--tx); margin-bottom: 12px; margin-top: 24px; }
+    .svc-section ul { color: var(--tx2); font-size: .92rem; line-height: 1.75; display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .svc-section strong { color: var(--tx); }
+
+    .svc-includes {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;
+      margin-top: 16px; margin-bottom: 16px;
+    }
+    .inc-item {
+      display: flex; align-items: center; gap: 8px; font-size: .86rem; color: var(--tx2);
+    }
+    .inc-item::before { content: '→'; color: var(--a); font-weight: 700; }
+
+    .svc-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 24px; border-radius: 99px;
+      background: rgba(139,92,246,.1); border: 1px solid rgba(139,92,246,.25);
+      color: var(--a); font-weight: 600; font-size: .88rem;
+      transition: .3s; margin-top: 12px;
+    }
+    .svc-cta:hover { background: rgba(139,92,246,.2); border-color: var(--a); text-decoration: none; }
+
+    /* CTA */
+    .cta-box {
+      background: var(--ag); color: #fff; border-radius: var(--r2);
+      padding: 56px 40px; text-align: center; margin-top: 24px;
+      box-shadow: 0 30px 60px rgba(139,92,246,.3);
+    }
+    .cta-box h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 14px; }
+    .cta-box p { color: rgba(255,255,255,.9); margin-bottom: 28px; font-size: 1.05rem; }
+    .cta-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: #fff; color: #000; padding: 14px 32px; border-radius: 99px;
+      font-weight: 700; text-decoration: none; transition: .3s;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,.2); text-decoration: none; }
+    .btn-secondary {
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.3);
+      color: #fff; padding: 14px 32px; border-radius: 99px; font-weight: 600;
+      text-decoration: none; transition: .3s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,.2); text-decoration: none; }
+
+    .page-footer {
+      text-align: center; padding: 32px; border-top: 1px solid var(--brd);
+      color: var(--tx3); font-size: .82rem;
+    }
+    .page-footer a { color: var(--tx3); text-decoration: none; }
+    .page-footer a:hover { color: var(--a); }
+
+    @media (max-width: 600px) {
+      .nav { padding: 0 20px; }
+      .page-hero { padding: calc(var(--nav-h) + 48px) 20px 48px; }
+      .svc-section { padding: 32px 22px; }
+      .cta-box { padding: 40px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Page navigation">
+    <a href="index.html" class="nav-logo-wrap" style="text-decoration:none;">
+      <img src="logo.png" alt="NexaGrowth Logo" class="nav-logo-img" />
+      <span class="nav-brand">NexaGrowth</span>
+    </a>
+    <a href="index.html" class="nav-back" aria-label="Back to homepage">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Site
+    </a>
+  </nav>
+
+  <header class="page-hero">
+    <div class="page-tag">What We Do</div>
+    <h1>Our Services</h1>
+    <p>Full-service digital marketing tailored for businesses in Pakistan. From SEO to paid ads, content to web development — everything you need to grow online.</p>
+  </header>
+
+  <main class="content" aria-label="Services content">
+
+    <!-- SEO -->
+    <div class="svc-section" id="seo">
+      <div class="svc-num">01</div>
+      <h2>SEO & Organic Growth</h2>
+      <div class="svc-tagline">Rank Higher. Get Found. Grow Free Traffic.</div>
+      <p>Search Engine Optimization (SEO) is one of the most powerful long-term investments any business can make. When your website ranks on the first page of Google for the right keywords, you get a consistent stream of free, targeted traffic — without paying for ads.</p>
+      <p>At NexaGrowth, we don't just stuff keywords into pages. We take a holistic approach that covers technical SEO, on-page optimization, content strategy, and local SEO — all tailored to the Pakistani market and your specific industry.</p>
+
+      <h3>What's Included</h3>
+      <div class="svc-includes">
+        <div class="inc-item">Technical SEO Audit</div>
+        <div class="inc-item">Keyword Research</div>
+        <div class="inc-item">On-Page Optimization</div>
+        <div class="inc-item">Content Strategy</div>
+        <div class="inc-item">Local SEO (Google Maps)</div>
+        <div class="inc-item">Backlink Building</div>
+        <div class="inc-item">Monthly Reports</div>
+        <div class="inc-item">Competitor Analysis</div>
+      </div>
+
+      <h3>Who Is This For?</h3>
+      <p>Local businesses wanting to appear on Google Maps, e-commerce stores wanting organic traffic, startups wanting to reduce ad dependency, and any brand that wants long-term sustainable growth.</p>
+
+      <a href="index.html#contact" class="svc-cta">Get a Free SEO Audit →</a>
+    </div>
+
+    <!-- Paid Ads -->
+    <div class="svc-section" id="paid-ads">
+      <div class="svc-num">02</div>
+      <h2>Paid Advertising (Facebook, Google & More)</h2>
+      <div class="svc-tagline">Precision-Targeted Campaigns. Maximum ROAS.</div>
+      <p>Paid advertising gives you immediate visibility and measurable results. Whether it's Facebook and Instagram Ads, Google Search Ads, or TikTok campaigns — we create data-driven campaigns designed to reach the right people at the right time with the right message.</p>
+      <p>In my experience working with Pakistani businesses, the biggest mistake I see is people boosting posts instead of running proper campaigns through Ads Manager. We do it the right way — with proper audience research, A/B testing, retargeting funnels, and continuous optimization.</p>
+
+      <h3>What's Included</h3>
+      <div class="svc-includes">
+        <div class="inc-item">Facebook & Instagram Ads</div>
+        <div class="inc-item">Google Search & Display Ads</div>
+        <div class="inc-item">TikTok Ads</div>
+        <div class="inc-item">Audience Research</div>
+        <div class="inc-item">A/B Creative Testing</div>
+        <div class="inc-item">Retargeting Campaigns</div>
+        <div class="inc-item">Conversion Tracking</div>
+        <div class="inc-item">Weekly Performance Reports</div>
+      </div>
+
+      <h3>Who Is This For?</h3>
+      <p>E-commerce brands wanting sales, service businesses wanting leads, restaurants wanting foot traffic, and any business ready to invest in paid growth with a clear ROI target.</p>
+
+      <a href="index.html#contact" class="svc-cta">Launch Your Ad Campaign →</a>
+    </div>
+
+    <!-- Content Marketing -->
+    <div class="svc-section" id="content-marketing">
+      <div class="svc-num">03</div>
+      <h2>Content Marketing</h2>
+      <div class="svc-tagline">Compelling Stories. Organic Reach. Brand Authority.</div>
+      <p>Content is the foundation of every successful digital marketing strategy. Great content builds trust, establishes authority, and drives organic traffic on autopilot. But creating content just for the sake of it doesn't work — you need a strategic approach.</p>
+      <p>We create content that serves a purpose: blog posts that rank on Google, social media content that gets engagement, email newsletters that convert, and video scripts that tell your brand story. Every piece is designed to move your audience closer to becoming customers.</p>
+
+      <h3>What's Included</h3>
+      <div class="svc-includes">
+        <div class="inc-item">Blog & Article Writing</div>
+        <div class="inc-item">Social Media Content</div>
+        <div class="inc-item">Email Newsletters</div>
+        <div class="inc-item">Video Scripts</div>
+        <div class="inc-item">Content Calendar</div>
+        <div class="inc-item">SEO-Optimized Copy</div>
+        <div class="inc-item">Brand Voice Development</div>
+        <div class="inc-item">Performance Analytics</div>
+      </div>
+
+      <h3>Who Is This For?</h3>
+      <p>Brands that want to build long-term authority, businesses that want to rank on Google through content, companies struggling with consistent social media posting, and anyone who wants their brand to be seen as a trusted expert in their field.</p>
+
+      <a href="index.html#contact" class="svc-cta">Build Your Content Strategy →</a>
+    </div>
+
+    <!-- Influencer Management -->
+    <div class="svc-section" id="influencer">
+      <div class="svc-num">04</div>
+      <h2>Influencer Management</h2>
+      <div class="svc-tagline">Right Creators. Right Audience. Real Impact.</div>
+      <p>Influencer marketing is one of the fastest ways to reach new audiences and build trust — but only when done right. Picking the wrong influencer, unclear briefs, or no performance tracking can waste your entire budget.</p>
+      <p>We handle the full process: finding the right creators for your niche, negotiating rates, managing campaigns, and tracking actual results. We focus on influencers who drive action, not just followers.</p>
+
+      <h3>What's Included</h3>
+      <div class="svc-includes">
+        <div class="inc-item">Influencer Discovery</div>
+        <div class="inc-item">Audience Verification</div>
+        <div class="inc-item">Campaign Briefs</div>
+        <div class="inc-item">Rate Negotiation</div>
+        <div class="inc-item">Content Approval</div>
+        <div class="inc-item">Performance Tracking</div>
+        <div class="inc-item">ROI Reports</div>
+        <div class="inc-item">Relationship Management</div>
+      </div>
+
+      <h3>Who Is This For?</h3>
+      <p>Fashion, beauty, and lifestyle brands wanting exposure, e-commerce stores wanting product placement, local businesses wanting to reach new audiences, and any brand looking to leverage creator partnerships in Pakistan.</p>
+
+      <a href="index.html#contact" class="svc-cta">Start Your Influencer Campaign →</a>
+    </div>
+
+    <!-- Web Development -->
+    <div class="svc-section" id="web-dev">
+      <div class="svc-num">05</div>
+      <h2>Web Development</h2>
+      <div class="svc-tagline">Fast. Beautiful. Conversion-Optimized.</div>
+      <p>Your website is your digital storefront — the first impression most people have of your brand. A slow, outdated, or poorly designed website won't just lose visitors, it will actively hurt your credibility and sales.</p>
+      <p>We build modern, responsive websites that load fast, look stunning, and are engineered for conversions. Whether you need a landing page, a full company website, or an e-commerce store — we build it right from the ground up.</p>
+
+      <h3>What's Included</h3>
+      <div class="svc-includes">
+        <div class="inc-item">Custom Website Design</div>
+        <div class="inc-item">Landing Pages</div>
+        <div class="inc-item">E-Commerce Stores</div>
+        <div class="inc-item">Mobile Responsive</div>
+        <div class="inc-item">Speed Optimization</div>
+        <div class="inc-item">SEO-Ready Structure</div>
+        <div class="inc-item">UI/UX Design</div>
+        <div class="inc-item">CRO Optimization</div>
+      </div>
+
+      <h3>Who Is This For?</h3>
+      <p>Businesses that don't have a website yet, companies with outdated sites that need a redesign, e-commerce brands wanting a custom store, and startups wanting a professional online presence that converts visitors into customers.</p>
+
+      <a href="index.html#contact" class="svc-cta">Get a Website Quote →</a>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <h3>Not Sure Which Service You Need?</h3>
+      <p>No worries — tell us about your business and goals, and we'll recommend the best strategy. First consultation is always free.</p>
+      <div class="cta-actions">
+        <a href="index.html#contact" class="btn-primary">Get a Free Consultation →</a>
+        <a href="case-studies.html" class="btn-secondary">View Our Results</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="page-footer" role="contentinfo">
+    <p>© 2026 NexaGrowth. All rights reserved. &nbsp;|&nbsp; <a href="index.html">Home</a> &nbsp;|&nbsp; <a href="about.html">About</a> &nbsp;|&nbsp; <a href="blog/index.html">Blog</a> &nbsp;|&nbsp; <a href="privacy.html">Privacy</a> &nbsp;|&nbsp; <a href="terms.html">Terms</a></p>
+  </footer>
+
+  <script>
+    (function(){
+      var saved = localStorage.getItem('ng-theme');
+      var pref = saved || (matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', pref);
+    })();
+  </script>
+
+</body>
+</html>

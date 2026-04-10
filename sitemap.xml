@@ -7,15 +7,55 @@
   <!-- Homepage -->
   <url>
     <loc>https://nexagrowth.xyz/</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://nexagrowth.xyz/about.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Services -->
+  <url>
+    <loc>https://nexagrowth.xyz/services.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://nexagrowth.xyz/faq.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Case Studies -->
+  <url>
+    <loc>https://nexagrowth.xyz/case-studies.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Portfolio -->
+  <url>
+    <loc>https://nexagrowth.xyz/portfolio.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Blog Index -->
   <url>
     <loc>https://nexagrowth.xyz/blog/index.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -23,47 +63,69 @@
   <!-- Blog Posts -->
   <url>
     <loc>https://nexagrowth.xyz/blog/facebook-ads-pakistan.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://nexagrowth.xyz/blog/seo-strategies-pakistan.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://nexagrowth.xyz/blog/instagram-marketing-guide.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://nexagrowth.xyz/blog/digital-marketing-cost-pakistan.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://nexagrowth.xyz/blog/seo-vs-facebook-ads.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nexagrowth.xyz/blog/google-my-business-pakistan.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nexagrowth.xyz/blog/content-marketing-strategy-pakistan.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nexagrowth.xyz/blog/email-marketing-pakistan.html</loc>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Privacy Policy -->
+  <!-- Legal Pages -->
   <url>
     <loc>https://nexagrowth.xyz/privacy.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-
-  <!-- Terms of Service -->
   <url>
     <loc>https://nexagrowth.xyz/terms.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://nexagrowth.xyz/disclaimer.html</loc>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

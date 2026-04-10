@@ -714,3 +714,35 @@ if (matchMedia('(prefers-reduced-motion:reduce)').matches) {
     c.removeEventListener('mouseleave', () => {});
   });
 }
+
+/* ═══════════════════════════════════════════
+   COOKIE CONSENT (AdSense-Friendly)
+   - Shows banner if user hasn't made a choice
+   - AdSense loads regardless (AdSense-friendly)
+   - Stores choice in localStorage
+═══════════════════════════════════════════ */
+(function initCookieConsent() {
+  const banner = document.getElementById('cookie-consent');
+  if (!banner) return;
+
+  const consent = localStorage.getItem('ng-cookie-consent');
+  if (consent) return; // User already made a choice, don't show
+
+  // Show banner after a short delay for better UX
+  setTimeout(() => {
+    banner.classList.add('cc-show');
+    banner.setAttribute('aria-hidden', 'false');
+  }, 1500);
+
+  const acceptBtn = document.getElementById('cc-accept');
+  const rejectBtn = document.getElementById('cc-reject');
+
+  function hideBanner(choice) {
+    localStorage.setItem('ng-cookie-consent', choice);
+    banner.classList.remove('cc-show');
+    banner.setAttribute('aria-hidden', 'true');
+  }
+
+  if (acceptBtn) acceptBtn.addEventListener('click', () => hideBanner('accepted'));
+  if (rejectBtn) rejectBtn.addEventListener('click', () => hideBanner('essential'));
+})();
