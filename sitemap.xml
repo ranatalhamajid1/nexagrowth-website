@@ -54,7 +54,7 @@
 
   <!-- Blog Index -->
   <url>
-    <loc>https://nexagrowth.xyz/blog/index.html</loc>
+    <loc>https://nexagrowth.xyz/blog/</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
