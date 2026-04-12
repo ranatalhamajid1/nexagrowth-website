@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexaGrowth OG Image Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; text-align: center; background: #060608; color: white; padding: 20px; }
+    #canvas-container { margin: 20px auto; width: 1200px; height: 630px; border: 1px solid #333; overflow: hidden; transform-origin: top center; transform: scale(0.6); }
+    canvas { background: #0c0c12; }
+    .btn { background: #8b5cf6; color: white; padding: 12px 24px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px; font-family: 'Inter', sans-serif; }
+    .btn:hover { background: #a78bfa; }
+  </style>
+</head>
+<body>
+  <h1>NexaGrowth OG Image Generator</h1>
+  <p>Generates a 1200x630 pixel branded image.</p>
+  <button class="btn" onclick="downloadImage()">Download og-image.jpg</button>
+  
+  <div id="canvas-container">
+    <canvas id="ogImage" width="1200" height="630"></canvas>
+  </div>
+
+  <!-- Loading image (hidden) -->
+  <img id="logoImg" src="logo.png" alt="NexaGrowth Logo" style="display:none;" onload="drawCanvas()">
+
+  <script>
+    function drawCanvas() {
+      const canvas = document.getElementById('ogImage');
+      const ctx = canvas.getContext('2d');
+      const logo = document.getElementById('logoImg');
+
+      // 1. Background gradient
+      const grad = ctx.createLinearGradient(0, 0, 1200, 630);
+      grad.addColorStop(0, '#0c0c12');
+      grad.addColorStop(1, '#111119');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 1200, 630);
+      
+      // Purple glow in top left
+      const glow = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
+      glow.addColorStop(0, 'rgba(139,92,246,0.3)');
+      glow.addColorStop(1, 'rgba(139,92,246,0)');
+      ctx.fillStyle = glow;
+      ctx.fillRect(0, 0, 1200, 630);
+
+      // 2. Draw logo (circular)
+      if (logo.complete && logo.naturalHeight !== 0) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(600, 200, 80, 0, Math.PI * 2, true);
+        ctx.closePath();
+        ctx.clip();
+        ctx.drawImage(logo, 520, 120, 160, 160);
+        ctx.restore();
+      }
+
+      // 3. Title Text
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '800 64px Inter';
+      ctx.textAlign = 'center';
+      ctx.shadowColor = "rgba(0,0,0,0.5)";
+      ctx.shadowBlur = 10;
+      ctx.shadowOffsetX = 0;
+      ctx.shadowOffsetY = 4;
+      ctx.fillText("NexaGrowth", 600, 360);
+
+      // Tagline Gradients
+      const txtGrad = ctx.createLinearGradient(300, 0, 900, 0);
+      txtGrad.addColorStop(0, '#8b5cf6');
+      txtGrad.addColorStop(0.5, '#a78bfa');
+      txtGrad.addColorStop(1, '#06b6d4');
+      
+      ctx.fillStyle = txtGrad;
+      ctx.font = '700 42px Inter';
+      ctx.shadowColor = "transparent";
+      ctx.fillText("Empowering Pakistani Businesses to Grow", 600, 440);
+      
+      // Bottom URL
+      ctx.fillStyle = '#9490b0';
+      ctx.font = '600 28px Inter';
+      ctx.fillText("nexagrowth.xyz", 600, 540);
+    }
+    
+    // Draw in case the image is already loaded
+    window.onload = drawCanvas;
+
+    function downloadImage() {
+      const canvas = document.getElementById('ogImage');
+      const dataURL = canvas.toDataURL('image/jpeg', 0.9);
+      const link = document.createElement('a');
+      link.download = 'og-image.jpg';
+      link.href = dataURL;
+      link.click();
+    }
+  </script>
+</body>
+</html>

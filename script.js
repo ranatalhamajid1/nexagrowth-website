@@ -636,7 +636,7 @@ window.onTurnstileError = function() {
     submitBtn.disabled = true;
     lastSubmitAt = Date.now();
 
-    fetch('https://formsubmit.co/ajax/ranatalhamajid@gmail.com', {
+    fetch('https://formsubmit.co/ajax/contact@nexagrowth.xyz', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -689,7 +689,7 @@ window.onTurnstileError = function() {
         window.turnstile.reset('#cf-turnstile-widget');
       }
 
-      showError('Could not send your message. Please try again or email us directly at ranatalhamajid@gmail.com');
+      showError('Could not send your message. Please try again or email us directly at contact@nexagrowth.xyz');
     });
   });
 })();

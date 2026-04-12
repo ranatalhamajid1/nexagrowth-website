@@ -27,12 +27,12 @@
                framing by third parties, and unknown origins. -->
     <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://pagead2.googlesyndication.com https://adsby.google.com https://challenges.cloudflare.com;
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://pagead2.googlesyndication.com https://partner.googleadservices.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://challenges.cloudflare.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src 'self' https://fonts.gstatic.com;
     img-src 'self' data: https:;
-    connect-src 'self' https://formsubmit.co https://pagead2.googlesyndication.com https://www.google-analytics.com https://analytics.google.com;
-    frame-src 'self' https://challenges.cloudflare.com https://googleads.g.doubleclick.net https://www.googletagmanager.com https://tpc.googlesyndication.com;
+    connect-src 'self' https://formsubmit.co https://pagead2.googlesyndication.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://adservice.google.com https://adservice.google.com.pk;
+    frame-src 'self' https://challenges.cloudflare.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com https://fundingchoicesmessages.google.com;
     object-src 'none';
     base-uri 'self';
     form-action 'self' https://formsubmit.co;
@@ -57,8 +57,6 @@
   ═══════════════════════════════════════════════════════════ -->
   <meta name="description"
     content="NexaGrowth — Award-winning digital marketing agency. We craft data-driven strategies, stunning content &amp; high-converting campaigns. Content, Ads, Influencer &amp; Web Dev." />
-  <meta name="keywords"
-    content="digital marketing agency, content marketing, paid ads, influencer management, web development, SEO, NexaGrowth, Pakistan" />
   <meta name="author" content="NexaGrowth" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="theme-color" content="#0a0a0f" />
@@ -81,9 +79,37 @@
   <meta name="twitter:description" content="We grow brands that mean business." />
   <meta name="twitter:image" content="https://nexagrowth.xyz/og-image.jpg" />
 
-  <!-- Structured Data (LD+JSON — safe, not inline JS) -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"MarketingAgency","name":"NexaGrowth","url":"https://nexagrowth.xyz","description":"Premium digital marketing agency specializing in Content Marketing, Paid Advertising, Influencer Management, and Web Development.","address":{"@type":"PostalAddress","addressLocality":"Karachi","addressCountry":"PK"},"contactPoint":{"@type":"ContactPoint","telephone":"0339-0061165","email":"ranatalhamajid@gmail.com","contactType":"customer service"},"sameAs":["https://www.linkedin.com/company/nexagrowth-agency/","https://www.instagram.com/nexa_growthagency/","https://www.facebook.com/profile.php?id=61575415000689"]}
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "NexaGrowth",
+    "alternateName": "NexaGrowth Digital Marketing Agency",
+    "url": "https://nexagrowth.xyz",
+    "logo": "https://nexagrowth.xyz/logo.png",
+    "description": "Premium digital marketing agency specializing in Content Marketing, Paid Advertising, Influencer Management, and Web Development.",
+    "foundingDate": "2024",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Gulshan E Madina Colony Near Razabad Chowk, A Block",
+      "addressLocality": "Multan",
+      "addressRegion": "Punjab",
+      "addressCountry": "PK"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+92-339-0061165",
+      "email": "contact@nexagrowth.xyz",
+      "contactType": "customer service",
+      "areaServed": "PK",
+      "availableLanguage": ["English", "Urdu"]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/nexagrowth-agency/",
+      "https://www.instagram.com/nexa_growthagency/",
+      "https://www.facebook.com/profile.php?id=61575415000689"
+    ]
+  }
   </script>
 
   <!-- ══════════════════════════════════════════════════════════
@@ -129,9 +155,6 @@
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <link rel="stylesheet" href="style.css" />
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993"
-     crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -172,7 +195,7 @@
   <nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo" aria-label="NexaGrowth — Home">
-        <img src="logo.png" alt="NexaGrowth Logo" class="nav-logo-img" />
+        <img src="logo.png" alt="NexaGrowth Logo" class="nav-logo-img" width="44" height="44" loading="lazy" />
       </a>
 
       <ul class="nav-links" role="list">
@@ -559,6 +582,20 @@
     </div>
   </section>
 
+  <!-- ░░ MANUAL ADSENSE UNIT ░░ -->
+  <section class="section" style="padding: 20px; text-align: center;">
+    <div class="container">
+      <ins class="adsbygoogle"
+           style="display:block; text-align:center;"
+           data-ad-layout="in-article"
+           data-ad-format="fluid"
+           data-ad-client="ca-pub-6061397831292993"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </section>
+
   <!-- ░░ RESULTS / STATS ░░ -->
   <section id="results" class="results section" aria-label="Our results and track record">
     <div class="results-bg" aria-hidden="true"><canvas id="results-canvas"></canvas></div>
@@ -917,7 +954,7 @@
           <div class="bp-content">
             <span class="bp-cat">Paid Ads</span>
             <h3>How to Run Facebook Ads in Pakistan</h3>
-            <p>A complete 2025 guide to targeting, budgets, and launching profitable campaigns in Pakistan.</p>
+            <p>A complete 2026 guide to targeting, budgets, and launching profitable campaigns in Pakistan.</p>
             <a href="blog/facebook-ads-pakistan.html" class="bp-link">Read Article →</a>
           </div>
         </article>
@@ -1257,7 +1294,7 @@
                   <circle cx="12" cy="10" r="3" />
                 </svg>
               </div>
-              <div><small>Location</small><span>Karachi, Pakistan 🇵🇰</span></div>
+              <div><small>Location</small><span>Multan, Pakistan 🇵🇰</span></div>
             </div>
           </div>
           <div class="socials" aria-label="Social media links">
@@ -1398,7 +1435,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="#hero" class="nav-logo" aria-label="NexaGrowth Home">
-            <img src="logo.png" alt="NexaGrowth Logo" class="nav-logo-img" />
+            <img src="logo.png" alt="NexaGrowth Logo" class="nav-logo-img" width="44" height="44" loading="lazy" />
           </a>
           <p>Building brands that grow, scale, and dominate their market. Serving businesses across Pakistan — including Multan, Islamabad, Lahore, and Karachi.</p>
           <div class="socials" aria-label="Social media links">
@@ -1446,10 +1483,10 @@
           <div class="fn-col">
             <h4>Contact</h4>
             <ul>
-              <li><a href="mailto:ranatalhamajid@gmail.com">ranatalhamajid@gmail.com</a></li>
+              <li><a href="mailto:contact@nexagrowth.xyz">contact@nexagrowth.xyz</a></li>
               <li><a href="https://wa.me/923390061165" target="_blank" rel="noopener noreferrer">WhatsApp:
                   0339-0061165</a></li>
-              <li><span>Karachi, Pakistan 🇵🇰</span></li>
+              <li><span>Multan, Pakistan 🇵🇰</span></li>
             </ul>
           </div>
         </nav>
