@@ -24,6 +24,12 @@ const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
   const canvas = $('#loader-canvas');
   if (!loader) return;
 
+  if (sessionStorage.getItem('ng-loader-seen') === '1') {
+    loader.classList.add('done');
+    return;
+  }
+  sessionStorage.setItem('ng-loader-seen', '1');
+
   // Shimmer canvas
   if (canvas) {
     const ctx = canvas.getContext('2d');

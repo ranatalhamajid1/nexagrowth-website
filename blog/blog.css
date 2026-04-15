@@ -58,6 +58,20 @@ body {
   padding: 0 5%;
 }
 .nav-logo-wrap { display: flex; align-items: center; gap: 12px; }
+.nav-links-wrap {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.nav-links-wrap a {
+  color: var(--tx2);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.nav-links-wrap a:hover { color: var(--a); }
+.nav-logo-img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--brd); }
 .nav-logo-img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--brd); }
 .nav-brand { font-weight: 800; font-size: 1.1rem; background: var(--ag); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .nav-back {
@@ -214,6 +228,39 @@ article strong { color: var(--tx); }
 .related-card .related-cat { font-size: 0.7rem; font-weight: 700; color: var(--tx3); text-transform: uppercase; margin-bottom: 10px; display: block; }
 .related-card h4 { font-size: 1.1rem; color: var(--tx); margin-bottom: 10px; }
 .related-card p { font-size: 0.85rem; color: var(--tx2); margin: 0; }
+
+/* ── Author Box ── */
+.author-box {
+  background: var(--bg2);
+  border: 1px solid var(--brd);
+  border-radius: var(--r);
+  padding: 32px;
+  margin: 60px 0;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.author-img-wrap {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--brd);
+}
+.author-img { width: 100%; height: 100%; object-fit: cover; }
+.author-info h4 { font-size: 1.2rem; margin-bottom: 8px; color: var(--tx); }
+.author-info p { font-size: 0.95rem; color: var(--tx2); margin-bottom: 12px; line-height: 1.5; }
+.author-socials { display: flex; gap: 12px; }
+.author-socials a { color: var(--tx3); transition: 0.3s; }
+.author-socials a:hover { color: var(--a); }
+.author-socials svg { width: 18px; height: 18px; }
+
+@media (max-width: 600px) {
+  .author-box { flex-direction: column; text-align: center; }
+  .author-img-wrap { margin: 0 auto; }
+  .author-socials { justify-content: center; }
+}
 
 /* ── Footer ── */
 .page-footer {

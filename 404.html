@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FVCXYCKEVN');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>404 — Page Not Found | NexaGrowth</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/png" href="logo.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --a: #8b5cf6; --a2: #06b6d4;
+      --ag: linear-gradient(135deg,#8b5cf6 0%,#a78bfa 40%,#06b6d4 100%);
+      --bg: #060608; --tx: #f0eefb; --tx2: #9490b0;
+      --brd: rgba(255,255,255,0.06);
+    }
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tx);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      min-height: 100vh; text-align: center; padding: 20px;
+      overflow: hidden;
+    }
+    .container { max-width: 500px; }
+    .err-code {
+      font-size: 8rem; font-weight: 900; line-height: 1; margin-bottom: 20px;
+      background: var(--ag); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      opacity: 0.1; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      z-index: -1; pointer-events: none;
+    }
+    h1 { font-size: 2rem; font-weight: 800; margin-bottom: 12px; }
+    p { color: var(--tx2); font-size: 1rem; margin-bottom: 32px; line-height: 1.6; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px; border-radius: 99px;
+      background: var(--ag); color: #fff; font-weight: 700;
+      text-decoration: none; transition: .3s;
+      box-shadow: 0 10px 30px rgba(139,92,246,.4);
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(139,92,246,.6); }
+    .logo { margin-bottom: 40px; }
+    .logo img { width: 60px; height: 60px; border-radius: 50%; }
+  </style>
+</head>
+
+<body>
+  <div class="err-code">404</div>
+
+  <div class="container">
+    <div class="logo">
+      <a href="index.html"><img src="logo.png" alt="NexaGrowth Logo" /></a>
+    </div>
+    <h1>Lost in the digital growth?</h1>
+    <p>The page you're looking for doesn't exist or has been moved. Let's get you back to the main path.</p>
+    <a href="index.html" class="btn">Back to Homepage</a>
+  </div>
+
+  <script>
+    (function(){
+      var saved = localStorage.getItem('ng-theme');
+      if(saved) document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
+</body>
+</html>

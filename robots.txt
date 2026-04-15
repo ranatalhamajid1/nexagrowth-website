@@ -3,11 +3,15 @@
 # https://nexagrowth.xyz
 # =====================================================
 
+# Allow AdSense Bot Explicity (Crucial for Review)
+User-agent: Mediapartners-Google
+Allow: /
+
 # Allow all well-behaved crawlers
 User-agent: *
 Allow: /
 
-# Block any sensitive paths (add more as needed)
+# Block any sensitive paths
 Disallow: /admin/
 Disallow: /private/
 Disallow: /*.json$
