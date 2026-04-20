@@ -178,6 +178,84 @@ article ul, article ol { margin-bottom: 24px; padding-left: 24px; color: var(--t
 article li { margin-bottom: 12px; }
 article strong { color: var(--tx); }
 
+/* Shared article typography for blog pages */
+.blog-content h2 { font-size: 2rem; font-weight: 800; margin-bottom: 24px; color: var(--tx); letter-spacing: -0.02em; }
+.blog-content h3 { font-size: 1.35rem; font-weight: 700; margin-bottom: 16px; margin-top: 32px; color: var(--tx); }
+.blog-content p { margin-bottom: 24px; font-size: 1.05rem; color: var(--tx2); }
+.blog-content ul, .blog-content ol { margin-bottom: 24px; padding-left: 24px; color: var(--tx2); }
+.blog-content li { margin-bottom: 12px; }
+.blog-content strong { color: var(--tx); }
+.blog-content section { margin-bottom: 64px; }
+
+.blog-content .image-suggestions,
+.blog-content .result-box,
+.blog-content .internal-link-box,
+.blog-content .faq-section,
+.blog-content .author-box,
+.blog-content .cta-box {
+  background: var(--bg2);
+  border: 1px solid var(--brd);
+  border-radius: var(--r);
+  padding: 28px;
+}
+
+.blog-content .image-suggestions ul,
+.blog-content .internal-link-box ul {
+  margin-bottom: 0;
+}
+
+.blog-content .faq-section {
+  display: grid;
+  gap: 18px;
+}
+
+.blog-content .faq-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--brd);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.blog-content .faq-item h3,
+.blog-content .faq-item h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.blog-content .inline-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.blog-content .inline-links a {
+  display: inline-flex;
+  padding: 8px 14px;
+  border-radius: 99px;
+  border: 1px solid var(--brd);
+  color: var(--tx);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.blog-content .inline-links a:hover {
+  color: var(--a);
+  border-color: var(--brd2);
+}
+
+.blog-content .author-role {
+  color: var(--a2);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.blog-content .post-meta-note {
+  color: var(--tx3);
+  font-size: 0.9rem;
+}
+
 /* ── Tables ── */
 .price-table {
   border: 1px solid var(--brd); border-radius: var(--r); overflow: hidden; margin: 40px 0;
@@ -278,4 +356,5 @@ article strong { color: var(--tx); }
   .price-row { grid-template-columns: 1fr; gap: 10px; text-align: center; }
   .cta-box { padding: 40px 20px; }
   article h2 { font-size: 1.7rem; }
+  .blog-content h2 { font-size: 1.7rem; }
 }

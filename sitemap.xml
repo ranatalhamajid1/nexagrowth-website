@@ -7,7 +7,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://nexagrowth.xyz/</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-04-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -55,12 +55,36 @@
   <!-- Blog Index -->
   <url>
     <loc>https://nexagrowth.xyz/blog/</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Blog Posts -->
+  <url>
+    <loc>https://nexagrowth.xyz/blog/digital-marketing-strategies-pakistan-2026.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://nexagrowth.xyz/blog/what-is-growth-marketing-pakistan-2026.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://nexagrowth.xyz/blog/how-to-choose-digital-marketing-agency-pakistan-2026.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://nexagrowth.xyz/blog/seo-vs-paid-ads-pakistan-2026.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <url>
     <loc>https://nexagrowth.xyz/blog/facebook-ads-pakistan.html</loc>
     <lastmod>2026-04-15</lastmod>
