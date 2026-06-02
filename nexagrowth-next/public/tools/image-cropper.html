@@ -18,9 +18,9 @@
     .drop-zone-icon{font-size:3rem;margin-bottom:12px}
     .workspace{display:grid;grid-template-columns:1.2fr 0.8fr;gap:24px;margin-top:16px;display:none}
     .preview-card{border:1px solid var(--brd);border-radius:var(--r);padding:16px;background:var(--glass);text-align:center}
-    .preview-card canvas{max-width:100%;max-height:300px;object-fit:contain;border-radius:var(--r);background:#222}
+    .preview-card canvas{max-width:100%;max-height:300px;object-fit:contain;border-radius:var(--r);background:#222;cursor:crosshair}
     .controls-card{border:1px solid var(--brd);border-radius:var(--r);padding:16px;background:var(--glass);display:none;flex-direction:column;gap:16px;margin-top:16px}
-    .crop-inputs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .crop-inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
     .input-group{display:flex;flex-direction:column;gap:6px}
     .input-group label{font-size:.8rem;font-weight:600;color:var(--tx2)}
     .input-field{padding:8px;background:var(--bg3);border:1px solid var(--brd);border-radius:var(--r);color:var(--tx);font-family:inherit;font-size:.9rem}
@@ -34,12 +34,12 @@
   <div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
   <main class="tool-main"><div class="container">
     <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">Image Cropper</span></nav>
-    <div class="tool-hero"><div class="tool-icon">✂️</div><h1>Image <em>Cropper</em></h1><p>Crop images manually or use built-in aspect ratios (1:1, 16:9, 4:3). Instantly preview and save your cropped photo.</p></div>
+    <div class="tool-hero"><div class="tool-icon">✂️</div><h1>Image <em>Cropper</em></h1><p>Crop images visually or set exact pixel dimensions. Drag the crop box, slide the corners, and download your cropped photo instantly.</p></div>
     <div class="tool-card">
       <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()"><div class="drop-zone-icon">🖼️</div><p><strong>Click to select image</strong> or drag & drop</p><p style="font-size:.8rem;margin-top:8px">Supports PNG, JPG, WebP • Free offline cropping</p></div>
       <input type="file" id="fileInput" class="file-input" accept="image/*">
       <div class="workspace" id="workspace">
-        <div class="preview-card"><h3>Visual Preview</h3><canvas id="cropCanvas"></canvas></div>
+        <div class="preview-card"><h3>Visual Preview</h3><canvas id="cropCanvas"></canvas><p style="font-size:.8rem;color:var(--tx2);margin-top:8px">Drag the crop box to move, or drag corners to resize.</p></div>
         <div class="preview-card"><h3>Crop Output</h3><canvas id="outputCanvas" style="max-height:200px"></canvas></div>
       </div>
       <div class="controls-card" id="controlsCard">
@@ -47,36 +47,51 @@
           <div class="input-group">
             <label>Aspect Ratio Preset</label>
             <select id="presetSelect" class="select-field" onchange="applyPreset(this.value)">
-              <option value="free">Freeform (Custom)</option>
+              <option value="free" selected>Freeform (Custom)</option>
               <option value="1:1">Square (1:1)</option>
               <option value="16:9">Widescreen (16:9)</option>
               <option value="4:3">Standard (4:3)</option>
             </select>
           </div>
           <div class="input-group"><label>Width (px)</label><input type="number" id="cropW" class="input-field" oninput="changeWidth(this.value)"></div>
+          <div class="input-group"><label>Height (px)</label><input type="number" id="cropH" class="input-field" oninput="changeHeight(this.value)"></div>
           <div class="input-group"><label>X Offset (px)</label><input type="number" id="cropX" class="input-field" oninput="changeX(this.value)"></div>
           <div class="input-group"><label>Y Offset (px)</label><input type="number" id="cropY" class="input-field" oninput="changeY(this.value)"></div>
         </div>
-        <div class="tool-actions" style="margin-top:8px">
+        <div class="tool-actions" style="margin-top:16px">
           <button class="btn-primary" onclick="downloadCropped()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Crop & Download</button>
           <button class="btn-secondary" onclick="resetAll()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Change Image</button>
         </div>
       </div>
     </div>
-    <section class="tool-section"><h2><span class="section-icon">📖</span> How to Use</h2><p>Upload an image, pick an aspect ratio preset or adjust the offset and size values, and download the cropped region instantly.</p></section>
+    <section class="tool-section"><h2><span class="section-icon">📖</span> How to Use</h2><p>Upload an image. Use the crop handles on the canvas visually, or key in exact width and height specifications to define your crop box. Tap Crop & Download to save.</p></section>
   </div></main>
   <footer class="tool-footer"><div class="container"><p>&copy; 2025 NexaGrowth. All rights reserved.</p></div></footer>
   <script src="tools.js"></script>
   <script>
   let img=new Image(),origFile=null;
   let cx=0,cy=0,cw=200,ch=200;
+  let isDragging=false, activeHandle=null;
+  let dragStartX=0, dragStartY=0;
+  let startCx=0, startCy=0, startCw=0, startCh=0;
+
   const cropCanvas=document.getElementById('cropCanvas'),outputCanvas=document.getElementById('outputCanvas');
-  const cropX=document.getElementById('cropX'),cropY=document.getElementById('cropY'),cropW=document.getElementById('cropW'),presetSelect=document.getElementById('presetSelect');
+  const cropX=document.getElementById('cropX'),cropY=document.getElementById('cropY'),cropW=document.getElementById('cropW'),cropH=document.getElementById('cropH'),presetSelect=document.getElementById('presetSelect');
   const dropZone=document.getElementById('dropZone'),fileInput=document.getElementById('fileInput'),workspace=document.getElementById('workspace'),controlsCard=document.getElementById('controlsCard');
+
   dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('dragover')});
   dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('dragover'));
   dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('dragover');if(e.dataTransfer.files.length)handleImage(e.dataTransfer.files[0])});
   fileInput.addEventListener('change',e=>{if(e.target.files.length)handleImage(e.target.files[0])});
+
+  cropCanvas.addEventListener('mousedown', startInteraction);
+  cropCanvas.addEventListener('mousemove', moveInteraction);
+  window.addEventListener('mouseup', endInteraction);
+
+  cropCanvas.addEventListener('touchstart', startInteraction, {passive:false});
+  cropCanvas.addEventListener('touchmove', moveInteraction, {passive:false});
+  window.addEventListener('touchend', endInteraction);
+
   function handleImage(file){
     if(!file.type.startsWith('image/'))return;
     origFile=file;
@@ -87,38 +102,240 @@
       cy=Math.round(img.naturalHeight*0.1);
       cw=Math.round(img.naturalWidth*0.8);
       ch=Math.round(img.naturalHeight*0.8);
-      cropX.value=cx;cropY.value=cy;cropW.value=cw;
-      applyPreset(presetSelect.value);
+      
+      presetSelect.value = 'free';
+      
+      cropX.value=cx;cropY.value=cy;cropW.value=cw;cropH.value=ch;
+      drawCropper();
     };
     dropZone.style.display='none';
     workspace.style.display='grid';
     controlsCard.style.display='flex';
   }
+
+  function getMousePos(canvas, e) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    let clientX, clientY;
+    if(e.touches && e.touches.length) {
+      clientX = e.touches[0].clientX;
+      clientY = e.touches[0].clientY;
+    } else {
+      clientX = e.clientX;
+      clientY = e.clientY;
+    }
+    return {
+      x: (clientX - rect.left) * scaleX,
+      y: (clientY - rect.top) * scaleY
+    };
+  }
+
+  function startInteraction(e) {
+    if(!img.src)return;
+    e.preventDefault();
+    const pos = getMousePos(cropCanvas, e);
+    const mx = pos.x;
+    const my = pos.y;
+    
+    const handleThreshold = Math.max(15, (cropCanvas.width / cropCanvas.getBoundingClientRect().width) * 12);
+    
+    const nearNW = Math.hypot(mx - cx, my - cy) < handleThreshold;
+    const nearNE = Math.hypot(mx - (cx + cw), my - cy) < handleThreshold;
+    const nearSE = Math.hypot(mx - (cx + cw), my - (cy + ch)) < handleThreshold;
+    const nearSW = Math.hypot(mx - cx, my - (cy + ch)) < handleThreshold;
+    
+    isDragging = true;
+    startCx = cx; startCy = cy; startCw = cw; startCh = ch;
+    dragStartX = mx; dragStartY = my;
+
+    if (nearNW) activeHandle = 'nw';
+    else if (nearNE) activeHandle = 'ne';
+    else if (nearSE) activeHandle = 'se';
+    else if (nearSW) activeHandle = 'sw';
+    else if (mx >= cx && mx <= cx + cw && my >= cy && my <= cy + ch) {
+      activeHandle = 'move';
+    } else {
+      isDragging = false;
+      activeHandle = null;
+    }
+  }
+
+  function moveInteraction(e) {
+    if(!img.src || !isDragging) return;
+    e.preventDefault();
+    const pos = getMousePos(cropCanvas, e);
+    const mx = pos.x;
+    const my = pos.y;
+    
+    const dx = mx - dragStartX;
+    const dy = my - dragStartY;
+    
+    const preset = presetSelect.value;
+
+    if (activeHandle === 'move') {
+      cx = Math.max(0, Math.min(img.naturalWidth - cw, startCx + dx));
+      cy = Math.max(0, Math.min(img.naturalHeight - ch, startCy + dy));
+    } else if (activeHandle) {
+      let newCx = cx, newCy = cy, newCw = cw, newCh = ch;
+      
+      if (activeHandle === 'se') {
+        newCw = Math.max(20, Math.min(img.naturalWidth - startCx, startCw + dx));
+        if (preset === 'free') {
+          newCh = Math.max(20, Math.min(img.naturalHeight - startCy, startCh + dy));
+        } else {
+          const ratio = preset === '1:1' ? 1 : (preset === '16:9' ? 16/9 : 4/3);
+          newCh = newCw / ratio;
+          if (startCy + newCh > img.naturalHeight) {
+            newCh = img.naturalHeight - startCy;
+            newCw = newCh * ratio;
+          }
+        }
+      } else if (activeHandle === 'sw') {
+        newCx = Math.max(0, Math.min(startCx + startCw - 20, startCx + dx));
+        newCw = startCw + (startCx - newCx);
+        
+        if (preset === 'free') {
+          newCh = Math.max(20, Math.min(img.naturalHeight - startCy, startCh + dy));
+        } else {
+          const ratio = preset === '1:1' ? 1 : (preset === '16:9' ? 16/9 : 4/3);
+          newCh = newCw / ratio;
+          if (startCy + newCh > img.naturalHeight) {
+            newCh = img.naturalHeight - startCy;
+            newCw = newCh * ratio;
+            newCx = startCx + startCw - newCw;
+          }
+        }
+      } else if (activeHandle === 'ne') {
+        newCw = Math.max(20, Math.min(img.naturalWidth - startCx, startCw + dx));
+        newCy = Math.max(0, Math.min(startCy + startCh - 20, startCy + dy));
+        newCh = startCh + (startCy - newCy);
+        
+        if (preset !== 'free') {
+          const ratio = preset === '1:1' ? 1 : (preset === '16:9' ? 16/9 : 4/3);
+          newCh = newCw / ratio;
+          newCy = startCy + startCh - newCh;
+          if (newCy < 0) {
+            newCy = 0;
+            newCh = startCy + startCh;
+            newCw = newCh * ratio;
+          }
+        }
+      } else if (activeHandle === 'nw') {
+        newCx = Math.max(0, Math.min(startCx + startCw - 20, startCx + dx));
+        newCw = startCw + (startCx - newCx);
+        newCy = Math.max(0, Math.min(startCy + startCh - 20, startCy + dy));
+        newCh = startCh + (startCy - newCy);
+        
+        if (preset !== 'free') {
+          const ratio = preset === '1:1' ? 1 : (preset === '16:9' ? 16/9 : 4/3);
+          if (newCw / ratio > newCh) {
+            newCh = newCw / ratio;
+            newCy = startCy + startCh - newCh;
+          } else {
+            newCw = newCh * ratio;
+            newCx = startCx + startCw - newCw;
+          }
+          if (newCy < 0) {
+            newCy = 0;
+            newCh = startCy + startCh;
+            newCw = newCh * ratio;
+            newCx = startCx + startCw - newCw;
+          }
+          if (newCx < 0) {
+            newCx = 0;
+            newCw = startCx + startCw;
+            newCh = newCw / ratio;
+            newCy = startCy + startCh - newCh;
+          }
+        }
+      }
+      
+      cx = Math.round(newCx);
+      cy = Math.round(newCy);
+      cw = Math.round(newCw);
+      ch = Math.round(newCh);
+    }
+    
+    cropX.value=cx;cropY.value=cy;cropW.value=cw;cropH.value=ch;
+    drawCropper();
+  }
+
+  function endInteraction() {
+    isDragging = false;
+    activeHandle = null;
+  }
+
   function applyPreset(preset){
     if(!img.src)return;
     if(preset==='1:1'){cw=Math.min(img.naturalWidth,img.naturalHeight);ch=cw}
     else if(preset==='16:9'){cw=Math.min(img.naturalWidth,Math.round(img.naturalHeight*16/9));ch=Math.round(cw*9/16)}
     else if(preset==='4:3'){cw=Math.min(img.naturalWidth,Math.round(img.naturalHeight*4/3));ch=Math.round(cw*3/4)}
-    cropW.value=cw;
+    cropW.value=cw;cropH.value=ch;
     cx=Math.round((img.naturalWidth-cw)/2);
     cy=Math.round((img.naturalHeight-ch)/2);
     cropX.value=cx;cropY.value=cy;
     drawCropper();
   }
-  function changeWidth(val){cw=parseInt(val)||100;const preset=presetSelect.value;if(preset==='1:1')ch=cw;else if(preset==='16:9')ch=Math.round(cw*9/16);else if(preset==='4:3')ch=Math.round(cw*3/4);else ch=cw;drawCropper()}
-  function changeX(val){cx=parseInt(val)||0;drawCropper()}
-  function changeY(val){cy=parseInt(val)||0;drawCropper()}
+
+  function changeWidth(val){
+    cw=parseInt(val)||100;
+    cw=Math.min(cw, img.naturalWidth - cx);
+    const preset=presetSelect.value;
+    if(preset==='1:1')ch=cw;
+    else if(preset==='16:9')ch=Math.round(cw*9/16);
+    else if(preset==='4:3')ch=Math.round(cw*3/4);
+    cropW.value=cw;cropH.value=ch;
+    drawCropper();
+  }
+
+  function changeHeight(val){
+    ch=parseInt(val)||100;
+    ch=Math.min(ch, img.naturalHeight - cy);
+    const preset=presetSelect.value;
+    if(preset==='1:1')cw=ch;
+    else if(preset==='16:9')cw=Math.round(ch*16/9);
+    else if(preset==='4:3')cw=Math.round(ch*4/3);
+    cropW.value=cw;cropH.value=ch;
+    drawCropper();
+  }
+
+  function changeX(val){
+    cx=parseInt(val)||0;
+    cx=Math.max(0, Math.min(img.naturalWidth - cw, cx));
+    cropX.value=cx;
+    drawCropper();
+  }
+
+  function changeY(val){
+    cy=parseInt(val)||0;
+    cy=Math.max(0, Math.min(img.naturalHeight - ch, cy));
+    cropY.value=cy;
+    drawCropper();
+  }
+
   function drawCropper(){
     if(!img.src)return;
     const ctx=cropCanvas.getContext('2d');
     cropCanvas.width=img.naturalWidth;
     cropCanvas.height=img.naturalHeight;
     ctx.drawImage(img,0,0);
+    
     ctx.fillStyle='rgba(0,0,0,0.5)';
     ctx.fillRect(0,0,img.naturalWidth,img.naturalHeight);
+    
     ctx.clearRect(cx,cy,cw,ch);
-    ctx.strokeStyle='#4f46e5';ctx.lineWidth=4;
+    
+    ctx.strokeStyle='#4f46e5';ctx.lineWidth=Math.max(2, (cropCanvas.width / 400));
     ctx.strokeRect(cx,cy,cw,ch);
+    
+    ctx.fillStyle='#4f46e5';
+    const hSize = Math.max(6, (cropCanvas.width / 150));
+    ctx.fillRect(cx - hSize/2, cy - hSize/2, hSize, hSize);
+    ctx.fillRect(cx + cw - hSize/2, cy - hSize/2, hSize, hSize);
+    ctx.fillRect(cx + cw - hSize/2, cy + ch - hSize/2, hSize, hSize);
+    ctx.fillRect(cx - hSize/2, cy + ch - hSize/2, hSize, hSize);
+
     const outCtx=outputCanvas.getContext('2d');
     outputCanvas.width=cw;outputCanvas.height=ch;
     outCtx.drawImage(img,cx,cy,cw,ch,0,0,cw,ch);
