@@ -7,6 +7,7 @@ import ScrollProgress from "../components/ScrollProgress";
 import CookieConsent from "../components/CookieConsent";
 import ThemeProvider from "../components/ThemeProvider";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 const instrumentSerif = Instrument_Serif({
   variable: "--font-serif",
@@ -156,6 +157,7 @@ export default function RootLayout({
           {children}
           <CookieConsent />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
