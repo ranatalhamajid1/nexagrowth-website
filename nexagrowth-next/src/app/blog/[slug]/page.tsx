@@ -8,6 +8,8 @@ import { Metadata } from "next";
 import Footer from "../../../components/Footer";
 import blogData from "../../../data/blogData.json";
 
+export const runtime = 'edge';
+
 interface BlogPostProps {
   params: Promise<{ slug: string }>;
 }

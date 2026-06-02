@@ -10,6 +10,8 @@ import { Wrench, ArrowLeft, ShieldCheck, ChevronRight } from "lucide-react";
 import { Metadata } from "next";
 import toolsData from "../../../data/toolsData.json";
 
+export const runtime = 'edge';
+
 interface ToolPageProps {
   params: Promise<{ slug: string }>;
 }
