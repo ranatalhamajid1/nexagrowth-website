@@ -74,10 +74,10 @@ export default function PrivacyPage() {
             <Shield size={12} className="text-accent animate-pulse" />
             Privacy Center
           </div>
-          <h1 className="font-serif text-[48px] sm:text-[68px] md:text-[80px] font-normal leading-[1.0] tracking-[-2px] text-white mb-6 fade-rise-headline">
+          <h1 className="font-serif text-[48px] sm:text-[68px] md:text-[80px] font-normal leading-[1.0] tracking-[-2px] text-foreground mb-6 fade-rise-headline">
             Privacy Policy
           </h1>
-          <p className="text-[15px] sm:text-[17px] md:text-[18px] font-normal text-white/52 leading-[1.7] max-w-[640px] fade-rise-subheadline">
+          <p className="text-[15px] sm:text-[17px] md:text-[18px] font-normal text-foreground/60 leading-[1.7] max-w-[640px] fade-rise-subheadline">
             Last updated: April 6, 2026 &nbsp;·&nbsp; Effective immediately
           </p>
         </div>
@@ -89,15 +89,15 @@ export default function PrivacyPage() {
           {sections.map((s) => (
             <section
               key={s.num}
-              className="glass p-8 md:p-10 rounded-[20px] border border-white/8 bg-white/[0.01] hover:border-white/15 transition-all duration-300 shadow-sm"
+              className="glass p-8 md:p-10 rounded-[20px] border border-glass-border bg-glass-bg hover:border-glass-border/30 transition-all duration-300 shadow-sm"
             >
-              <h2 className="text-lg md:text-xl font-serif text-white font-normal mb-5 pb-3 border-b border-white/6 flex items-center gap-3">
+              <h2 className="text-lg md:text-xl font-serif text-foreground font-normal mb-5 pb-3 border-b border-glass-border flex items-center gap-3">
                 <span className="w-7 h-7 rounded-lg bg-accent/10 border border-accent/30 text-accent flex items-center justify-center text-[11px] font-bold">
                   {s.num}
                 </span>
                 <span>{s.title}</span>
               </h2>
-              <p className="text-[13.5px] md:text-[14.5px] text-white/52 leading-relaxed">
+              <p className="text-[13.5px] md:text-[14.5px] text-foreground/60 leading-relaxed">
                 {s.content}
               </p>
             </section>
@@ -105,16 +105,16 @@ export default function PrivacyPage() {
         </div>
 
         {/* Contact box */}
-        <section className="mt-12 glass p-8 md:p-10 rounded-[24px] text-center border border-white/8 bg-white/[0.01]">
-          <h3 className="font-serif text-xl md:text-2xl text-white font-normal mb-3">
+        <section className="mt-12 glass p-8 md:p-10 rounded-[24px] text-center border border-glass-border bg-glass-bg">
+          <h3 className="font-serif text-xl md:text-2xl text-foreground font-normal mb-3">
             Questions about your Privacy?
           </h3>
-          <p className="text-[13.5px] md:text-[14.5px] text-white/52 leading-relaxed max-w-[500px] mx-auto mb-6">
+          <p className="text-[13.5px] md:text-[14.5px] text-foreground/60 leading-relaxed max-w-[500px] mx-auto mb-6">
             We are committed to user transparency and safety. Reach out and we will respond within 48 hours.
           </p>
           <a
             href="mailto:contact@nexagrowth.xyz"
-            className="inline-flex items-center gap-2 font-sans text-[13px] font-medium text-[#001f3d] bg-white px-6 py-3 rounded-full hover:scale-[1.03] transition-all duration-300"
+            className="inline-flex items-center gap-2 font-sans text-[13px] font-medium text-background bg-foreground px-6 py-3 rounded-full hover:scale-[1.03] transition-all duration-300 shadow-sm"
           >
             <Mail size={13} />
             <span>contact@nexagrowth.xyz</span>
