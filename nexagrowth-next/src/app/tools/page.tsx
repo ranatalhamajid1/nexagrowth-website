@@ -105,7 +105,7 @@ export default function ToolsHubPage() {
   return (
     <div className="relative z-10 min-h-screen flex flex-col">
       <title>Free Online Tools — SEO, AI, Developer & Utility Tools | NexaGrowth</title>
-      <meta name="description" content="Access 50+ free online tools for SEO audits, password generation, AI captions, word counter, color picking, and more." />
+      <meta name="description" content="Access 12+ free online tools for SEO audits, password generation, AI captions, word counter, color picking, and more." />
       <Background />
       <Navigation activeRoute="other" />
 
