@@ -1,0 +1,38 @@
+{
+  "age-calculator": {
+    "exists": true
+  },
+  "ai-caption-generator": {
+    "exists": true
+  },
+  "bmi-calculator": {
+    "exists": true
+  },
+  "case-converter": {
+    "exists": true
+  },
+  "color-picker": {
+    "exists": true
+  },
+  "css-gradient-generator": {
+    "exists": true
+  },
+  "emi-calculator": {
+    "exists": true
+  },
+  "meta-tag-generator": {
+    "exists": true
+  },
+  "password-generator": {
+    "exists": true
+  },
+  "qr-code-generator": {
+    "exists": true
+  },
+  "slug-generator": {
+    "exists": true
+  },
+  "word-counter": {
+    "exists": true
+  }
+}

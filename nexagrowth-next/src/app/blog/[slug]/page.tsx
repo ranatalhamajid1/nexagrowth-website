@@ -3,78 +3,28 @@ import Background from "../../../components/Background";
 import Navigation from "../../../components/Navigation";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import fs from "fs";
-import path from "path";
 import { Clock, Calendar, Tag, ArrowLeft, ArrowRight, MessageSquare, ChevronRight } from "lucide-react";
 import { Metadata } from "next";
 import Footer from "../../../components/Footer";
+import blogData from "../../../data/blogData.json";
 
 interface BlogPostProps {
   params: Promise<{ slug: string }>;
 }
 
-// Helper function to read and parse static blog post files on the server
+// Helper function to load compiled static blog post data
 function getBlogContent(slug: string) {
-  try {
-    // Try to find the file in public/blog/ or root blog/
-    const publicPath = path.join(process.cwd(), "public", "blog", `${slug}.html`);
-    const rootPath = path.join(process.cwd(), "blog", `${slug}.html`);
-    
-    let filePath = "";
-    if (fs.existsSync(publicPath)) {
-      filePath = publicPath;
-    } else if (fs.existsSync(rootPath)) {
-      filePath = rootPath;
-    } else {
-      return null;
-    }
-
-    const htmlContent = fs.readFileSync(filePath, "utf-8");
-
-    // Extract Title
-    const titleMatch = htmlContent.match(/<title>(.*?)<\/title>/i);
-    const title = titleMatch ? titleMatch[1] : "Blog Article";
-
-    // Extract Meta Description
-    const descMatch = htmlContent.match(/<meta\s+name="description"\s+content="(.*?)"/i) || 
-                      htmlContent.match(/<meta\s+property="og:description"\s+content="(.*?)"/i);
-    const description = descMatch ? descMatch[1] : "Actionable digital marketing, SEO, and paid ad strategies.";
-
-    // Extract Blog Meta (Category, Date, Read Time)
-    const catMatch = htmlContent.match(/<span\s+class="blog-cat">(.*?)<\/span>/i);
-    const dateMatch = htmlContent.match(/<span\s+class="blog-date">(.*?)<\/span>/i);
-    const readMatch = htmlContent.match(/<span\s+class="blog-read">(.*?)<\/span>/i);
-
-    const category = catMatch ? catMatch[1] : "Marketing";
-    const date = dateMatch ? dateMatch[1] : "Recent";
-    const readTime = readMatch ? readMatch[1] : "5 min read";
-
-    // Extract main Heading <h1>
-    const h1Match = htmlContent.match(/<h1>(.*?)<\/h1>/i);
-    const headline = h1Match ? h1Match[1] : title;
-
-    // Extract main Content Body within <main class="blog-content">
-    const bodyMatch = htmlContent.match(/<main\s+class="blog-content"[^>]*>([\s\S]*?)<\/main>/i);
-    let bodyHtml = bodyMatch ? bodyMatch[1] : "";
-
-    // Clean up content: remove navigation lists, breadcrumbs, toc or headers from within the bodyHtml if they repeat, or simply render
-    bodyHtml = bodyHtml.replace(/<nav\s+class="nav"[\s\S]*?<\/nav>/gi, "");
-    bodyHtml = bodyHtml.replace(/<footer[\s\S]*?<\/footer>/gi, "");
-    bodyHtml = bodyHtml.replace(/src="\.\.\/logo\.png"/gi, 'src="/logo.png"');
-    bodyHtml = bodyHtml.replace(/src="logo\.png"/gi, 'src="/logo.png"');
-
-    return {
-      title,
-      description,
-      category,
-      date,
-      readTime,
-      headline,
-      bodyHtml,
-    };
-  } catch (e) {
-    return null;
-  }
+  const post = (blogData as Record<string, any>)[slug];
+  if (!post) return null;
+  return {
+    title: post.title,
+    description: post.description,
+    category: post.category,
+    date: post.date,
+    readTime: post.readTime,
+    headline: post.headline,
+    bodyHtml: post.bodyHtml,
+  };
 }
 
 // 2. Generate dynamic metadata for SEO optimization

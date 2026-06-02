@@ -6,10 +6,9 @@ import Link from "next/link";
 import AddressBar from "../../../components/AddressBar";
 import ToolIframe from "../../../components/ToolIframe";
 import { notFound } from "next/navigation";
-import fs from "fs";
-import path from "path";
 import { Wrench, ArrowLeft, ShieldCheck, ChevronRight } from "lucide-react";
 import { Metadata } from "next";
+import toolsData from "../../../data/toolsData.json";
 
 interface ToolPageProps {
   params: Promise<{ slug: string }>;
@@ -126,11 +125,8 @@ export default async function ToolLauncherPage({ params }: ToolPageProps) {
   const { slug } = await params;
   const meta = TOOLS_METADATA[slug];
 
-  // Verify that the static tool file actually exists in the public directory
-  const publicFilePath = path.join(process.cwd(), "public", "tools", `${slug}.html`);
-  const rootFilePath = path.join(process.cwd(), "tools", `${slug}.html`);
-
-  const fileExists = fs.existsSync(publicFilePath) || fs.existsSync(rootFilePath);
+  // Verify that the tool is compiled and registered in our toolsData database
+  const fileExists = (toolsData as Record<string, any>)[slug]?.exists;
 
   if (!meta || !fileExists) {
     notFound();
