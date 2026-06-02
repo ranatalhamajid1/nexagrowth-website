@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993" crossorigin="anonymous"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Image Cropper — Crop Images Online Free | NexaGrowth</title>
+  <meta name="description" content="Crop JPG, PNG, or WebP images to custom dimensions or standard aspect ratios. Free, offline, secure.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/image-cropper">
+  <meta property="og:title" content="Image Cropper — NexaGrowth"><meta property="og:url" content="https://nexagrowth.xyz/tools/image-cropper"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <style>
+    .drop-zone{border:2px dashed var(--brd3);border-radius:var(--r2);padding:48px 24px;text-align:center;cursor:pointer;transition:.3s;background:var(--glass)}
+    .drop-zone:hover,.drop-zone.dragover{border-color:var(--a);background:var(--glass3)}
+    .drop-zone-icon{font-size:3rem;margin-bottom:12px}
+    .workspace{display:grid;grid-template-columns:1.2fr 0.8fr;gap:24px;margin-top:16px;display:none}
+    .preview-card{border:1px solid var(--brd);border-radius:var(--r);padding:16px;background:var(--glass);text-align:center}
+    .preview-card canvas{max-width:100%;max-height:300px;object-fit:contain;border-radius:var(--r);background:#222}
+    .controls-card{border:1px solid var(--brd);border-radius:var(--r);padding:16px;background:var(--glass);display:none;flex-direction:column;gap:16px;margin-top:16px}
+    .crop-inputs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .input-group{display:flex;flex-direction:column;gap:6px}
+    .input-group label{font-size:.8rem;font-weight:600;color:var(--tx2)}
+    .input-field{padding:8px;background:var(--bg3);border:1px solid var(--brd);border-radius:var(--r);color:var(--tx);font-family:inherit;font-size:.9rem}
+    .select-field{padding:8px;background:var(--bg3);border:1px solid var(--brd);border-radius:var(--r);color:var(--tx);font-family:inherit;font-size:.9rem}
+    .file-input{display:none}
+    @media(max-width:768px){.workspace{grid-template-columns:1fr}}
+  </style>
+</head>
+<body class="tool-page">
+  <nav class="tool-nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36"><span class="nav-brand">Nexa<em>Growth</em></span></a><div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div><div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div></div></nav>
+  <div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">Image Cropper</span></nav>
+    <div class="tool-hero"><div class="tool-icon">✂️</div><h1>Image <em>Cropper</em></h1><p>Crop images manually or use built-in aspect ratios (1:1, 16:9, 4:3). Instantly preview and save your cropped photo.</p></div>
+    <div class="tool-card">
+      <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()"><div class="drop-zone-icon">🖼️</div><p><strong>Click to select image</strong> or drag & drop</p><p style="font-size:.8rem;margin-top:8px">Supports PNG, JPG, WebP • Free offline cropping</p></div>
+      <input type="file" id="fileInput" class="file-input" accept="image/*">
+      <div class="workspace" id="workspace">
+        <div class="preview-card"><h3>Visual Preview</h3><canvas id="cropCanvas"></canvas></div>
+        <div class="preview-card"><h3>Crop Output</h3><canvas id="outputCanvas" style="max-height:200px"></canvas></div>
+      </div>
+      <div class="controls-card" id="controlsCard">
+        <div class="crop-inputs">
+          <div class="input-group">
+            <label>Aspect Ratio Preset</label>
+            <select id="presetSelect" class="select-field" onchange="applyPreset(this.value)">
+              <option value="free">Freeform (Custom)</option>
+              <option value="1:1">Square (1:1)</option>
+              <option value="16:9">Widescreen (16:9)</option>
+              <option value="4:3">Standard (4:3)</option>
+            </select>
+          </div>
+          <div class="input-group"><label>Width (px)</label><input type="number" id="cropW" class="input-field" oninput="changeWidth(this.value)"></div>
+          <div class="input-group"><label>X Offset (px)</label><input type="number" id="cropX" class="input-field" oninput="changeX(this.value)"></div>
+          <div class="input-group"><label>Y Offset (px)</label><input type="number" id="cropY" class="input-field" oninput="changeY(this.value)"></div>
+        </div>
+        <div class="tool-actions" style="margin-top:8px">
+          <button class="btn-primary" onclick="downloadCropped()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Crop & Download</button>
+          <button class="btn-secondary" onclick="resetAll()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Change Image</button>
+        </div>
+      </div>
+    </div>
+    <section class="tool-section"><h2><span class="section-icon">📖</span> How to Use</h2><p>Upload an image, pick an aspect ratio preset or adjust the offset and size values, and download the cropped region instantly.</p></section>
+  </div></main>
+  <footer class="tool-footer"><div class="container"><p>&copy; 2025 NexaGrowth. All rights reserved.</p></div></footer>
+  <script src="tools.js"></script>
+  <script>
+  let img=new Image(),origFile=null;
+  let cx=0,cy=0,cw=200,ch=200;
+  const cropCanvas=document.getElementById('cropCanvas'),outputCanvas=document.getElementById('outputCanvas');
+  const cropX=document.getElementById('cropX'),cropY=document.getElementById('cropY'),cropW=document.getElementById('cropW'),presetSelect=document.getElementById('presetSelect');
+  const dropZone=document.getElementById('dropZone'),fileInput=document.getElementById('fileInput'),workspace=document.getElementById('workspace'),controlsCard=document.getElementById('controlsCard');
+  dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('dragover')});
+  dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('dragover'));
+  dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('dragover');if(e.dataTransfer.files.length)handleImage(e.dataTransfer.files[0])});
+  fileInput.addEventListener('change',e=>{if(e.target.files.length)handleImage(e.target.files[0])});
+  function handleImage(file){
+    if(!file.type.startsWith('image/'))return;
+    origFile=file;
+    const url=URL.createObjectURL(file);
+    img.src=url;
+    img.onload=()=>{
+      cx=Math.round(img.naturalWidth*0.1);
+      cy=Math.round(img.naturalHeight*0.1);
+      cw=Math.round(img.naturalWidth*0.8);
+      ch=Math.round(img.naturalHeight*0.8);
+      cropX.value=cx;cropY.value=cy;cropW.value=cw;
+      applyPreset(presetSelect.value);
+    };
+    dropZone.style.display='none';
+    workspace.style.display='grid';
+    controlsCard.style.display='flex';
+  }
+  function applyPreset(preset){
+    if(!img.src)return;
+    if(preset==='1:1'){cw=Math.min(img.naturalWidth,img.naturalHeight);ch=cw}
+    else if(preset==='16:9'){cw=Math.min(img.naturalWidth,Math.round(img.naturalHeight*16/9));ch=Math.round(cw*9/16)}
+    else if(preset==='4:3'){cw=Math.min(img.naturalWidth,Math.round(img.naturalHeight*4/3));ch=Math.round(cw*3/4)}
+    cropW.value=cw;
+    cx=Math.round((img.naturalWidth-cw)/2);
+    cy=Math.round((img.naturalHeight-ch)/2);
+    cropX.value=cx;cropY.value=cy;
+    drawCropper();
+  }
+  function changeWidth(val){cw=parseInt(val)||100;const preset=presetSelect.value;if(preset==='1:1')ch=cw;else if(preset==='16:9')ch=Math.round(cw*9/16);else if(preset==='4:3')ch=Math.round(cw*3/4);else ch=cw;drawCropper()}
+  function changeX(val){cx=parseInt(val)||0;drawCropper()}
+  function changeY(val){cy=parseInt(val)||0;drawCropper()}
+  function drawCropper(){
+    if(!img.src)return;
+    const ctx=cropCanvas.getContext('2d');
+    cropCanvas.width=img.naturalWidth;
+    cropCanvas.height=img.naturalHeight;
+    ctx.drawImage(img,0,0);
+    ctx.fillStyle='rgba(0,0,0,0.5)';
+    ctx.fillRect(0,0,img.naturalWidth,img.naturalHeight);
+    ctx.clearRect(cx,cy,cw,ch);
+    ctx.strokeStyle='#4f46e5';ctx.lineWidth=4;
+    ctx.strokeRect(cx,cy,cw,ch);
+    const outCtx=outputCanvas.getContext('2d');
+    outputCanvas.width=cw;outputCanvas.height=ch;
+    outCtx.drawImage(img,cx,cy,cw,ch,0,0,cw,ch);
+  }
+  function downloadCropped(){
+    const url=outputCanvas.toDataURL(origFile.type);
+    const a=document.createElement('a');a.href=url;a.download='cropped_'+origFile.name;a.click();
+  }
+  function resetAll(){origFile=null;img=new Image();dropZone.style.display='block';workspace.style.display='none';controlsCard.style.display='none';fileInput.value=''}
+  </script>
+</body>
+</html>

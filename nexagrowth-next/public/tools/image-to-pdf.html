@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993" crossorigin="anonymous"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Image to PDF Converter — Free Online | NexaGrowth</title>
+  <meta name="description" content="Convert images (JPG, PNG, WebP) to PDF documents instantly. Free, no upload, runs in your browser.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/image-to-pdf">
+  <meta property="og:title" content="Image to PDF Converter — NexaGrowth"><meta property="og:url" content="https://nexagrowth.xyz/tools/image-to-pdf"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <style>
+    .drop-zone{border:2px dashed var(--brd3);border-radius:var(--r2);padding:48px 24px;text-align:center;cursor:pointer;transition:.3s;background:var(--glass)}
+    .drop-zone:hover,.drop-zone.dragover{border-color:var(--a);background:var(--glass3)}
+    .drop-zone-icon{font-size:3rem;margin-bottom:12px}
+    .drop-zone p{color:var(--tx2);font-size:.9rem}
+    .preview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px;margin-top:16px}
+    .preview-item{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--brd);aspect-ratio:1}
+    .preview-item img{width:100%;height:100%;object-fit:cover}
+    .preview-item .remove{position:absolute;top:4px;right:4px;width:24px;height:24px;border-radius:50%;background:rgba(239,68,68,.9);color:#fff;border:none;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+    .file-input{display:none}
+  </style>
+</head>
+<body class="tool-page">
+  <nav class="tool-nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36"><span class="nav-brand">Nexa<em>Growth</em></span></a><div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div><div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div></div></nav>
+  <div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">Image to PDF</span></nav>
+    <div class="tool-hero"><div class="tool-icon">📸</div><h1>Image to <em>PDF</em> Converter</h1><p>Convert images (JPG, PNG, WebP) to PDF documents. Select multiple images, reorder them, and download as a single PDF.</p></div>
+    <div class="tool-card">
+      <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+        <div class="drop-zone-icon">📁</div>
+        <p><strong>Click to select images</strong> or drag & drop them here</p>
+        <p style="font-size:.8rem;margin-top:8px">Supports JPG, PNG, WebP • No file size limit</p>
+      </div>
+      <input type="file" id="fileInput" class="file-input" multiple accept="image/*">
+      <div class="preview-grid" id="previewGrid"></div>
+      <div class="tool-actions" style="margin-top:16px">
+        <button class="btn-primary" id="convertBtn" disabled onclick="convertToPDF()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Convert to PDF & Download
+        </button>
+        <button class="btn-secondary" onclick="clearAll()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+          Clear All
+        </button>
+      </div>
+    </div>
+    <section class="tool-section"><h2><span class="section-icon">📖</span> How to Use</h2><p>Select or drag images, preview them, then click "Convert to PDF" to download.</p><ul><li><strong>Select Images:</strong> Click the drop zone or drag files onto it.</li><li><strong>Multiple Images:</strong> All images are combined into one PDF, one per page.</li><li><strong>Remove:</strong> Click the ✕ on any preview to remove it.</li><li><strong>Download:</strong> Click Convert to generate and download your PDF.</li></ul></section>
+    <section class="tool-section"><h2><span class="section-icon">🔗</span> Related Tools</h2><div class="related-grid">
+      <a href="text-to-pdf.html" class="related-card"><span class="rc-icon">📝</span><h3>Text to PDF</h3><p>Convert text to PDF.</p><span class="rc-arrow">Use Tool →</span></a>
+      <a href="image-compressor.html" class="related-card"><span class="rc-icon">🗜️</span><h3>Image Compressor</h3><p>Compress images.</p><span class="rc-arrow">Use Tool →</span></a>
+    </div></section>
+    <div class="cta-box"><h3>Explore More Free Tools</h3><p>50+ free tools available.</p><div class="cta-actions"><a href="index.html" class="btn-primary">Browse All Tools</a></div></div>
+  </div></main>
+  <footer class="tool-footer"><div class="container"><p>&copy; 2025 NexaGrowth. All rights reserved.</p><div class="footer-links"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div></div></footer>
+  <script src="tools.js"></script>
+  <script>
+  let images=[];
+  const dropZone=document.getElementById('dropZone');
+  const fileInput=document.getElementById('fileInput');
+  const previewGrid=document.getElementById('previewGrid');
+  const convertBtn=document.getElementById('convertBtn');
+
+  dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('dragover')});
+  dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('dragover'));
+  dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('dragover');handleFiles(e.dataTransfer.files)});
+  fileInput.addEventListener('change',e=>handleFiles(e.target.files));
+
+  function handleFiles(files){
+    for(let f of files){
+      if(!f.type.startsWith('image/'))continue;
+      const reader=new FileReader();
+      reader.onload=e=>{images.push({name:f.name,data:e.target.result});renderPreviews()};
+      reader.readAsDataURL(f);
+    }
+  }
+  function renderPreviews(){
+    previewGrid.innerHTML='';
+    images.forEach((img,i)=>{
+      const div=document.createElement('div');div.className='preview-item';
+      div.innerHTML=`<img src="${img.data}" alt="${img.name}"><button class="remove" onclick="removeImage(${i})">✕</button>`;
+      previewGrid.appendChild(div);
+    });
+    convertBtn.disabled=images.length===0;
+  }
+  function removeImage(i){images.splice(i,1);renderPreviews()}
+  function clearAll(){images=[];renderPreviews();fileInput.value=''}
+  function convertToPDF(){
+    if(!images.length)return;
+    const{jsPDF}=window.jspdf;
+    const doc=new jsPDF();
+    let loaded=0;
+    images.forEach((img,i)=>{
+      const image=new Image();
+      image.onload=()=>{
+        const w=doc.internal.pageSize.getWidth();
+        const h=doc.internal.pageSize.getHeight();
+        const ratio=Math.min(w/image.width,h/image.height);
+        const imgW=image.width*ratio;
+        const imgH=image.height*ratio;
+        const x=(w-imgW)/2;
+        const y=(h-imgH)/2;
+        if(i>0)doc.addPage();
+        doc.addImage(img.data,'JPEG',x,y,imgW,imgH);
+        loaded++;
+        if(loaded===images.length)doc.save('images.pdf');
+      };
+      image.src=img.data;
+    });
+  }
+  </script>
+</body>
+</html>

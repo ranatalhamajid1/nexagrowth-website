@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993" crossorigin="anonymous"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Screenshot to Image — Capture Screen Online Free | NexaGrowth</title>
+  <meta name="description" content="Capture your screen, window, or tab and save it as an image file. Free, client-side, no software install.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/screenshot-to-image">
+  <meta property="og:title" content="Screenshot to Image — NexaGrowth"><meta property="og:url" content="https://nexagrowth.xyz/tools/screenshot-to-image"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <style>
+    .workspace{display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:16px;display:none}
+    .preview-box{border:1px solid var(--brd);border-radius:var(--r);background:#222;overflow:hidden;max-width:100%;display:flex;justify-content:center}
+    .preview-box img{max-width:100%;height:auto;object-fit:contain}
+    .capture-btn{padding:24px;border:2px dashed var(--brd3);border-radius:var(--r2);text-align:center;cursor:pointer;background:var(--glass);width:100%;transition:.3s}
+    .capture-btn:hover{border-color:var(--a);background:var(--glass3)}
+    .btn-icon{font-size:3rem;margin-bottom:12px}
+  </style>
+</head>
+<body class="tool-page">
+  <nav class="tool-nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36"><span class="nav-brand">Nexa<em>Growth</em></span></a><div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div><div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div></div></nav>
+  <div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">Screenshot to Image</span></nav>
+    <div class="tool-hero"><div class="tool-icon">📸</div><h1>Screenshot to <em>Image</em></h1><p>Capture your browser tab, specific window, or entire screen and download the frame as a high-quality PNG image file.</p></div>
+    <div class="tool-card">
+      <div class="capture-btn" id="startCapture" onclick="takeScreenshot()">
+        <div class="btn-icon">🖥️</div>
+        <p><strong>Click here to start Screen Capture</strong></p>
+        <p style="font-size:.8rem;color:var(--tx2);margin-top:8px">Select the screen or window to capture. Runs fully locally.</p>
+      </div>
+      <div class="workspace" id="workspace">
+        <div class="preview-box"><img id="screenshotPreview" src="" alt="Screenshot Preview"></div>
+        <div class="tool-actions">
+          <button class="btn-primary" onclick="downloadScreenshot()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Save Image</button>
+          <button class="btn-secondary" onclick="takeScreenshot()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Capture Again</button>
+        </div>
+      </div>
+    </div>
+    <section class="tool-section"><h2><span class="section-icon">📖</span> How to Use</h2><p>Click the capture button, authorize the browser to view your screen, select the tab or window you want to capture, and click save. The tool automatically takes a snapshot of the selected stream.</p></section>
+  </div></main>
+  <footer class="tool-footer"><div class="container"><p>&copy; 2025 NexaGrowth. All rights reserved.</p></div></footer>
+  <script src="tools.js"></script>
+  <script>
+  let capturedDataURL="";
+  const workspace=document.getElementById('workspace'),startCapture=document.getElementById('startCapture'),preview=document.getElementById('screenshotPreview');
+  async function takeScreenshot(){
+    try{
+      const stream=await navigator.mediaDevices.getDisplayMedia({video:{displaySurface:"monitor"},audio:false});
+      const video=document.createElement('video');
+      video.srcObject=stream;
+      video.play();
+      video.onloadedmetadata=()=>{
+        setTimeout(()=>{
+          const canvas=document.createElement('canvas');
+          canvas.width=video.videoWidth;
+          canvas.height=video.videoHeight;
+          const ctx=canvas.getContext('2d');
+          ctx.drawImage(video,0,0,canvas.width,canvas.height);
+          capturedDataURL=canvas.toDataURL('image/png');
+          preview.src=capturedDataURL;
+          startCapture.style.display='none';
+          workspace.style.display='flex';
+          stream.getTracks().forEach(track=>track.stop());
+        },500);
+      };
+    }catch(err){alert('Screen capture was cancelled or failed: '+err.message)}
+  }
+  function downloadScreenshot(){
+    if(!capturedDataURL)return;
+    const a=document.createElement('a');a.href=capturedDataURL;a.download='screenshot.png';a.click();
+  }
+  </script>
+</body>
+</html>

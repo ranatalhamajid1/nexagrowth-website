@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993" crossorigin="anonymous"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Discount Calculator — Calculate Savings & Sale Prices | NexaGrowth</title>
+  <meta name="description" content="Calculate the final sale price and total savings of discounted items easily. Free online shopping helper tool.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/discount-calculator">
+  <meta property="og:title" content="Discount Calculator — NexaGrowth"><meta property="og:url" content="https://nexagrowth.xyz/tools/discount-calculator"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <style>
+    .inputs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:20px}
+    .input-group{display:flex;flex-direction:column;gap:8px}
+    .input-group label{font-size:.85rem;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em}
+    .input-field{padding:12px;background:var(--bg3);border:1px solid var(--brd);border-radius:var(--r);color:var(--tx);font-family:inherit;font-size:.95rem;transition:.2s}
+    .input-field:focus{outline:none;border-color:var(--a)}
+    .summary-card{background:var(--glass3);border:1px solid var(--brd);border-radius:var(--r2);padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:24px;text-align:center}
+    .summary-item{display:flex;flex-direction:column;gap:4px}
+    .sum-val{font-size:1.8rem;font-weight:800;color:var(--a)}
+    .sum-label{font-size:.85rem;color:var(--tx2)}
+    @media(max-width:480px){.summary-card{grid-template-columns:1fr}}
+  </style>
+</head>
+<body class="tool-page">
+  <nav class="tool-nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36"><span class="nav-brand">Nexa<em>Growth</em></span></a><div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div><div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div></div></nav>
+  <div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">Discount Calculator</span></nav>
+    <div class="tool-hero"><div class="tool-icon">🏷️</div><h1>Discount <em>Calculator</em></h1><p>Find out how much you save on items during sales. Enter the price and discount details to get the final sale price.</p></div>
+    <div class="tool-card">
+      <div class="inputs-grid">
+        <div class="input-group"><label>Original Price ($)</label><input type="number" id="origPrice" class="input-field" placeholder="100" value="100" oninput="calcDiscount()"></div>
+        <div class="input-group"><label>Discount (%)</label><input type="number" id="discountPct" class="input-field" placeholder="20" value="20" oninput="calcDiscount()"></div>
+        <div class="input-group"><label>Sales Tax (%)</label><input type="number" id="salesTax" class="input-field" placeholder="0" value="0" oninput="calcDiscount()"></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-item"><div class="sum-val" id="salePriceVal">$80.00</div><div class="sum-label">Final Sale Price</div></div>
+        <div class="summary-item"><div class="sum-val" id="savingsVal" style="color:var(--ag)">$20.00</div><div class="sum-label">You Save</div></div>
+      </div>
+    </div>
+  </div></main>
+  <footer class="tool-footer"><div class="container"><p>&copy; 2025 NexaGrowth. All rights reserved.</p></div></footer>
+  <script src="tools.js"></script>
+  <script>
+  function calcDiscount(){
+    const price=parseFloat(document.getElementById('origPrice').value)||0;
+    const disc=parseFloat(document.getElementById('discountPct').value)||0;
+    const tax=parseFloat(document.getElementById('salesTax').value)||0;
+    const savingsAmount=(disc/100)*price;
+    const discountedPrice=price-savingsAmount;
+    const taxAmount=(tax/100)*discountedPrice;
+    const finalPrice=discountedPrice+taxAmount;
+    const totalSavings=price-finalPrice+taxAmount; // correct math: price - finalPrice + tax
+    document.getElementById('salePriceVal').textContent='$'+finalPrice.toFixed(2);
+    document.getElementById('savingsVal').textContent='$'+savingsAmount.toFixed(2);
+  }
+  calcDiscount();
+  </script>
+</body>
+</html>

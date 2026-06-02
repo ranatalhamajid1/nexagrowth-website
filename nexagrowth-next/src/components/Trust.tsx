@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const METRICS = [
   { label: "Proven Experience", val: "Serving since 2024", desc: "Helping local and international clients grow consistently." },
   { label: "Global Footprint", val: "Pakistan base, global scope", desc: "Remote-first workflows supporting businesses anywhere." },
-  { label: "Community Value", val: "12+ Free Marketing Tools", desc: "Building practical web widgets used by hundreds daily." },
+  { label: "Community Value", val: "50+ Free Tools", desc: "Building practical web widgets used by hundreds daily." },
 ];
 
 const INDUSTRIES = [

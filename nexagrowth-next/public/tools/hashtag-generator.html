@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993" crossorigin="anonymous"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hashtag Generator — Find Trending Hashtags | NexaGrowth</title>
+  <meta name="description" content="Generate trending hashtags for Instagram, TikTok, LinkedIn, and Twitter. Free online social media helper.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/hashtag-generator">
+  <meta property="og:title" content="Hashtag Generator — NexaGrowth"><meta property="og:url" content="https://nexagrowth.xyz/tools/hashtag-generator"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <style>
+    .search-row{display:flex;gap:12px;margin-bottom:20px}
+    .input-field{flex:1;padding:12px;background:var(--bg3);border:1px solid var(--brd);border-radius:var(--r);color:var(--tx);font-family:inherit;font-size:.95rem;transition:.2s}
+    .input-field:focus{outline:none;border-color:var(--a)}
+    .tags-container{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .tag-badge{padding:8px 14px;background:var(--glass);border:1px solid var(--brd);border-radius:20px;font-size:.9rem;color:var(--a);cursor:pointer;transition:.2s;display:flex;align-items:center;gap:6px}
+    .tag-badge:hover{background:var(--a);color:#fff;border-color:var(--a)}
+  </style>
+</head>
+<body class="tool-page">
+  <nav class="tool-nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36"><span class="nav-brand">Nexa<em>Growth</em></span></a><div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div><div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div></div></nav>
+  <div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">Hashtag Generator</span></nav>
+    <div class="tool-hero"><div class="tool-icon">#️⃣</div><h1>Hashtag <em>Generator</em></h1><p>Find trending hashtags for your social media content. Enter keywords to get recommendations.</p></div>
+    <div class="tool-card">
+      <div class="search-row">
+        <input type="text" id="keyword" class="input-field" placeholder="e.g. marketing, tech, fitness, travel..." value="marketing" onkeydown="if(event.key==='Enter')generateTags()">
+        <button class="btn-primary" onclick="generateTags()">Generate</button>
+      </div>
+      <div class="tool-actions" style="margin-bottom:16px;display:none" id="actionsRow">
+        <button class="btn-secondary" onclick="copyAllTags(this)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy All</button>
+      </div>
+      <div class="tags-container" id="tagsContainer"></div>
+    </div>
+  </div></main>
+  <footer class="tool-footer"><div class="container"><p>&copy; 2025 NexaGrowth. All rights reserved.</p></div></footer>
+  <script src="tools.js"></script>
+  <script>
+  const tagDb={
+    marketing:['#marketing','#digitalmarketing','#marketingstrategy','#branding','#seo','#socialmedia','#growthhacking','#contentmarketing','#business','#entrepreneur'],
+    tech:['#tech','#technology','#innovation','#coding','#programming','#software','#developer','#ai','#machinelearning','#webdev'],
+    fitness:['#fitness','#gym','#workout','#motivation','#health','#fit','#fitfam','#training','#lifestyle','#healthy'],
+    travel:['#travel','#wanderlust','#nature','#adventure','#travelgram','#instatravel','#trip','#vacation','#explore','#photography'],
+    fashion:['#fashion','#style','#ootd','#model','#love','#beauty','#instagood','#shopping','#outfit','#instafashion'],
+    food:['#food','#foodie','#instafood','#foodporn','#delicious','#yummy','#foodphotography','#dinner','#cooking','#healthyfood'],
+    art:['#art','#artist','#drawing','#illustration','#painting','#artwork','#sketch','#digitalart','#creative','#instaart']
+  };
+  function generateTags(){
+    const kw=document.getElementById('keyword').value.trim().toLowerCase();
+    const container=document.getElementById('tagsContainer');
+    const actionsRow=document.getElementById('actionsRow');
+    container.innerHTML='';
+    if(!kw){actionsRow.style.display='none';return}
+    let tags=tagDb[kw];
+    if(!tags){
+      const cleanKw=kw.replace(/\s+/g,'');
+      tags=[`#${cleanKw}`,`#${cleanKw}life`,`#${cleanKw}community`,`#${cleanKw}tips`,`#${cleanKw}trending`,`#${cleanKw}online`,`#best${cleanKw}`,`#love${cleanKw}`,`#instafollow`,`#trendingnow`];
+    }
+    tags.forEach(t=>{
+      const badge=document.createElement('div');
+      badge.className='tag-badge';
+      badge.innerHTML=`${t} <span>📋</span>`;
+      badge.onclick=()=>copyToClipboard(t,badge);
+      container.appendChild(badge);
+    });
+    actionsRow.style.display='block';
+  }
+  function copyAllTags(btn){
+    const list=Array.from(document.querySelectorAll('.tag-badge')).map(el=>el.textContent.replace(' 📋','')).join(' ');
+    copyToClipboard(list,btn);
+  }
+  generateTags();
+  </script>
+</body>
+</html>

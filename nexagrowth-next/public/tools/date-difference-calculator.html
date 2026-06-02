@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993" crossorigin="anonymous"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Date Difference Calculator — Calculate Days Between Dates | NexaGrowth</title>
+  <meta name="description" content="Calculate the exact number of days, weeks, months, and years between any two dates. Free online calendar utility.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/date-difference-calculator">
+  <meta property="og:title" content="Date Difference Calculator — NexaGrowth"><meta property="og:url" content="https://nexagrowth.xyz/tools/date-difference-calculator"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <style>
+    .inputs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+    .input-group{display:flex;flex-direction:column;gap:8px}
+    .input-group label{font-size:.85rem;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em}
+    .input-field{padding:12px;background:var(--bg3);border:1px solid var(--brd);border-radius:var(--r);color:var(--tx);font-family:inherit;font-size:.95rem;transition:.2s}
+    .input-field:focus{outline:none;border-color:var(--a)}
+    .results-card{background:var(--glass3);border:1px solid var(--brd);border-radius:var(--r2);padding:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px;text-align:center}
+    .result-item{background:var(--bg3);padding:16px;border-radius:var(--r);border:1px solid var(--brd)}
+    .res-val{font-size:1.6rem;font-weight:800;color:var(--a)}
+    .res-label{font-size:.85rem;color:var(--tx2);margin-top:4px}
+    @media(max-width:480px){.inputs-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body class="tool-page">
+  <nav class="tool-nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36"><span class="nav-brand">Nexa<em>Growth</em></span></a><div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div><div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div></div></nav>
+  <div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">Date Difference Calculator</span></nav>
+    <div class="tool-hero"><div class="tool-icon">📅</div><h1>Date Difference <em>Calculator</em></h1><p>Calculate the duration between two dates. Get the exact count of years, months, weeks, and days instantly.</p></div>
+    <div class="tool-card">
+      <div class="inputs-grid">
+        <div class="input-group"><label>Start Date</label><input type="date" id="date1" class="input-field" onchange="calcDateDiff()"></div>
+        <div class="input-group"><label>End Date</label><input type="date" id="date2" class="input-field" onchange="calcDateDiff()"></div>
+      </div>
+      <div class="results-card">
+        <div class="result-item"><div class="res-val" id="daysVal">0</div><div class="res-label">Total Days</div></div>
+        <div class="result-item"><div class="res-val" id="weeksVal">0</div><div class="res-label">Weeks & Days</div></div>
+        <div class="result-item"><div class="res-val" id="monthsVal">0</div><div class="res-label">Months & Days</div></div>
+        <div class="result-item"><div class="res-val" id="yearsVal">0</div><div class="res-label">Years & Days</div></div>
+      </div>
+    </div>
+  </div></main>
+  <footer class="tool-footer"><div class="container"><p>&copy; 2025 NexaGrowth. All rights reserved.</p></div></footer>
+  <script src="tools.js"></script>
+  <script>
+  function setDefaultDates(){
+    const today=new Date();
+    const nextMonth=new Date();nextMonth.setMonth(today.getMonth()+1);
+    document.getElementById('date1').value=today.toISOString().split('T')[0];
+    document.getElementById('date2').value=nextMonth.toISOString().split('T')[0];
+  }
+  function calcDateDiff(){
+    const d1Str=document.getElementById('date1').value;
+    const d2Str=document.getElementById('date2').value;
+    if(!d1Str||!d2Str)return;
+    const t1=new Date(d1Str);
+    const t2=new Date(d2Str);
+    const diffTime=Math.abs(t2-t1);
+    const diffDays=Math.floor(diffTime/(1000*60*60*24));
+    document.getElementById('daysVal').textContent=diffDays;
+    const weeks=Math.floor(diffDays/7);
+    const remDays=diffDays%7;
+    document.getElementById('weeksVal').textContent=`${weeks}w ${remDays}d`;
+    const y1=t1.getFullYear(),m1=t1.getMonth(),day1=t1.getDate();
+    const y2=t2.getFullYear(),m2=t2.getMonth(),day2=t2.getDate();
+    let yearsDiff=y2-y1;
+    let monthsDiff=m2-m1;
+    let daysDiff=day2-day1;
+    if(daysDiff<0){
+      monthsDiff--;
+      const prevMonth=new Date(t2.getFullYear(),t2.getMonth(),0);
+      daysDiff+=prevMonth.getDate();
+    }
+    if(monthsDiff<0){
+      yearsDiff--;
+      monthsDiff+=12;
+    }
+    const finalYears=Math.abs(yearsDiff);
+    const finalMonths=Math.abs(monthsDiff);
+    const finalDays=Math.abs(daysDiff);
+    document.getElementById('monthsVal').textContent=`${finalYears*12+finalMonths}m ${finalDays}d`;
+    document.getElementById('yearsVal').textContent=`${finalYears}y ${finalMonths}m ${finalDays}d`;
+  }
+  setDefaultDates();
+  calcDateDiff();
+  </script>
+</body>
+</html>

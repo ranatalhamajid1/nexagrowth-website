@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993" crossorigin="anonymous"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tip Calculator — Split Bills & Tip Rates Online | NexaGrowth</title>
+  <meta name="description" content="Calculate tips and split restaurant or services bills easily. Free, responsive, instant calculations.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/tip-calculator">
+  <meta property="og:title" content="Tip Calculator — NexaGrowth"><meta property="og:url" content="https://nexagrowth.xyz/tools/tip-calculator"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <style>
+    .inputs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:20px}
+    .input-group{display:flex;flex-direction:column;gap:8px}
+    .input-group label{font-size:.85rem;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em}
+    .input-field{padding:12px;background:var(--bg3);border:1px solid var(--brd);border-radius:var(--r);color:var(--tx);font-family:inherit;font-size:.95rem;transition:.2s}
+    .input-field:focus{outline:none;border-color:var(--a)}
+    .summary-card{background:var(--glass3);border:1px solid var(--brd);border-radius:var(--r2);padding:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:24px;text-align:center}
+    .summary-item{display:flex;flex-direction:column;gap:4px}
+    .sum-val{font-size:1.6rem;font-weight:800;color:var(--a)}
+    .sum-label{font-size:.85rem;color:var(--tx2)}
+  </style>
+</head>
+<body class="tool-page">
+  <nav class="tool-nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36"><span class="nav-brand">Nexa<em>Growth</em></span></a><div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div><div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div></div></nav>
+  <div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">Tip Calculator</span></nav>
+    <div class="tool-hero"><div class="tool-icon">💸</div><h1>Tip <em>Calculator</em></h1><p>Calculate tips and split the bill among your friends instantly. Enter the bill amount, tip rate, and split details.</p></div>
+    <div class="tool-card">
+      <div class="inputs-grid">
+        <div class="input-group"><label>Bill Amount ($)</label><input type="number" id="billAmt" class="input-field" placeholder="50.00" value="50.00" oninput="calcTip()"></div>
+        <div class="input-group"><label>Tip Percentage (%)</label><input type="number" id="tipPct" class="input-field" placeholder="15" value="15" oninput="calcTip()"></div>
+        <div class="input-group"><label>Number of People</label><input type="number" id="numPeople" class="input-field" placeholder="2" value="2" oninput="calcTip()"></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-item"><div class="sum-val" id="tipAmtVal">$7.50</div><div class="sum-label">Total Tip</div></div>
+        <div class="summary-item"><div class="sum-val" id="tipPerPersonVal">$3.75</div><div class="sum-label">Tip Per Person</div></div>
+        <div class="summary-item"><div class="sum-val" id="totalPerPersonVal">$28.75</div><div class="sum-label">Total Per Person</div></div>
+      </div>
+    </div>
+  </div></main>
+  <footer class="tool-footer"><div class="container"><p>&copy; 2025 NexaGrowth. All rights reserved.</p></div></footer>
+  <script src="tools.js"></script>
+  <script>
+  function calcTip(){
+    const bill=parseFloat(document.getElementById('billAmt').value)||0;
+    const pct=parseFloat(document.getElementById('tipPct').value)||0;
+    const people=parseInt(document.getElementById('numPeople').value)||1;
+    const cleanPeople=people<1?1:people;
+    const totalTip=(pct/100)*bill;
+    const totalBill=bill+totalTip;
+    const tipPerPerson=totalTip/cleanPeople;
+    const billPerPerson=totalBill/cleanPeople;
+    document.getElementById('tipAmtVal').textContent='$'+totalTip.toFixed(2);
+    document.getElementById('tipPerPersonVal').textContent='$'+tipPerPerson.toFixed(2);
+    document.getElementById('totalPerPersonVal').textContent='$'+billPerPerson.toFixed(2);
+  }
+  calcTip();
+  </script>
+</body>
+</html>

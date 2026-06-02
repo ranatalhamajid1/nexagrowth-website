@@ -260,7 +260,7 @@ export default function Home() {
                 <Wrench size={18} />
               </div>
               <div className="metric-text text-left">
-                <strong>12+ Free Tools</strong>
+                <strong>50+ Free Tools</strong>
                 <span>SEO, meta, QR & more</span>
               </div>
             </div>
@@ -990,7 +990,7 @@ export default function Home() {
               href="/tools"
               className="inline-flex items-center gap-2 text-[14px] font-medium text-foreground px-7 py-3 rounded-full glass border border-glass-border hover:bg-glass-hover hover:scale-[1.02] transition-all duration-300"
             >
-              <span>Explore All 12+ Tools</span>
+              <span>Explore All 50+ Tools</span>
               <ArrowRight size={14} />
             </Link>
           </div>

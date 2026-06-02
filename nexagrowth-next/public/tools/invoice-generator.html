@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993" crossorigin="anonymous"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Invoice Generator — Create PDF Invoices Free | NexaGrowth</title>
+  <meta name="description" content="Generate and download professional PDF invoices online. Custom billing details, client names, items, and tax settings. Free tool.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/invoice-generator">
+  <meta property="og:title" content="Invoice Generator — NexaGrowth"><meta property="og:url" content="https://nexagrowth.xyz/tools/invoice-generator"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <style>
+    .meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:20px}
+    .input-group{display:flex;flex-direction:column;gap:8px}
+    .input-group label{font-size:.85rem;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em}
+    .input-field{padding:10px;background:var(--bg3);border:1px solid var(--brd);border-radius:var(--r);color:var(--tx);font-family:inherit;font-size:.95rem;transition:.2s}
+    .input-field:focus{outline:none;border-color:var(--a)}
+    .items-table{width:100%;border-collapse:collapse;margin:20px 0}
+    .items-table th{background:var(--bg3);color:var(--tx2);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;padding:12px;text-align:left;border-bottom:1px solid var(--brd)}
+    .items-table td{padding:12px;border-bottom:1px solid var(--brd)}
+    .item-row input{width:100%;padding:8px;background:var(--bg3);border:1px solid var(--brd);border-radius:var(--r);color:var(--tx)}
+    .summary-box{display:flex;flex-direction:column;align-items:flex-end;gap:8px;margin-top:16px}
+    .summary-line{display:flex;gap:32px;font-size:1.1rem}
+    .summary-line.total{font-size:1.4rem;font-weight:800;color:var(--a)}
+  </style>
+</head>
+<body class="tool-page">
+  <nav class="tool-nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36"><span class="nav-brand">Nexa<em>Growth</em></span></a><div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div><div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div></div></nav>
+  <div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">Invoice Generator</span></nav>
+    <div class="tool-hero"><div class="tool-icon">🧾</div><h1>Invoice <em>Generator</em></h1><p>Create professional, print-ready PDF invoices. Fill in your billing details, add items, and download instantly.</p></div>
+    <div class="tool-card">
+      <div class="meta-grid">
+        <div class="input-group"><label>Your Company</label><input type="text" id="issuerName" class="input-field" placeholder="My Company Ltd."></div>
+        <div class="input-group"><label>Billed To (Client)</label><input type="text" id="clientName" class="input-field" placeholder="Client Name / Corp"></div>
+        <div class="input-group"><label>Invoice No.</label><input type="text" id="invoiceNum" class="input-field" placeholder="INV-2026-001" value="INV-2026-001"></div>
+        <div class="input-group"><label>Invoice Date</label><input type="date" id="invoiceDate" class="input-field"></div>
+      </div>
+      <table class="items-table" id="itemsTable">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th style="width:100px">Qty</th>
+            <th style="width:120px">Unit Price ($)</th>
+            <th style="width:80px">Action</th>
+          </tr>
+        </thead>
+        <tbody id="itemsBody">
+          <tr class="item-row">
+            <td><input type="text" class="item-desc" placeholder="Web Development Services" value="Web Development Services"></td>
+            <td><input type="number" class="item-qty" value="1" min="1" oninput="calculateTotal()"></td>
+            <td><input type="number" class="item-price" value="1500.00" min="0" step="0.01" oninput="calculateTotal()"></td>
+            <td><button class="btn-secondary" style="padding:6px 12px;font-size:.8rem;color:#ef4444" onclick="removeItem(this)">✕</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn-secondary" onclick="addItem()">+ Add Item</button>
+      <div class="summary-box">
+        <div class="summary-line"><span>Total:</span><span id="grandTotal" style="font-weight:700">$1,500.00</span></div>
+      </div>
+      <div class="tool-actions" style="margin-top:20px">
+        <button class="btn-primary" onclick="generateInvoicePDF()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Download Invoice PDF</button>
+      </div>
+    </div>
+  </div></main>
+  <footer class="tool-footer"><div class="container"><p>&copy; 2025 NexaGrowth. All rights reserved.</p></div></footer>
+  <script src="tools.js"></script>
+  <script>
+  function setDefaultDate(){
+    document.getElementById('invoiceDate').value=new Date().toISOString().split('T')[0];
+  }
+  function addItem(){
+    const tbody=document.getElementById('itemsBody');
+    const tr=document.createElement('tr');
+    tr.className='item-row';
+    tr.innerHTML=`<td><input type="text" class="item-desc" placeholder="Services description"></td>
+      <td><input type="number" class="item-qty" value="1" min="1" oninput="calculateTotal()"></td>
+      <td><input type="number" class="item-price" value="0.00" min="0" step="0.01" oninput="calculateTotal()"></td>
+      <td><button class="btn-secondary" style="padding:6px 12px;font-size:.8rem;color:#ef4444" onclick="removeItem(this)">✕</button></td>`;
+    tbody.appendChild(tr);
+    calculateTotal();
+  }
+  function removeItem(btn){
+    const row=btn.closest('tr');
+    row.remove();
+    calculateTotal();
+  }
+  function calculateTotal(){
+    let total=0;
+    document.querySelectorAll('.item-row').forEach(row=>{
+      const qty=parseFloat(row.querySelector('.item-qty').value)||0;
+      const price=parseFloat(row.querySelector('.item-price').value)||0;
+      total+=qty*price;
+    });
+    document.getElementById('grandTotal').textContent='$'+total.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  }
+  function generateInvoicePDF(){
+    const issuer=document.getElementById('issuerName').value||'My Company';
+    const client=document.getElementById('clientName').value||'Client Name';
+    const invNum=document.getElementById('invoiceNum').value||'INV-001';
+    const date=document.getElementById('invoiceDate').value||new Date().toISOString().split('T')[0];
+    const{jsPDF}=window.jspdf;
+    const doc=new jsPDF('p','pt','a4');
+    doc.setFont('Helvetica','');
+    doc.setFontSize(22);doc.setTextColor(79,70,229);
+    doc.text(issuer.toUpperCase(),40,60);
+    doc.setFontSize(10);doc.setTextColor(100);
+    doc.text('INVOICE STATEMENT',40,80);
+    doc.setFontSize(10);doc.setTextColor(50);
+    doc.text('Invoice No: '+invNum,420,60);
+    doc.text('Date: '+date,420,75);
+    doc.setFontSize(11);doc.setTextColor(55);
+    doc.text('Billed To:',40,130);
+    doc.setFontSize(12);doc.setTextColor(0);
+    doc.text(client,40,150);
+    let y=200;
+    doc.setFillColor(248,250,252);
+    doc.rect(40,y,515,24,'F');
+    doc.setFontSize(10);doc.setTextColor(100);
+    doc.text('Description',45,y+16);
+    doc.text('Qty',350,y+16);
+    doc.text('Price ($)',420,y+16);
+    doc.text('Total ($)',490,y+16);
+    y+=24;
+    let grandTotal=0;
+    document.querySelectorAll('.item-row').forEach(row=>{
+      const desc=row.querySelector('.item-desc').value||'Item description';
+      const qty=parseFloat(row.querySelector('.item-qty').value)||0;
+      const price=parseFloat(row.querySelector('.item-price').value)||0;
+      const subtotal=qty*price;
+      grandTotal+=subtotal;
+      doc.setFontSize(11);doc.setTextColor(0);
+      doc.text(desc,45,y+20);
+      doc.text(String(qty),350,y+20);
+      doc.text(price.toFixed(2),420,y+20);
+      doc.text(subtotal.toFixed(2),490,y+20);
+      y+=30;
+    });
+    doc.setDrawColor(240);doc.line(40,y,555,y);y+=20;
+    doc.setFontSize(14);doc.setTextColor(79,70,229);
+    doc.text('Total Due: $'+grandTotal.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}),380,y+10);
+    doc.save(`${invNum}.pdf`);
+  }
+  setDefaultDate();
+  calculateTotal();
+  </script>
+</body>
+</html>

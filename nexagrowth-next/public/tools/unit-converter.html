@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993" crossorigin="anonymous"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Unit Converter — Convert Length, Weight, Temp | NexaGrowth</title>
+  <meta name="description" content="Convert between metric and imperial units for length, weight, and temperature. Free, instant, responsive online tool.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/unit-converter">
+  <meta property="og:title" content="Unit Converter — NexaGrowth"><meta property="og:url" content="https://nexagrowth.xyz/tools/unit-converter"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <style>
+    .tabs{display:flex;gap:12px;margin-bottom:20px;border-bottom:1px solid var(--brd);padding-bottom:12px}
+    .tab-btn{padding:8px 16px;border-radius:var(--r);background:var(--bg3);border:1px solid var(--brd);color:var(--tx2);cursor:pointer;font-weight:600;transition:.2s}
+    .tab-btn.active,.tab-btn:hover{background:var(--a);color:#fff;border-color:var(--a)}
+    .conv-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center}
+    .input-group{display:flex;flex-direction:column;gap:8px}
+    .input-group label{font-size:.85rem;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em}
+    .input-field{padding:12px;background:var(--bg3);border:1px solid var(--brd);border-radius:var(--r);color:var(--tx);font-family:inherit;font-size:.95rem;transition:.2s}
+    .select-field{padding:12px;background:var(--bg3);border:1px solid var(--brd);border-radius:var(--r);color:var(--tx);font-family:inherit;font-size:.95rem;transition:.2s}
+    .equal-sign{font-size:2rem;color:var(--tx2);text-align:center}
+    @media(max-width:640px){.conv-grid{grid-template-columns:1fr;gap:12px}.equal-sign{transform:rotate(90deg)}}
+  </style>
+</head>
+<body class="tool-page">
+  <nav class="tool-nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36"><span class="nav-brand">Nexa<em>Growth</em></span></a><div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div><div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div></div></nav>
+  <div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">Unit Converter</span></nav>
+    <div class="tool-hero"><div class="tool-icon">⚖️</div><h1>Unit <em>Converter</em></h1><p>Convert metrics in real-time. Toggle between Length, Weight, and Temperature categories.</p></div>
+    <div class="tool-card">
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchCategory('length')">Length</button>
+        <button class="tab-btn" onclick="switchCategory('weight')">Weight</button>
+        <button class="tab-btn" onclick="switchCategory('temp')">Temperature</button>
+      </div>
+      <div class="conv-grid">
+        <div class="input-group">
+          <label>From Value</label>
+          <input type="number" id="valFrom" class="input-field" value="1" oninput="convert()">
+          <select id="unitFrom" class="select-field" style="margin-top:8px" onchange="convert()"></select>
+        </div>
+        <div class="equal-sign">=</div>
+        <div class="input-group">
+          <label>To Value</label>
+          <input type="number" id="valTo" class="input-field" readonly style="background:var(--glass);cursor:default">
+          <select id="unitTo" class="select-field" style="margin-top:8px" onchange="convert()"></select>
+        </div>
+      </div>
+    </div>
+  </div></main>
+  <footer class="tool-footer"><div class="container"><p>&copy; 2025 NexaGrowth. All rights reserved.</p></div></footer>
+  <script src="tools.js"></script>
+  <script>
+  let currentCategory='length';
+  const units={
+    length:{
+      m:{name:'Meter (m)',factor:1},
+      cm:{name:'Centimeter (cm)',factor:0.01},
+      km:{name:'Kilometer (km)',factor:1000},
+      inch:{name:'Inch (in)',factor:0.0254},
+      ft:{name:'Foot (ft)',factor:0.3048},
+      yd:{name:'Yard (yd)',factor:0.9144},
+      mi:{name:'Mile (mi)',factor:1609.344}
+    },
+    weight:{
+      kg:{name:'Kilogram (kg)',factor:1},
+      g:{name:'Gram (g)',factor:0.001},
+      lb:{name:'Pound (lb)',factor:0.45359237},
+      oz:{name:'Ounce (oz)',factor:0.028349523}
+    },
+    temp:{
+      c:{name:'Celsius (°C)'},
+      f:{name:'Fahrenheit (°F)'},
+      k:{name:'Kelvin (K)'}
+    }
+  };
+  const valFrom=document.getElementById('valFrom'),valTo=document.getElementById('valTo'),unitFrom=document.getElementById('unitFrom'),unitTo=document.getElementById('unitTo');
+  function switchCategory(cat){
+    currentCategory=cat;
+    document.querySelectorAll('.tab-btn').forEach(btn=>{
+      btn.classList.toggle('active',btn.textContent.toLowerCase()===cat||(btn.textContent.includes('Temp')&&cat==='temp'));
+    });
+    populateDropdowns();
+    convert();
+  }
+  function populateDropdowns(){
+    unitFrom.innerHTML='';unitTo.innerHTML='';
+    const catUnits=units[currentCategory];
+    let i=0;
+    for(let k in catUnits){
+      const opt1=document.createElement('option');opt1.value=k;opt1.textContent=catUnits[k].name;
+      const opt2=document.createElement('option');opt2.value=k;opt2.textContent=catUnits[k].name;
+      if(i===0)opt1.selected=true;
+      if(i===1)opt2.selected=true;
+      unitFrom.appendChild(opt1);
+      unitTo.appendChild(opt2);
+      i++;
+    }
+  }
+  function convert(){
+    const val=parseFloat(valFrom.value);
+    if(isNaN(val)){valTo.value='';return}
+    const uFrom=unitFrom.value,uTo=unitTo.value;
+    if(uFrom===uTo){valTo.value=val;return}
+    if(currentCategory==='temp'){
+      let tempInC=0;
+      if(uFrom==='c')tempInC=val;
+      else if(uFrom==='f')tempInC=(val-32)*5/9;
+      else if(uFrom==='k')tempInC=val-273.15;
+      let finalVal=0;
+      if(uTo==='c')finalVal=tempInC;
+      else if(uTo==='f')finalVal=(tempInC*9/5)+32;
+      else if(uTo==='k')finalVal=tempInC+273.15;
+      valTo.value=finalVal.toFixed(4);
+    }else{
+      const meters=val*units[currentCategory][uFrom].factor;
+      const result=meters/units[currentCategory][uTo].factor;
+      valTo.value=result.toFixed(6).replace(/\.?0+$/,'');
+    }
+  }
+  populateDropdowns();
+  convert();
+  </script>
+</body>
+</html>

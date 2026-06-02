@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993" crossorigin="anonymous"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Image Resizer — Resize Images Online Free | NexaGrowth</title>
+  <meta name="description" content="Resize your images (JPG, PNG, WebP) to custom dimensions online. Free, secure, lock aspect ratio.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/image-resizer">
+  <meta property="og:title" content="Image Resizer — NexaGrowth"><meta property="og:url" content="https://nexagrowth.xyz/tools/image-resizer"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <style>
+    .drop-zone{border:2px dashed var(--brd3);border-radius:var(--r2);padding:48px 24px;text-align:center;cursor:pointer;transition:.3s;background:var(--glass)}
+    .drop-zone:hover,.drop-zone.dragover{border-color:var(--a);background:var(--glass3)}
+    .drop-zone-icon{font-size:3rem;margin-bottom:12px}
+    .workspace{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;display:none}
+    .preview-card{border:1px solid var(--brd);border-radius:var(--r);padding:16px;background:var(--glass);text-align:center}
+    .preview-card img{max-width:100%;max-height:240px;object-fit:contain;border-radius:var(--r);background:#222}
+    .controls-card{border:1px solid var(--brd);border-radius:var(--r);padding:16px;background:var(--glass);display:none;flex-direction:column;gap:16px;margin-top:16px}
+    .inputs-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .input-group{display:flex;flex-direction:column;gap:8px}
+    .input-group label{font-size:.85rem;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em}
+    .input-field{padding:10px;background:var(--bg3);border:1px solid var(--brd);border-radius:var(--r);color:var(--tx);font-family:inherit;font-size:.95rem;transition:.2s}
+    .input-field:focus{outline:none;border-color:var(--a)}
+    .checkbox-group{display:flex;align-items:center;gap:8px;font-size:.9rem}
+    .file-input{display:none}
+  </style>
+</head>
+<body class="tool-page">
+  <nav class="tool-nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36"><span class="nav-brand">Nexa<em>Growth</em></span></a><div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div><div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div></div></nav>
+  <div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">Image Resizer</span></nav>
+    <div class="tool-hero"><div class="tool-icon">📐</div><h1>Image <em>Resizer</em></h1><p>Resize images to custom width and height. Keep quality, lock aspect ratio, and resize instantly in your browser.</p></div>
+    <div class="tool-card">
+      <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()"><div class="drop-zone-icon">🖼️</div><p><strong>Click to select image</strong> or drag & drop</p><p style="font-size:.8rem;margin-top:8px">Supports PNG, JPG, WebP • Free offline resizing</p></div>
+      <input type="file" id="fileInput" class="file-input" accept="image/*">
+      <div class="workspace" id="workspace">
+        <div class="preview-card"><h3>Original</h3><img id="origImg" src="" alt="Original"><div style="margin-top:8px;font-size:.85rem;color:var(--tx2)" id="origMeta">0 x 0</div></div>
+        <div class="preview-card"><h3>Resized Preview</h3><img id="resizedImg" src="" alt="Resized Preview"><div style="margin-top:8px;font-size:.85rem;color:var(--tx2)" id="resizedMeta">0 x 0</div></div>
+      </div>
+      <div class="controls-card" id="controlsCard">
+        <div class="inputs-row">
+          <div class="input-group"><label>Width (px)</label><input type="number" id="widthInput" class="input-field" value="800" oninput="resizeWidth(this.value)"></div>
+          <div class="input-group"><label>Height (px)</label><input type="number" id="heightInput" class="input-field" value="600" oninput="resizeHeight(this.value)"></div>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="lockAspect" checked style="accent-color:var(--a)">
+          <label for="lockAspect">Lock Aspect Ratio</label>
+        </div>
+        <div class="tool-actions">
+          <button class="btn-primary" onclick="downloadResized()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Resize & Download</button>
+          <button class="btn-secondary" onclick="resetAll()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Change Image</button>
+        </div>
+      </div>
+    </div>
+    <section class="tool-section"><h2><span class="section-icon">📖</span> How to Use</h2><p>Upload your image, adjust the dimensions in pixels, toggle the Aspect Ratio lock if needed, and hit download to save your newly sized image.</p></section>
+  </div></main>
+  <footer class="tool-footer"><div class="container"><p>&copy; 2025 NexaGrowth. All rights reserved.</p></div></footer>
+  <script src="tools.js"></script>
+  <script>
+  let origFile=null,aspectRatio=1,resizedURL="";
+  const dropZone=document.getElementById('dropZone'),fileInput=document.getElementById('fileInput'),workspace=document.getElementById('workspace'),controlsCard=document.getElementById('controlsCard'),origImg=document.getElementById('origImg'),resizedImg=document.getElementById('resizedImg'),origMeta=document.getElementById('origMeta'),resizedMeta=document.getElementById('resizedMeta'),widthInput=document.getElementById('widthInput'),heightInput=document.getElementById('heightInput'),lockAspect=document.getElementById('lockAspect');
+  dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('dragover')});
+  dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('dragover'));
+  dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('dragover');if(e.dataTransfer.files.length)handleImage(e.dataTransfer.files[0])});
+  fileInput.addEventListener('change',e=>{if(e.target.files.length)handleImage(e.target.files[0])});
+  function handleImage(file){
+    if(!file.type.startsWith('image/'))return;
+    origFile=file;
+    const url=URL.createObjectURL(file);
+    origImg.src=url;
+    origImg.onload=()=>{
+      aspectRatio=origImg.naturalWidth/origImg.naturalHeight;
+      origMeta.textContent=`${origImg.naturalWidth} x ${origImg.naturalHeight} px`;
+      widthInput.value=origImg.naturalWidth;
+      heightInput.value=origImg.naturalHeight;
+      renderResize();
+    };
+    dropZone.style.display='none';
+    workspace.style.display='grid';
+    controlsCard.style.display='flex';
+  }
+  function resizeWidth(val){
+    if(lockAspect.checked&&val){
+      heightInput.value=Math.round(val/aspectRatio);
+    }
+    renderResize();
+  }
+  function resizeHeight(val){
+    if(lockAspect.checked&&val){
+      widthInput.value=Math.round(val*aspectRatio);
+    }
+    renderResize();
+  }
+  function renderResize(){
+    if(!origImg.src)return;
+    const w=parseInt(widthInput.value)||100;
+    const h=parseInt(heightInput.value)||100;
+    const canvas=document.createElement('canvas');
+    const ctx=canvas.getContext('2d');
+    canvas.width=w;canvas.height=h;
+    ctx.drawImage(origImg,0,0,w,h);
+    resizedURL=canvas.toDataURL(origFile.type);
+    resizedImg.src=resizedURL;
+    resizedMeta.textContent=`${w} x ${h} px`;
+  }
+  function downloadResized(){
+    if(!resizedURL)return;
+    const a=document.createElement('a');a.href=resizedURL;a.download='resized_'+origFile.name;a.click();
+  }
+  function resetAll(){origFile=null;resizedURL="";dropZone.style.display='block';workspace.style.display='none';controlsCard.style.display='none';fileInput.value=''}
+  </script>
+</body>
+</html>

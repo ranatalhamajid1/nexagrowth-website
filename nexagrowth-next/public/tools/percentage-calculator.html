@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993" crossorigin="anonymous"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Percentage Calculator — Free Online Percentage Finder | NexaGrowth</title>
+  <meta name="description" content="Calculate percentages, fraction rates, and percentage differences easily. Free, responsive, instant math tool.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/percentage-calculator">
+  <meta property="og:title" content="Percentage Calculator — NexaGrowth"><meta property="og:url" content="https://nexagrowth.xyz/tools/percentage-calculator"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <style>
+    .calc-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr)) auto;gap:12px;align-items:center;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--brd)}
+    .calc-row:last-child{border:none;margin-bottom:0;padding-bottom:0}
+    .input-field{padding:10px;background:var(--bg3);border:1px solid var(--brd);border-radius:var(--r);color:var(--tx);font-family:inherit;width:100%;font-size:.95rem;transition:.2s}
+    .input-field:focus{outline:none;border-color:var(--a)}
+    .calc-label{font-size:.9rem;color:var(--tx);font-weight:500;white-space:nowrap}
+    .result-box{background:var(--glass3);padding:10px 16px;border-radius:var(--r);border:1px solid var(--brd);color:var(--a);font-weight:700;min-width:120px;text-align:center}
+  </style>
+</head>
+<body class="tool-page">
+  <nav class="tool-nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36"><span class="nav-brand">Nexa<em>Growth</em></span></a><div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div><div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div></div></nav>
+  <div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">Percentage Calculator</span></nav>
+    <div class="tool-hero"><div class="tool-icon">🔢</div><h1>Percentage <em>Calculator</em></h1><p>Solve everyday percentage problems instantly. Calculate percentage shares, rates, and values easily.</p></div>
+    <div class="tool-card">
+      <div class="calc-row">
+        <span class="calc-label">What is</span>
+        <input type="number" id="p1_x" class="input-field" placeholder="10" oninput="calc1()">
+        <span class="calc-label">% of</span>
+        <input type="number" id="p1_y" class="input-field" placeholder="200" oninput="calc1()">
+        <div class="result-box" id="r1">Result: —</div>
+      </div>
+      <div class="calc-row">
+        <input type="number" id="p2_x" class="input-field" placeholder="20" oninput="calc2()">
+        <span class="calc-label">is what % of</span>
+        <input type="number" id="p2_y" class="input-field" placeholder="200" oninput="calc2()">
+        <div class="result-box" id="r2">Result: —</div>
+      </div>
+      <div class="calc-row">
+        <span class="calc-label">Percentage change from</span>
+        <input type="number" id="p3_x" class="input-field" placeholder="50" oninput="calc3()">
+        <span class="calc-label">to</span>
+        <input type="number" id="p3_y" class="input-field" placeholder="75" oninput="calc3()">
+        <div class="result-box" id="r3">Result: —</div>
+      </div>
+    </div>
+  </div></main>
+  <footer class="tool-footer"><div class="container"><p>&copy; 2025 NexaGrowth. All rights reserved.</p></div></footer>
+  <script src="tools.js"></script>
+  <script>
+  function calc1(){
+    const x=parseFloat(document.getElementById('p1_x').value);
+    const y=parseFloat(document.getElementById('p1_y').value);
+    const res=document.getElementById('r1');
+    if(isNaN(x)||isNaN(y)){res.textContent='Result: —';return}
+    res.textContent='Result: '+((x/100)*y).toFixed(2);
+  }
+  function calc2(){
+    const x=parseFloat(document.getElementById('p2_x').value);
+    const y=parseFloat(document.getElementById('p2_y').value);
+    const res=document.getElementById('r2');
+    if(isNaN(x)||isNaN(y)||y===0){res.textContent='Result: —';return}
+    res.textContent=((x/y)*100).toFixed(2)+'%';
+  }
+  function calc3(){
+    const x=parseFloat(document.getElementById('p3_x').value);
+    const y=parseFloat(document.getElementById('p3_y').value);
+    const res=document.getElementById('r3');
+    if(isNaN(x)||isNaN(y)||x===0){res.textContent='Result: —';return}
+    const diff=((y-x)/x*100).toFixed(2);
+    res.textContent=(diff>=0?'+':'')+diff+'%';
+  }
+  </script>
+</body>
+</html>

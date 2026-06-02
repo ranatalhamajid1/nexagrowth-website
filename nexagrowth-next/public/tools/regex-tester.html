@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993" crossorigin="anonymous"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Regex Tester — Test Regular Expressions Online | NexaGrowth</title>
+  <meta name="description" content="Test and debug JavaScript regular expressions in real-time. Highlights match groups and occurrences. Free, secure.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/regex-tester">
+  <meta property="og:title" content="Regex Tester — NexaGrowth"><meta property="og:url" content="https://nexagrowth.xyz/tools/regex-tester"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <style>
+    .regex-input-box{display:flex;align-items:center;background:var(--bg3);border:1px solid var(--brd);border-radius:var(--r);padding:4px 12px;margin-bottom:16px}
+    .regex-slash{font-family:monospace;font-size:1.2rem;color:var(--tx2)}
+    .regex-field{flex:1;border:none;background:transparent;outline:none;color:var(--tx);font-family:monospace;font-size:1.1rem;padding:8px}
+    .flags-box{display:flex;gap:12px}
+    .flag-chk{display:flex;align-items:center;gap:6px;font-size:.9rem}
+    .workspace-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+    .highlight-box{border:1px solid var(--brd);border-radius:var(--r);background:var(--glass);padding:12px;height:200px;overflow:auto;white-space:pre-wrap;word-break:break-all}
+    .hl-match{background:rgba(79,70,229,0.3);border-bottom:2px solid var(--a);color:inherit}
+    @media(max-width:640px){.workspace-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body class="tool-page">
+  <nav class="tool-nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36"><span class="nav-brand">Nexa<em>Growth</em></span></a><div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div><div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div></div></nav>
+  <div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">Regex Tester</span></nav>
+    <div class="tool-hero"><div class="tool-icon">🔬</div><h1>Regex <em>Tester</em></h1><p>Build and validate regular expressions instantly. Live highlighting of matches inside your test strings.</p></div>
+    <div class="tool-card">
+      <label style="font-size:.85rem;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:8px">Regular Expression</label>
+      <div class="regex-input-box">
+        <span class="regex-slash">/</span>
+        <input type="text" id="regexPat" class="regex-field" placeholder="[a-zA-Z0-9]+" value="[a-zA-Z0-9]+" oninput="testRegex()">
+        <span class="regex-slash">/</span>
+        <div class="flags-box" style="margin-left:8px">
+          <label class="flag-chk"><input type="checkbox" id="flagG" checked onchange="testRegex()" style="accent-color:var(--a)">g</label>
+          <label class="flag-chk"><input type="checkbox" id="flagI" checked onchange="testRegex()" style="accent-color:var(--a)">i</label>
+          <label class="flag-chk"><input type="checkbox" id="flagM" onchange="testRegex()" style="accent-color:var(--a)">m</label>
+        </div>
+      </div>
+      <div class="workspace-grid">
+        <div>
+          <label style="font-size:.85rem;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:8px">Test String</label>
+          <textarea class="tool-textarea" id="testText" rows="8" placeholder="Type test string here..." oninput="testRegex()">NexaGrowth has 50+ tools in 2026!</textarea>
+        </div>
+        <div>
+          <label style="font-size:.85rem;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:8px">Highlighted Matches</label>
+          <div class="highlight-box" id="highlightBox"></div>
+        </div>
+      </div>
+    </div>
+    <section class="tool-section"><h2><span class="section-icon">📖</span> How to Use</h2><p>Write your regex query inside the slashes. Check flags like global (g), case-insensitive (i), or multiline (m) as needed. Enter a test phrase to see matches instantly highlighted in the results panel.</p></section>
+  </div></main>
+  <footer class="tool-footer"><div class="container"><p>&copy; 2025 NexaGrowth. All rights reserved.</p></div></footer>
+  <script src="tools.js"></script>
+  <script>
+  const pat=document.getElementById('regexPat'),flagG=document.getElementById('flagG'),flagI=document.getElementById('flagI'),flagM=document.getElementById('flagM'),testText=document.getElementById('testText'),hlBox=document.getElementById('highlightBox');
+  function testRegex(){
+    const patVal=pat.value;
+    const txt=testText.value;
+    if(!patVal||!txt){hlBox.innerHTML=txt;return}
+    let flags='';
+    if(flagG.checked)flags+='g';
+    if(flagI.checked)flags+='i';
+    if(flagM.checked)flags+='m';
+    try{
+      const re=new RegExp(patVal,flags);
+      let matchCount=0;
+      const html=txt.replace(re,m=>{matchCount++;return `<span class="hl-match">${m}</span>`});
+      hlBox.innerHTML=html;
+    }catch(err){hlBox.innerHTML=`<span style="color:#ef4444">Regex Error: ${err.message}</span>`}
+  }
+  testRegex();
+  </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993" crossorigin="anonymous"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>HTML to PDF Converter — Convert HTML Code to PDF | NexaGrowth</title>
+  <meta name="description" content="Convert HTML code or complete web page markup into a PDF document online. Free, secure, client-side conversion.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/html-to-pdf">
+  <meta property="og:title" content="HTML to PDF Converter — NexaGrowth"><meta property="og:url" content="https://nexagrowth.xyz/tools/html-to-pdf"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <style>
+    .workspace{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .preview-box{border:1px solid var(--brd);border-radius:var(--r);background:#fff;color:#000;overflow:auto;padding:16px;height:300px}
+    @media(max-width:768px){.workspace{grid-template-columns:1fr}}
+  </style>
+</head>
+<body class="tool-page">
+  <nav class="tool-nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36"><span class="nav-brand">Nexa<em>Growth</em></span></a><div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div><div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div></div></nav>
+  <div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">HTML to PDF</span></nav>
+    <div class="tool-hero"><div class="tool-icon">🌐</div><h1>HTML to <em>PDF</em> Converter</h1><p>Convert custom HTML code or template markup into a downloadable PDF document instantly.</p></div>
+    <div class="tool-card">
+      <div class="workspace">
+        <div>
+          <label style="font-size:.85rem;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:8px">HTML Input</label>
+          <textarea class="tool-textarea" id="htmlCode" rows="12" placeholder="<h1>Hello World</h1><p>This is a PDF preview.</p>" style="font-family:monospace;font-size:.9rem" oninput="updatePreview()"></textarea>
+        </div>
+        <div>
+          <label style="font-size:.85rem;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:8px">Rendered Preview</label>
+          <div class="preview-box" id="previewBox"></div>
+        </div>
+      </div>
+      <div class="tool-actions" style="margin-top:16px">
+        <button class="btn-primary" onclick="convertHTMLtoPDF()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Convert & Download</button>
+        <button class="btn-secondary" onclick="setDefaultHTML()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Load Sample</button>
+      </div>
+    </div>
+    <section class="tool-section"><h2><span class="section-icon">📖</span> How to Use</h2><p>Write or paste your custom HTML tags on the left panel. The right panel will render the visual presentation. Click "Convert & Download" to create a PDF of the rendered display.</p></section>
+  </div></main>
+  <footer class="tool-footer"><div class="container"><p>&copy; 2025 NexaGrowth. All rights reserved.</p></div></footer>
+  <script src="tools.js"></script>
+  <script>
+  const code=document.getElementById('htmlCode'),prev=document.getElementById('previewBox');
+  function updatePreview(){prev.innerHTML=code.value}
+  function setDefaultHTML(){code.value=`<div style="font-family: Arial, sans-serif; padding: 20px;">
+  <h1 style="color: #4f46e5;">Invoiced Statement</h1>
+  <p style="color: #666;">Date: 2026-06-03</p>
+  <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+  <table style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr style="background: #f8fafc; text-align: left;">
+        <th style="padding: 10px; border-bottom: 2px solid #e2e8f0;">Item</th>
+        <th style="padding: 10px; border-bottom: 2px solid #e2e8f0;">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 10px; border-bottom: 1px solid #e2e8f0;">Web Development Services</td>
+        <td style="padding: 10px; border-bottom: 1px solid #e2e8f0;">$1,500.00</td>
+      </tr>
+    </tbody>
+  </table>
+</div>`;updatePreview()}
+  async function convertHTMLtoPDF(){
+    if(!prev.innerHTML.trim()){alert('Please add some HTML code first.');return}
+    const{jsPDF}=window.jspdf;
+    const doc=new jsPDF('p','pt','a4');
+    try{
+      await doc.html(prev,{
+        callback:function(d){d.save('html_document.pdf')},
+        x:15,y:15,
+        width:560,windowWidth:800
+      });
+    }catch(err){alert('PDF conversion failed: '+err.message)}
+  }
+  setDefaultHTML();
+  </script>
+</body>
+</html>

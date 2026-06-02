@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993" crossorigin="anonymous"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Urdu Keyboard Online — Type in Urdu | NexaGrowth</title>
+  <meta name="description" content="Free online Urdu keyboard. Type in Urdu using a virtual on-screen keyboard with Nastaliq script support.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/urdu-keyboard">
+  <meta property="og:title" content="Urdu Keyboard Online — NexaGrowth"><meta property="og:url" content="https://nexagrowth.xyz/tools/urdu-keyboard"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Urdu Keyboard Online","url":"https://nexagrowth.xyz/tools/urdu-keyboard","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"NexaGrowth","url":"https://nexagrowth.xyz"}}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <style>
+    .keyboard{display:flex;flex-direction:column;gap:6px;padding:16px;background:var(--glass);border:1px solid var(--brd);border-radius:var(--r2);margin-top:16px}
+    .kb-row{display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+    .kb-key{min-width:38px;height:42px;display:flex;align-items:center;justify-content:center;background:var(--bg3);border:1px solid var(--brd3);border-radius:8px;color:var(--tx);font-size:1.1rem;cursor:pointer;transition:.15s var(--ease);font-family:'Noto Nastaliq Urdu',serif;padding:0 4px;user-select:none}
+    .kb-key:hover{background:var(--glass3);border-color:var(--brd2);transform:translateY(-1px)}
+    .kb-key:active{transform:translateY(1px);background:var(--a);color:#fff}
+    .kb-key.wide{min-width:70px;font-family:var(--fb);font-size:.75rem;font-weight:600;letter-spacing:.04em}
+    .kb-key.space{flex:1;max-width:300px;font-family:var(--fb);font-size:.75rem}
+    .urdu-output{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;text-align:right;font-size:1.2rem;line-height:2.2}
+    @media(max-width:640px){.kb-key{min-width:28px;height:36px;font-size:.95rem}.kb-key.wide{min-width:50px}}
+  </style>
+</head>
+<body class="tool-page">
+  <nav class="tool-nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36"><span class="nav-brand">Nexa<em>Growth</em></span></a><div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div><div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div></div></nav>
+  <div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">Urdu Keyboard</span></nav>
+    <div class="tool-hero"><div class="tool-icon">⌨️</div><h1>Urdu <em>Keyboard</em> Online</h1><p>Type in Urdu using a virtual on-screen keyboard. Click the keys to type in Nastaliq script.</p></div>
+    <div class="tool-card">
+      <div class="tool-label"><span>Your Urdu Text</span><span class="char-count" id="charCount">0 characters</span></div>
+      <textarea class="tool-textarea urdu-output" id="outputText" rows="6" placeholder="...اردو ٹائپنگ یہاں ظاہر ہوگی" spellcheck="false"></textarea>
+      <div class="keyboard" id="keyboard"></div>
+      <div class="tool-actions" style="margin-top:16px">
+        <button class="btn-primary" onclick="copyToClipboard(document.getElementById('outputText').value,this)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy Text</button>
+        <button class="btn-secondary" onclick="document.getElementById('outputText').value='';document.getElementById('charCount').textContent='0 characters'"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Clear</button>
+      </div>
+    </div>
+    <section class="tool-section"><h2><span class="section-icon">📖</span> How to Use</h2><p>Click the keys on the virtual keyboard to type in Urdu. Your text appears in the text area above.</p><ul><li><strong>Click Keys:</strong> Click any Urdu letter to add it to your text.</li><li><strong>Backspace:</strong> Remove the last character.</li><li><strong>Space:</strong> Add a space between words.</li><li><strong>Enter:</strong> Add a new line.</li><li><strong>Copy:</strong> Copy your typed Urdu text to clipboard.</li></ul></section>
+    <section class="tool-section"><h2><span class="section-icon">🔗</span> Related Tools</h2><div class="related-grid">
+      <a href="english-to-urdu.html" class="related-card"><span class="rc-icon">🇵🇰</span><h3>English to Urdu</h3><p>Translate English text to Urdu.</p><span class="rc-arrow">Use Tool →</span></a>
+      <a href="english-to-roman-urdu.html" class="related-card"><span class="rc-icon">🔤</span><h3>English to Roman Urdu</h3><p>Convert to Roman Urdu.</p><span class="rc-arrow">Use Tool →</span></a>
+    </div></section>
+    <div class="cta-box"><h3>Explore More Free Tools</h3><p>50+ free tools available.</p><div class="cta-actions"><a href="index.html" class="btn-primary">Browse All Tools</a></div></div>
+  </div></main>
+  <footer class="tool-footer"><div class="container"><p>&copy; 2025 NexaGrowth. All rights reserved.</p><div class="footer-links"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div></div></footer>
+  <script src="tools.js"></script>
+  <script>
+  (function(){
+    const rows=[
+      ['ط','ص','ھ','د','ٹ','پ','ت','ب','ا'],
+      ['ئ','ے','و','ن','م','ل','گ','ک','ف','ق'],
+      ['غ','ع','ظ','ض','ذ','ڈ','خ','ح','چ','ج','ث'],
+      ['ں','ی','ر','ز','ڑ','ژ','س','ش'],
+    ];
+    const specials=['۔','،','؟','!','٪','؛',':'];
+    const kb=document.getElementById('keyboard');
+    const output=document.getElementById('outputText');
+    const charCount=document.getElementById('charCount');
+    rows.forEach(row=>{
+      const div=document.createElement('div');
+      div.className='kb-row';
+      row.forEach(k=>{const btn=document.createElement('button');btn.className='kb-key';btn.textContent=k;btn.type='button';btn.addEventListener('click',()=>{output.value+=k;charCount.textContent=output.value.length+' characters';output.focus()});div.appendChild(btn)});
+      kb.appendChild(div);
+    });
+    // Specials + controls row
+    const ctrlRow=document.createElement('div');ctrlRow.className='kb-row';
+    specials.forEach(s=>{const btn=document.createElement('button');btn.className='kb-key';btn.textContent=s;btn.type='button';btn.addEventListener('click',()=>{output.value+=s;charCount.textContent=output.value.length+' characters'});ctrlRow.appendChild(btn)});
+    const bksp=document.createElement('button');bksp.className='kb-key wide';bksp.textContent='⌫ Backspace';bksp.type='button';bksp.addEventListener('click',()=>{output.value=output.value.slice(0,-1);charCount.textContent=output.value.length+' characters'});ctrlRow.appendChild(bksp);
+    kb.appendChild(ctrlRow);
+    const spaceRow=document.createElement('div');spaceRow.className='kb-row';
+    const enter=document.createElement('button');enter.className='kb-key wide';enter.textContent='↵ Enter';enter.type='button';enter.addEventListener('click',()=>{output.value+='\n';charCount.textContent=output.value.length+' characters'});spaceRow.appendChild(enter);
+    const space=document.createElement('button');space.className='kb-key space';space.textContent='Space';space.type='button';space.addEventListener('click',()=>{output.value+=' ';charCount.textContent=output.value.length+' characters'});spaceRow.appendChild(space);
+    kb.appendChild(spaceRow);
+    output.addEventListener('input',()=>{charCount.textContent=output.value.length+' characters'});
+  })();
+  </script>
+</body>
+</html>

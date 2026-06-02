@@ -5,6 +5,9 @@
   "ai-caption-generator": {
     "exists": true
   },
+  "base64-encoder-decoder": {
+    "exists": true
+  },
   "bmi-calculator": {
     "exists": true
   },
@@ -14,10 +17,67 @@
   "color-picker": {
     "exists": true
   },
+  "countdown-timer": {
+    "exists": true
+  },
   "css-gradient-generator": {
     "exists": true
   },
+  "css-minifier": {
+    "exists": true
+  },
+  "date-difference-calculator": {
+    "exists": true
+  },
+  "discount-calculator": {
+    "exists": true
+  },
   "emi-calculator": {
+    "exists": true
+  },
+  "english-to-roman-urdu": {
+    "exists": true
+  },
+  "english-to-urdu": {
+    "exists": true
+  },
+  "fancy-text-generator": {
+    "exists": true
+  },
+  "hashtag-generator": {
+    "exists": true
+  },
+  "html-minifier": {
+    "exists": true
+  },
+  "html-to-pdf": {
+    "exists": true
+  },
+  "image-compressor": {
+    "exists": true
+  },
+  "image-cropper": {
+    "exists": true
+  },
+  "image-format-converter": {
+    "exists": true
+  },
+  "image-resizer": {
+    "exists": true
+  },
+  "image-to-pdf": {
+    "exists": true
+  },
+  "invoice-generator": {
+    "exists": true
+  },
+  "json-formatter": {
+    "exists": true
+  },
+  "lorem-ipsum-generator": {
+    "exists": true
+  },
+  "md5-hash-generator": {
     "exists": true
   },
   "meta-tag-generator": {
@@ -26,10 +86,64 @@
   "password-generator": {
     "exists": true
   },
+  "pdf-compressor": {
+    "exists": true
+  },
+  "pdf-merger": {
+    "exists": true
+  },
+  "pdf-page-extractor": {
+    "exists": true
+  },
+  "percentage-calculator": {
+    "exists": true
+  },
   "qr-code-generator": {
     "exists": true
   },
+  "regex-tester": {
+    "exists": true
+  },
+  "roman-urdu-to-english": {
+    "exists": true
+  },
+  "screenshot-to-image": {
+    "exists": true
+  },
+  "sha256-hash-generator": {
+    "exists": true
+  },
   "slug-generator": {
+    "exists": true
+  },
+  "text-repeater": {
+    "exists": true
+  },
+  "text-to-binary": {
+    "exists": true
+  },
+  "text-to-pdf": {
+    "exists": true
+  },
+  "text-translator": {
+    "exists": true
+  },
+  "tip-calculator": {
+    "exists": true
+  },
+  "unit-converter": {
+    "exists": true
+  },
+  "urdu-keyboard": {
+    "exists": true
+  },
+  "urdu-to-english": {
+    "exists": true
+  },
+  "url-encoder-decoder": {
+    "exists": true
+  },
+  "uuid-generator": {
     "exists": true
   },
   "word-counter": {

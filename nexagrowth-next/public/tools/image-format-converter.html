@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993" crossorigin="anonymous"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Image Format Converter — Convert JPG, PNG, WebP Free | NexaGrowth</title>
+  <meta name="description" content="Convert images between JPG, PNG, and WebP formats instantly. Safe, free, runs entirely offline.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/image-format-converter">
+  <meta property="og:title" content="Image Format Converter — NexaGrowth"><meta property="og:url" content="https://nexagrowth.xyz/tools/image-format-converter"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <style>
+    .drop-zone{border:2px dashed var(--brd3);border-radius:var(--r2);padding:48px 24px;text-align:center;cursor:pointer;transition:.3s;background:var(--glass)}
+    .drop-zone:hover,.drop-zone.dragover{border-color:var(--a);background:var(--glass3)}
+    .drop-zone-icon{font-size:3rem;margin-bottom:12px}
+    .workspace{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;display:none}
+    .preview-card{border:1px solid var(--brd);border-radius:var(--r);padding:16px;background:var(--glass);text-align:center}
+    .preview-card img{max-width:100%;max-height:240px;object-fit:contain;border-radius:var(--r);background:#222}
+    .controls-card{border:1px solid var(--brd);border-radius:var(--r);padding:16px;background:var(--glass);display:none;flex-direction:column;gap:16px;margin-top:16px}
+    .select-group{display:flex;flex-direction:column;gap:8px}
+    .select-group label{font-size:.85rem;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em}
+    .select-field{padding:10px;background:var(--bg3);border:1px solid var(--brd);border-radius:var(--r);color:var(--tx);font-family:inherit;font-size:.95rem;transition:.2s}
+    .file-input{display:none}
+  </style>
+</head>
+<body class="tool-page">
+  <nav class="tool-nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36"><span class="nav-brand">Nexa<em>Growth</em></span></a><div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div><div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div></div></nav>
+  <div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">Image Format Converter</span></nav>
+    <div class="tool-hero"><div class="tool-icon">🔄</div><h1>Image Format <em>Converter</em></h1><p>Convert images between PNG, JPG, WebP, and GIF formats. High quality output, runs completely offline.</p></div>
+    <div class="tool-card">
+      <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()"><div class="drop-zone-icon">🖼️</div><p><strong>Click to select image</strong> or drag & drop</p><p style="font-size:.8rem;margin-top:8px">Supports PNG, JPG, WebP, GIF • 100% private offline conversion</p></div>
+      <input type="file" id="fileInput" class="file-input" accept="image/*">
+      <div class="workspace" id="workspace">
+        <div class="preview-card"><h3>Original File</h3><img id="origImg" src="" alt="Original"><div style="margin-top:8px;font-size:.85rem;color:var(--tx2)" id="origMeta">Unknown Format</div></div>
+        <div class="preview-card"><h3>Converted Preview</h3><img id="convertedImg" src="" alt="Converted Preview"><div style="margin-top:8px;font-size:.85rem;color:var(--tx2)" id="convertedMeta">Choose Target Format</div></div>
+      </div>
+      <div class="controls-card" id="controlsCard">
+        <div class="select-group">
+          <label>Target Format</label>
+          <select id="formatSelect" class="select-field" onchange="convertFormat(this.value)">
+            <option value="image/jpeg">JPG / JPEG</option>
+            <option value="image/png">PNG</option>
+            <option value="image/webp" selected>WebP</option>
+          </select>
+        </div>
+        <div class="tool-actions">
+          <button class="btn-primary" onclick="downloadConverted()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Convert & Download</button>
+          <button class="btn-secondary" onclick="resetAll()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Change Image</button>
+        </div>
+      </div>
+    </div>
+    <section class="tool-section"><h2><span class="section-icon">📖</span> How to Use</h2><p>Upload your image, choose your target file type from the drop-down menu, and click convert to instantly process and download your converted image file.</p></section>
+  </div></main>
+  <footer class="tool-footer"><div class="container"><p>&copy; 2025 NexaGrowth. All rights reserved.</p></div></footer>
+  <script src="tools.js"></script>
+  <script>
+  let origFile=null,convertedURL="",origFormatName="";
+  const dropZone=document.getElementById('dropZone'),fileInput=document.getElementById('fileInput'),workspace=document.getElementById('workspace'),controlsCard=document.getElementById('controlsCard'),origImg=document.getElementById('origImg'),convertedImg=document.getElementById('convertedImg'),origMeta=document.getElementById('origMeta'),convertedMeta=document.getElementById('convertedMeta'),formatSelect=document.getElementById('formatSelect');
+  dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('dragover')});
+  dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('dragover'));
+  dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('dragover');if(e.dataTransfer.files.length)handleImage(e.dataTransfer.files[0])});
+  fileInput.addEventListener('change',e=>{if(e.target.files.length)handleImage(e.target.files[0])});
+  function handleImage(file){
+    if(!file.type.startsWith('image/'))return;
+    origFile=file;
+    origFormatName=file.type.split('/')[1].toUpperCase();
+    origMeta.textContent=`Format: ${origFormatName} (${(file.size/1024).toFixed(1)} KB)`;
+    const url=URL.createObjectURL(file);
+    origImg.src=url;
+    origImg.onload=()=>convertFormat(formatSelect.value);
+    dropZone.style.display='none';
+    workspace.style.display='grid';
+    controlsCard.style.display='flex';
+  }
+  function convertFormat(mimeType){
+    if(!origImg.src)return;
+    const canvas=document.createElement('canvas');
+    const ctx=canvas.getContext('2d');
+    canvas.width=origImg.naturalWidth;
+    canvas.height=origImg.naturalHeight;
+    ctx.drawImage(origImg,0,0);
+    convertedURL=canvas.toDataURL(mimeType);
+    convertedImg.src=convertedURL;
+    const ext=mimeType.split('/')[1].toUpperCase();
+    convertedMeta.textContent=`Target Format: ${ext}`;
+  }
+  function downloadConverted(){
+    if(!convertedURL)return;
+    const ext=formatSelect.value.split('/')[1];
+    const baseName=origFile.name.substring(0,origFile.name.lastIndexOf('.'))||origFile.name;
+    const a=document.createElement('a');a.href=convertedURL;a.download=`${baseName}.${ext}`;a.click();
+  }
+  function resetAll(){origFile=null;convertedURL="";dropZone.style.display='block';workspace.style.display='none';controlsCard.style.display='none';fileInput.value=''}
+  </script>
+</body>
+</html>

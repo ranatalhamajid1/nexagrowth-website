@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993" crossorigin="anonymous"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PDF Page Extractor — Extract PDF Pages Online Free | NexaGrowth</title>
+  <meta name="description" content="Extract specific pages from any PDF document. Free, runs locally in your browser, no registration.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/pdf-page-extractor">
+  <meta property="og:title" content="PDF Page Extractor — NexaGrowth"><meta property="og:url" content="https://nexagrowth.xyz/tools/pdf-page-extractor"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <style>
+    .drop-zone{border:2px dashed var(--brd3);border-radius:var(--r2);padding:48px 24px;text-align:center;cursor:pointer;transition:.3s;background:var(--glass)}
+    .drop-zone:hover,.drop-zone.dragover{border-color:var(--a);background:var(--glass3)}
+    .drop-zone-icon{font-size:3rem;margin-bottom:12px}
+    .file-info{margin-top:16px;padding:12px 16px;background:var(--glass);border:1px solid var(--brd);border-radius:var(--r);display:none;align-items:center;justify-content:space-between}
+    .pages-input-group{margin-top:16px;display:none}
+    .input-field{width:100%;padding:12px;background:var(--bg3);border:1px solid var(--brd);border-radius:var(--r);color:var(--tx);font-family:inherit;font-size:.95rem;margin-top:8px;transition:.2s}
+    .input-field:focus{outline:none;border-color:var(--a);box-shadow:0 0 0 2px var(--a-tr)}
+    .file-input{display:none}
+  </style>
+</head>
+<body class="tool-page">
+  <nav class="tool-nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36"><span class="nav-brand">Nexa<em>Growth</em></span></a><div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div><div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div></div></nav>
+  <div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">PDF Page Extractor</span></nav>
+    <div class="tool-hero"><div class="tool-icon">✂️</div><h1>PDF Page <em>Extractor</em></h1><p>Extract specific pages from a PDF document. Enter page numbers or ranges (e.g., 1, 3-5, 8) and download the new PDF.</p></div>
+    <div class="tool-card">
+      <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()"><div class="drop-zone-icon">📄</div><p><strong>Click to select PDF</strong> or drag & drop</p><p style="font-size:.8rem;margin-top:8px">Select a PDF file • No file size limit</p></div>
+      <input type="file" id="fileInput" class="file-input" accept=".pdf">
+      <div class="file-info" id="fileInfo"><div><span id="fileName">file.pdf</span> <span id="filePageCount" style="color:var(--tx2);font-size:.8rem;margin-left:8px"></span></div><button class="btn-secondary" style="padding:6px 12px;font-size:.8rem" onclick="clearFile()">Change</button></div>
+      <div class="pages-input-group" id="inputGroup">
+        <label style="font-size:.85rem;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em">Pages to Extract</label>
+        <input type="text" id="pagesInput" class="input-field" placeholder="e.g. 1, 3-5, 7">
+        <p style="font-size:.8rem;color:var(--tx2);margin-top:6px">Use commas for separate pages and dashes for ranges. e.g., "1, 3-5, 8" extracts pages 1, 3, 4, 5, and 8.</p>
+      </div>
+      <div class="tool-actions" style="margin-top:16px">
+        <button class="btn-primary" id="extractBtn" disabled onclick="extractPages()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Extract & Download</button>
+      </div>
+    </div>
+    <section class="tool-section"><h2><span class="section-icon">📖</span> How to Use</h2><p>Upload a PDF, enter the page numbers you want to extract, and click Extract.</p></section>
+    <section class="tool-section"><h2><span class="section-icon">🔗</span> Related Tools</h2><div class="related-grid"><a href="pdf-merger.html" class="related-card"><span class="rc-icon">📑</span><h3>PDF Merger</h3><p>Merge multiple PDF files.</p><span class="rc-arrow">Use Tool →</span></a><a href="text-to-pdf.html" class="related-card"><span class="rc-icon">📝</span><h3>Text to PDF</h3><p>Convert text to PDF.</p><span class="rc-arrow">Use Tool →</span></a></div></section>
+  </div></main>
+  <footer class="tool-footer"><div class="container"><p>&copy; 2025 NexaGrowth. All rights reserved.</p></div></footer>
+  <script src="tools.js"></script>
+  <script>
+  let pdfDoc=null,pdfData=null;
+  const dropZone=document.getElementById('dropZone'),fileInput=document.getElementById('fileInput'),fileInfo=document.getElementById('fileInfo'),fileName=document.getElementById('fileName'),filePageCount=document.getElementById('filePageCount'),inputGroup=document.getElementById('inputGroup'),extractBtn=document.getElementById('extractBtn');
+  dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('dragover')});
+  dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('dragover'));
+  dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('dragover');if(e.dataTransfer.files.length)handleFile(e.dataTransfer.files[0])});
+  fileInput.addEventListener('change',e=>{if(e.target.files.length)handleFile(e.target.files[0])});
+  async function handleFile(file){
+    if(file.type!=='application/pdf')return;
+    fileName.textContent=file.name;
+    const reader=new FileReader();
+    reader.onload=async e=>{
+      pdfData=new Uint8Array(e.target.result);
+      try{
+        const loaded=await PDFLib.PDFDocument.load(pdfData);
+        filePageCount.textContent=`(${loaded.getPageCount()} pages)`;
+        pdfDoc=loaded;
+        dropZone.style.display='none';
+        fileInfo.style.display='flex';
+        inputGroup.style.display='block';
+        extractBtn.disabled=false;
+      }catch(err){alert('Error reading PDF: '+err.message)}
+    };
+    reader.readAsArrayBuffer(file);
+  }
+  function clearFile(){pdfDoc=null;pdfData=null;dropZone.style.display='block';fileInfo.style.display='none';inputGroup.style.display='none';extractBtn.disabled=true;fileInput.value=''}
+  async function extractPages(){
+    if(!pdfDoc)return;
+    const val=document.getElementById('pagesInput').value.trim();
+    if(!val){alert('Please enter page numbers to extract.');return}
+    const maxPage=pdfDoc.getPageCount();
+    const indices=[];
+    const parts=val.split(',');
+    for(let p of parts){
+      p=p.trim();
+      if(p.includes('-')){
+        const range=p.split('-');
+        const start=parseInt(range[0]),end=parseInt(range[1]);
+        if(isNaN(start)||isNaN(end)||start<1||end>maxPage||start>end)continue;
+        for(let idx=start-1;idx<end;idx++)if(!indices.includes(idx))indices.push(idx);
+      }else{
+        const num=parseInt(p);
+        if(!isNaN(num)&&num>=1&&num<=maxPage&&!indices.includes(num-1))indices.push(num-1);
+      }
+    }
+    if(!indices.length){alert('No valid pages selected. Please check your range.');return}
+    try{
+      const newDoc=await PDFLib.PDFDocument.create();
+      const copied=await newDoc.copyPages(pdfDoc,indices);
+      copied.forEach(page=>newDoc.addPage(page));
+      const bytes=await newDoc.save();
+      const blob=new Blob([bytes],{type:'application/pdf'});
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement('a');a.href=url;a.download='extracted.pdf';a.click();
+      URL.revokeObjectURL(url);
+    }catch(err){alert('Error extracting pages: '+err.message)}
+  }
+  </script>
+</body>
+</html>

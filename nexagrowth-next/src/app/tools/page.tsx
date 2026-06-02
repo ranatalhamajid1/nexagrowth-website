@@ -4,7 +4,7 @@ import React from "react";
 import Background from "../../components/Background";
 import Navigation from "../../components/Navigation";
 import Link from "next/link";
-import { Sparkles, ArrowRight, Wrench, Binary, Smile, Calculator, HelpCircle, Palette, FileText, Landmark, Search, ShieldCheck, QrCode, Type } from "lucide-react";
+import { Sparkles, ArrowRight, Wrench, Binary, Smile, Calculator, HelpCircle, Palette, FileText, Landmark, Search, ShieldCheck, QrCode, Type, Globe, FileJson, Hash, RefreshCw, Scissors, Lock, Timer, Percent, Tag, DollarSign, Calendar, Eye, Image } from "lucide-react";
 
 interface ToolItem {
   title: string;
@@ -100,12 +100,278 @@ export default function ToolsHubPage() {
       url: "/tools/password-generator",
       tag: "Security",
     },
+    {
+      title: "English to Urdu Translator",
+      desc: "Translate English text to beautiful Urdu Nastaliq script instantly. Free, secure, runs locally in the browser.",
+      icon: <Globe className="w-5 h-5" />,
+      url: "/tools/english-to-urdu",
+      tag: "Translation",
+    },
+    {
+      title: "English to Roman Urdu",
+      desc: "Convert English text to Roman Urdu transliteration instantly. Fast, free, no signups required.",
+      icon: <Type className="w-5 h-5" />,
+      url: "/tools/english-to-roman-urdu",
+      tag: "Translation",
+    },
+    {
+      title: "Urdu to English Translator",
+      desc: "Translate Urdu Nastaliq script text to English instantly. Fully client-side, 100% secure.",
+      icon: <Globe className="w-5 h-5" />,
+      url: "/tools/urdu-to-english",
+      tag: "Translation",
+    },
+    {
+      title: "Roman Urdu to English",
+      desc: "Convert Roman Urdu messages and terms into clean English instantly. Free, secure translation.",
+      icon: <Globe className="w-5 h-5" />,
+      url: "/tools/roman-urdu-to-english",
+      tag: "Translation",
+    },
+    {
+      title: "Urdu Keyboard Online",
+      desc: "Type in Urdu script online using a visual virtual keyboard. Free, responsive, copy-paste enabled.",
+      icon: <Type className="w-5 h-5" />,
+      url: "/tools/urdu-keyboard",
+      tag: "Translation",
+    },
+    {
+      title: "Multi-Language Text Translator",
+      desc: "Translate between 14 global languages instantly. Safe, local, runs entirely in the browser.",
+      icon: <Globe className="w-5 h-5" />,
+      url: "/tools/text-translator",
+      tag: "Translation",
+    },
+    {
+      title: "Image to PDF Converter",
+      desc: "Convert images (JPG, PNG, WebP) to high-quality PDF files. Reorder images and download instantly.",
+      icon: <Image className="w-5 h-5" />,
+      url: "/tools/image-to-pdf",
+      tag: "PDF",
+    },
+    {
+      title: "PDF Merger",
+      desc: "Merge multiple PDF documents into a single PDF file securely on your browser. 100% private.",
+      icon: <FileText className="w-5 h-5" />,
+      url: "/tools/pdf-merger",
+      tag: "PDF",
+    },
+    {
+      title: "PDF Page Extractor",
+      desc: "Extract specific pages or page ranges from any PDF document. Free, local, fast extraction.",
+      icon: <Scissors className="w-5 h-5" />,
+      url: "/tools/pdf-page-extractor",
+      tag: "PDF",
+    },
+    {
+      title: "PDF Compressor",
+      desc: "Reduce the file size of your PDF documents while preserving optimal structure. 100% private.",
+      icon: <FileText className="w-5 h-5" />,
+      url: "/tools/pdf-compressor",
+      tag: "PDF",
+    },
+    {
+      title: "Text to PDF",
+      desc: "Convert plain text or formatting into a downloadable PDF document. Custom margins and fonts.",
+      icon: <FileText className="w-5 h-5" />,
+      url: "/tools/text-to-pdf",
+      tag: "PDF",
+    },
+    {
+      title: "HTML to PDF",
+      desc: "Convert raw HTML code or visual layouts into a clean downloadable PDF. Free developer tool.",
+      icon: <Binary className="w-5 h-5" />,
+      url: "/tools/html-to-pdf",
+      tag: "PDF",
+    },
+    {
+      title: "Image Compressor",
+      desc: "Compress JPG, PNG, or WebP images while maintaining optimal quality. 100% local.",
+      icon: <Image className="w-5 h-5" />,
+      url: "/tools/image-compressor",
+      tag: "Image",
+    },
+    {
+      title: "Image Resizer",
+      desc: "Resize JPG, PNG, and WebP images to custom dimensions in pixels. Lock aspect ratio.",
+      icon: <Image className="w-5 h-5" />,
+      url: "/tools/image-resizer",
+      tag: "Image",
+    },
+    {
+      title: "Image Format Converter",
+      desc: "Convert images between popular formats: JPG, PNG, and WebP instantly. 100% offline.",
+      icon: <RefreshCw className="w-5 h-5" />,
+      url: "/tools/image-format-converter",
+      tag: "Image",
+    },
+    {
+      title: "Image Cropper",
+      desc: "Crop images online using custom offsets or standard presets (1:1, 16:9, 4:3) instantly.",
+      icon: <Scissors className="w-5 h-5" />,
+      url: "/tools/image-cropper",
+      tag: "Image",
+    },
+    {
+      title: "Screenshot to Image",
+      desc: "Capture browser tabs, windows, or your screen and download as a high-quality PNG image.",
+      icon: <Image className="w-5 h-5" />,
+      url: "/tools/screenshot-to-image",
+      tag: "Image",
+    },
+    {
+      title: "JSON Formatter",
+      desc: "Beautify, format, validate, and minify JSON data with instant syntax error highlighting.",
+      icon: <FileJson className="w-5 h-5" />,
+      url: "/tools/json-formatter",
+      tag: "Developer",
+    },
+    {
+      title: "Base64 Encoder/Decoder",
+      desc: "Encode strings into Base64 format or decode Base64 data back to clear human-readable text.",
+      icon: <Lock className="w-5 h-5" />,
+      url: "/tools/base64-encoder-decoder",
+      tag: "Developer",
+    },
+    {
+      title: "URL Encoder/Decoder",
+      desc: "Encode raw parameters to safe percent-encoding or decode URL strings back to normal.",
+      icon: <Binary className="w-5 h-5" />,
+      url: "/tools/url-encoder-decoder",
+      tag: "Developer",
+    },
+    {
+      title: "HTML Minifier",
+      desc: "Minify HTML source code by stripping comments and whitespaces to optimize load speeds.",
+      icon: <FileText className="w-5 h-5" />,
+      url: "/tools/html-minifier",
+      tag: "Developer",
+    },
+    {
+      title: "CSS Minifier",
+      desc: "Minify stylesheet CSS declarations by stripping comments and duplicate spacing instantly.",
+      icon: <Palette className="w-5 h-5" />,
+      url: "/tools/css-minifier",
+      tag: "Developer",
+    },
+    {
+      title: "Regex Tester",
+      desc: "Test and debug JavaScript regular expressions with live syntax highlighting and flags.",
+      icon: <Search className="w-5 h-5" />,
+      url: "/tools/regex-tester",
+      tag: "Developer",
+    },
+    {
+      title: "Percentage Calculator",
+      desc: "Calculate percentages, ratio rates, and percentage differences easily. Instant math tool.",
+      icon: <Percent className="w-5 h-5" />,
+      url: "/tools/percentage-calculator",
+      tag: "Math",
+    },
+    {
+      title: "Discount Calculator",
+      desc: "Determine final sale prices and total savings with optional sales tax calculation.",
+      icon: <Tag className="w-5 h-5" />,
+      url: "/tools/discount-calculator",
+      tag: "Math",
+    },
+    {
+      title: "Tip Calculator",
+      desc: "Calculate custom tip rates and split bills among friends or groups instantly.",
+      icon: <DollarSign className="w-5 h-5" />,
+      url: "/tools/tip-calculator",
+      tag: "Math",
+    },
+    {
+      title: "Unit Converter",
+      desc: "Convert between metric and imperial units for length, weight, and temperature.",
+      icon: <RefreshCw className="w-5 h-5" />,
+      url: "/tools/unit-converter",
+      tag: "Math",
+    },
+    {
+      title: "Date Difference Calculator",
+      desc: "Calculate exact years, months, weeks, and days difference between any two calendar dates.",
+      icon: <Calendar className="w-5 h-5" />,
+      url: "/tools/date-difference-calculator",
+      tag: "Math",
+    },
+    {
+      title: "Lorem Ipsum Generator",
+      desc: "Generate dummy paragraphs, sentences, or words of Lorem Ipsum dummy text for mockups.",
+      icon: <FileText className="w-5 h-5" />,
+      url: "/tools/lorem-ipsum-generator",
+      tag: "Writing",
+    },
+    {
+      title: "Text Repeater",
+      desc: "Repeat words or paragraphs up to 10,000 times with custom dividers and separators.",
+      icon: <Type className="w-5 h-5" />,
+      url: "/tools/text-repeater",
+      tag: "Writing",
+    },
+    {
+      title: "Hashtag Generator",
+      desc: "Generate relevant trending hashtags for Instagram, TikTok, LinkedIn, and Twitter.",
+      icon: <Hash className="w-5 h-5" />,
+      url: "/tools/hashtag-generator",
+      tag: "Marketing",
+    },
+    {
+      title: "Fancy Text Generator",
+      desc: "Convert text to stylish unicode fonts (bold, double-struck, script) for social bios.",
+      icon: <Type className="w-5 h-5" />,
+      url: "/tools/fancy-text-generator",
+      tag: "Writing",
+    },
+    {
+      title: "Text to Binary",
+      desc: "Convert human letters to binary code or decode binary ASCII streams back to clear text.",
+      icon: <Binary className="w-5 h-5" />,
+      url: "/tools/text-to-binary",
+      tag: "Writing",
+    },
+    {
+      title: "MD5 Hash Generator",
+      desc: "Generate a secure 32-character hexadecimal MD5 hash checksum from any string.",
+      icon: <Lock className="w-5 h-5" />,
+      url: "/tools/md5-hash-generator",
+      tag: "Security",
+    },
+    {
+      title: "SHA-256 Hash Generator",
+      desc: "Generate a secure 64-character hexadecimal SHA-256 cryptographic hash checksum.",
+      icon: <Lock className="w-5 h-5" />,
+      url: "/tools/sha256-hash-generator",
+      tag: "Security",
+    },
+    {
+      title: "UUID Generator",
+      desc: "Generate multiple secure, random version 4 UUIDs in bulk with letter case selection.",
+      icon: <ShieldCheck className="w-5 h-5" />,
+      url: "/tools/uuid-generator",
+      tag: "Security",
+    },
+    {
+      title: "Countdown Timer",
+      desc: "Set countdown durations with visual progress displays and web audio sound alerts.",
+      icon: <Timer className="w-5 h-5" />,
+      url: "/tools/countdown-timer",
+      tag: "Utility",
+    },
+    {
+      title: "Invoice Generator",
+      desc: "Build professional invoices, add billing items, and download custom statement PDFs.",
+      icon: <FileText className="w-5 h-5" />,
+      url: "/tools/invoice-generator",
+      tag: "Utility",
+    },
   ];
 
   return (
     <div className="relative z-10 min-h-screen flex flex-col">
       <title>Free Online Tools — SEO, AI, Developer & Utility Tools | NexaGrowth</title>
-      <meta name="description" content="Access 12+ free online tools for SEO audits, password generation, AI captions, word counter, color picking, and more." />
+      <meta name="description" content="Access 50+ free online tools for translation, image conversion, PDF manipulation, formatting, and calculators." />
       <Background />
       <Navigation activeRoute="other" />
 

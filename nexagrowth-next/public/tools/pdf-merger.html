@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6061397831292993" crossorigin="anonymous"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PDF Merger — Merge PDF Files Online Free | NexaGrowth</title>
+  <meta name="description" content="Merge multiple PDF files into one document. Free, no upload to server, runs in your browser.">
+  <link rel="canonical" href="https://nexagrowth.xyz/tools/pdf-merger">
+  <meta property="og:title" content="PDF Merger — NexaGrowth"><meta property="og:url" content="https://nexagrowth.xyz/tools/pdf-merger"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVCXYCKEVN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FVCXYCKEVN');</script>
+  <style>.drop-zone{border:2px dashed var(--brd3);border-radius:var(--r2);padding:48px 24px;text-align:center;cursor:pointer;transition:.3s;background:var(--glass)}.drop-zone:hover,.drop-zone.dragover{border-color:var(--a);background:var(--glass3)}.drop-zone-icon{font-size:3rem;margin-bottom:12px}.file-list{margin-top:16px}.file-item{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--glass);border:1px solid var(--brd);border-radius:var(--r);margin-bottom:8px}.file-item span{font-size:.9rem;color:var(--tx)}.file-item .file-size{color:var(--tx2);font-size:.8rem}.file-item .remove{width:28px;height:28px;border-radius:50%;background:rgba(239,68,68,.15);color:#ef4444;border:1px solid rgba(239,68,68,.3);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:.2s}.file-item .remove:hover{background:rgba(239,68,68,.9);color:#fff}.file-input{display:none}.progress-bar{height:4px;background:var(--bg3);border-radius:4px;margin-top:12px;overflow:hidden;display:none}.progress-bar .fill{height:100%;background:var(--ag);border-radius:4px;transition:width .3s}</style>
+</head>
+<body class="tool-page">
+  <nav class="tool-nav"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../logo.png" alt="NexaGrowth" class="nav-logo-img" width="36" height="36"><span class="nav-brand">Nexa<em>Growth</em></span></a><div class="nav-links"><a href="../index.html">Home</a><a href="index.html" class="active">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div><div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div></div></nav>
+  <div class="mobile-menu"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div>
+  <main class="tool-main"><div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span><span class="current">PDF Merger</span></nav>
+    <div class="tool-hero"><div class="tool-icon">📑</div><h1>PDF <em>Merger</em></h1><p>Merge multiple PDF files into a single document. Drag to reorder, then download the combined PDF.</p></div>
+    <div class="tool-card">
+      <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()"><div class="drop-zone-icon">📄</div><p><strong>Click to select PDFs</strong> or drag & drop</p><p style="font-size:.8rem;margin-top:8px">Select multiple PDF files • No file size limit</p></div>
+      <input type="file" id="fileInput" class="file-input" multiple accept=".pdf">
+      <div class="file-list" id="fileList"></div>
+      <div class="progress-bar" id="progressBar"><div class="fill" id="progressFill" style="width:0%"></div></div>
+      <div class="tool-actions" style="margin-top:16px">
+        <button class="btn-primary" id="mergeBtn" disabled onclick="mergePDFs()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Merge & Download</button>
+        <button class="btn-secondary" onclick="clearAll()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Clear All</button>
+      </div>
+    </div>
+    <section class="tool-section"><h2><span class="section-icon">📖</span> How to Use</h2><p>Upload multiple PDFs, then click Merge to combine them into one document.</p></section>
+    <section class="tool-section"><h2><span class="section-icon">🔗</span> Related Tools</h2><div class="related-grid"><a href="image-to-pdf.html" class="related-card"><span class="rc-icon">📸</span><h3>Image to PDF</h3><p>Convert images to PDF.</p><span class="rc-arrow">Use Tool →</span></a><a href="text-to-pdf.html" class="related-card"><span class="rc-icon">📝</span><h3>Text to PDF</h3><p>Convert text to PDF.</p><span class="rc-arrow">Use Tool →</span></a></div></section>
+    <div class="cta-box"><h3>Explore More Free Tools</h3><p>50+ free tools.</p><div class="cta-actions"><a href="index.html" class="btn-primary">Browse All Tools</a></div></div>
+  </div></main>
+  <footer class="tool-footer"><div class="container"><p>&copy; 2025 NexaGrowth. All rights reserved.</p><div class="footer-links"><a href="../index.html">Home</a><a href="index.html">Tools</a><a href="../blog/index.html">Blog</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></div></div></footer>
+  <script src="tools.js"></script>
+  <script>
+  let pdfFiles=[];
+  const dropZone=document.getElementById('dropZone'),fileInput=document.getElementById('fileInput'),fileList=document.getElementById('fileList'),mergeBtn=document.getElementById('mergeBtn');
+  dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('dragover')});
+  dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('dragover'));
+  dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('dragover');handleFiles(e.dataTransfer.files)});
+  fileInput.addEventListener('change',e=>handleFiles(e.target.files));
+  function handleFiles(files){for(let f of files){if(f.type!=='application/pdf')continue;const reader=new FileReader();reader.onload=e=>{pdfFiles.push({name:f.name,size:f.size,data:new Uint8Array(e.target.result)});renderList()};reader.readAsArrayBuffer(f)}}
+  function renderList(){fileList.innerHTML='';pdfFiles.forEach((f,i)=>{const div=document.createElement('div');div.className='file-item';div.innerHTML=`<span>📄 ${f.name} <span class="file-size">(${(f.size/1024).toFixed(1)} KB)</span></span><button class="remove" onclick="removeFile(${i})">✕</button>`;fileList.appendChild(div)});mergeBtn.disabled=pdfFiles.length<2}
+  function removeFile(i){pdfFiles.splice(i,1);renderList()}
+  function clearAll(){pdfFiles=[];renderList();fileInput.value=''}
+  async function mergePDFs(){
+    if(pdfFiles.length<2)return;
+    const pb=document.getElementById('progressBar'),pf=document.getElementById('progressFill');
+    pb.style.display='block';pf.style.width='10%';
+    try{
+      const merged=await PDFLib.PDFDocument.create();
+      for(let i=0;i<pdfFiles.length;i++){
+        const src=await PDFLib.PDFDocument.load(pdfFiles[i].data);
+        const pages=await merged.copyPages(src,src.getPageIndices());
+        pages.forEach(p=>merged.addPage(p));
+        pf.style.width=((i+1)/pdfFiles.length*80+10)+'%';
+      }
+      const bytes=await merged.save();pf.style.width='100%';
+      const blob=new Blob([bytes],{type:'application/pdf'});
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement('a');a.href=url;a.download='merged.pdf';a.click();
+      URL.revokeObjectURL(url);
+      setTimeout(()=>{pb.style.display='none';pf.style.width='0%'},1500);
+    }catch(err){alert('Error merging PDFs: '+err.message);pb.style.display='none'}
+  }
+  </script>
+</body>
+</html>
