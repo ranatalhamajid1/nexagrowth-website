@@ -81,13 +81,33 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-foreground transition-colors duration-300">
-                  Our Story & EEAT
+                <Link href="/pricing" className="hover:text-foreground transition-colors duration-300">
+                  Transparent Pricing
+                </Link>
+              </li>
+              <li>
+                <Link href="/resources" className="hover:text-foreground transition-colors duration-300">
+                  Free Guides & Templates
                 </Link>
               </li>
               <li>
                 <Link href="/case-studies" className="hover:text-foreground transition-colors duration-300">
                   Concept Showcases
+                </Link>
+              </li>
+              <li>
+                <Link href="/careers" className="hover:text-foreground transition-colors duration-300">
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link href="/partnership" className="hover:text-foreground transition-colors duration-300">
+                  Partnership
+                </Link>
+              </li>
+              <li>
+                <Link href="/referral" className="hover:text-foreground transition-colors duration-300">
+                  Referral Program
                 </Link>
               </li>
             </ul>

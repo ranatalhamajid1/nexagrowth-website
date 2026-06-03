@@ -42,6 +42,9 @@ import Footer from "../components/Footer";
 import AboutOrbit from "../components/AboutOrbit";
 import ServiceMarquee from "../components/ServiceMarquee";
 import { useTheme } from "../components/ThemeProvider";
+import PricingPreview from "../components/PricingPreview";
+import Testimonials from "../components/Testimonials";
+import TechStack from "../components/TechStack";
 
 const getGlowColor = (cat: string, theme: string) => {
   const isDark = theme === "dark";
@@ -752,7 +755,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Section 7: 4-Step Process ── */}
+        {/* ── Section 7: 6-Step Process ── */}
         <section className="mx-auto max-w-[1100px] px-6 py-20 border-t border-white/6" id="process">
           <div className="text-center flex flex-col items-center mb-16">
             <div className="inline-flex items-center gap-2 text-[12px] font-medium text-accent px-4 py-1.5 rounded-full glass tracking-[0.06em] uppercase mb-4">
@@ -767,10 +770,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
-            {/* Connection line (desktop only) */}
-            <div className="hidden md:block absolute top-[60px] left-[12.5%] right-[12.5%] h-[2px] bg-gradient-to-r from-accent/0 via-accent/30 to-accent/0" />
-
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
             {[
               {
                 step: "01",
@@ -786,15 +786,27 @@ export default function Home() {
               },
               {
                 step: "03",
+                title: "Design & Prototype",
+                desc: "Visual concepts and wireframes before any code.",
+                icon: <Camera size={20} />,
+              },
+              {
+                step: "04",
                 title: "Execute & Launch",
                 desc: "Precision execution with speed and creativity.",
                 icon: <Zap size={20} />,
               },
               {
-                step: "04",
+                step: "05",
                 title: "Track & Optimize",
                 desc: "Continuous A/B testing to maximize every result.",
                 icon: <BarChart3 size={20} />,
+              },
+              {
+                step: "06",
+                title: "Scale & Grow",
+                desc: "Double-down on winning channels for compound growth.",
+                icon: <TrendingUp size={20} />,
               },
             ].map((item, idx) => (
               <div
@@ -1082,6 +1094,15 @@ export default function Home() {
             </Link>
           </div>
         </section>
+
+        {/* ── Pricing Preview Section ── */}
+        <PricingPreview />
+
+        {/* ── Testimonials Section ── */}
+        <Testimonials />
+
+        {/* ── Tech Stack Section ── */}
+        <TechStack />
 
         {/* ── Section 11: Newsletter Subscription ── */}
         <section className="mx-auto max-w-[700px] px-6 py-20 border-t border-white/6" id="newsletter">

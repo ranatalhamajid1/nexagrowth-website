@@ -7,120 +7,62 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, Eye, ArrowRight } from "lucide-react";
 import { useTheme } from "../../components/ThemeProvider";
+import portfolioData from "../../data/portfolioData.json";
 
 const getGlowColor = (cat: string, theme: string) => {
   const isDark = theme === "dark";
   const c = cat.toLowerCase();
-  if (c.includes("ads")) {
+  if (c.includes("social")) {
     return isDark 
       ? "radial-gradient(circle, rgba(32, 210, 190, 0.16) 0%, rgba(0,0,0,0) 70%)" 
       : "radial-gradient(circle, rgba(14, 165, 233, 0.16) 0%, rgba(255,255,255,0) 70%)";
-  } else if (c.includes("content")) {
-    return isDark 
-      ? "radial-gradient(circle, rgba(217, 119, 6, 0.12) 0%, rgba(0,0,0,0) 70%)" 
-      : "radial-gradient(circle, rgba(217, 119, 6, 0.15) 0%, rgba(255,255,255,0) 70%)";
   } else if (c.includes("web")) {
     return isDark 
       ? "radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(0,0,0,0) 70%)" 
       : "radial-gradient(circle, rgba(139, 92, 246, 0.18) 0%, rgba(255,255,255,0) 70%)";
-  } else if (c.includes("influencer")) {
+  } else if (c.includes("video")) {
     return isDark 
-      ? "radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, rgba(0,0,0,0) 70%)" 
-      : "radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, rgba(255,255,255,0) 70%)";
+      ? "radial-gradient(circle, rgba(236, 72, 153, 0.12) 0%, rgba(0,0,0,0) 70%)" 
+      : "radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, rgba(255,255,255,0) 70%)";
+  } else if (c.includes("shopify")) {
+    return isDark 
+      ? "radial-gradient(circle, rgba(52, 211, 153, 0.12) 0%, rgba(0,0,0,0) 70%)" 
+      : "radial-gradient(circle, rgba(52, 211, 153, 0.15) 0%, rgba(255,255,255,0) 70%)";
+  } else if (c.includes("branding")) {
+    return isDark 
+      ? "radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, rgba(0,0,0,0) 70%)" 
+      : "radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, rgba(255,255,255,0) 70%)";
   }
   return isDark 
     ? "radial-gradient(circle, rgba(32, 210, 190, 0.12) 0%, rgba(0,0,0,0) 70%)" 
     : "radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, rgba(255,255,255,0) 70%)";
 };
 
-interface Project {
-  id: number;
-  cat: "ads" | "content" | "web" | "influencer";
-  catLabel: string;
-  title: string;
-  desc: string;
-  result: string;
-  gradient: string;
-  tags: string[];
-}
-
 export default function PortfolioPage() {
   const { theme } = useTheme();
-  const [filter, setFilter] = useState<"all" | "ads" | "content" | "web" | "influencer">("all");
+  const [filter, setFilter] = useState("all");
 
   const categories = [
     { id: "all", label: "All Work" },
-    { id: "ads", label: "Paid Ads" },
-    { id: "content", label: "Content" },
-    { id: "web", label: "Web Dev" },
-    { id: "influencer", label: "Influencer" },
+    { id: "social-media", label: "Social Media" },
+    { id: "web-development", label: "Web Dev" },
+    { id: "video-editing", label: "Video" },
+    { id: "shopify", label: "Shopify" },
+    { id: "branding", label: "Branding" },
   ];
 
-  const projects: Project[] = [
-    {
-      id: 1,
-      cat: "ads",
-      catLabel: "Paid Ads",
-      title: "LuxeVibe Fashion",
-      desc: "Meta & Google campaigns delivering massive revenue growth in 3 months for a premium fashion brand in Lahore.",
-      result: "+340% ROAS",
-      gradient: "linear-gradient(135deg, #7c3aed 0%, #a855f7 100%)",
-      tags: ["340% ROAS", "PKR 5.5M Rev", "3 Months"],
-    },
-    {
-      id: 2,
-      cat: "content",
-      catLabel: "Content",
-      title: "GreenEarth Organics",
-      desc: "Organic engagement and reach multiplied in 6 months through a full-scale content strategy and Urdu writing scripts.",
-      result: "500K Reach",
-      gradient: "linear-gradient(135deg, #047857 0%, #10b981 100%)",
-      tags: ["50× Growth", "500K Reach", "6 Months"],
-    },
-    {
-      id: 3,
-      cat: "web",
-      catLabel: "Web Dev",
-      title: "NexaBuild SaaS",
-      desc: "A speed-optimized, modern conversion-rate optimized redesign, boosting signup conversion within 30 days.",
-      result: "+220% CVR",
-      gradient: "linear-gradient(135deg, #0369a1 0%, #38bdf8 100%)",
-      tags: ["+220% CVR", "30 Days", "React SaaS"],
-    },
-    {
-      id: 4,
-      cat: "influencer",
-      catLabel: "Influencer",
-      title: "SparkFit Apparel",
-      desc: "Coordinated micro-creator placement in Pakistan generating high viral brand impressions and customer purchases.",
-      result: "10.2K Clicks",
-      gradient: "linear-gradient(135deg, #b45309 0%, #fbbf24 100%)",
-      tags: ["10.2K Impressions", "15K Customers", "40+ Creators"],
-    },
-    {
-      id: 5,
-      cat: "ads",
-      catLabel: "Paid Ads",
-      title: "TechStart B2B",
-      desc: "Precision B2B LinkedIn campaign targeting that cut client acquisition costs while tripling highly-qualified leads.",
-      result: "-60% CPA",
-      gradient: "linear-gradient(135deg, #be123c 0%, #f43f5e 100%)",
-      tags: ["-60% CPA", "3× Leads", "B2B Funnels"],
-    },
-    {
-      id: 6,
-      cat: "content",
-      catLabel: "Content",
-      title: "Bloom Beauty",
-      desc: "Viral TikTok and Instagram Reels aesthetic strategy driving direct e-commerce sales and organic followers.",
-      result: "1M+ Views",
-      gradient: "linear-gradient(135deg, #9d174d 0%, #ec4899 100%)",
-      tags: ["1M+ Views", "+200% Sales", "TikTok Viral"],
-    },
-  ];
-
-  const filteredProjects = projects.filter(
-    (p) => filter === "all" || p.cat === filter
+  const filteredProjects = (portfolioData as Array<{
+    id: string;
+    title: string;
+    category: string;
+    categoryLabel: string;
+    concept: boolean;
+    desc: string;
+    result: string;
+    gradient: string;
+    tags: string[];
+  }>).filter(
+    (p) => filter === "all" || p.category === filter
   );
 
   return (
@@ -130,7 +72,8 @@ export default function PortfolioPage() {
       <Background />
       <Navigation activeRoute="portfolio" />
 
-      {/* ── Page Hero Banner        <header className="page-hero w-full">
+      {/* ── Page Hero Banner ── */}
+      <header className="page-hero w-full">
         <div className="mx-auto max-w-[1100px] px-6 py-16 text-center flex flex-col items-center">
           <div className="inline-flex items-center gap-2 text-[12px] font-medium text-accent px-4 py-1.5 rounded-full glass tracking-[0.06em] uppercase mb-6 fade-rise-eyebrow">
             <Sparkles size={12} className="text-accent animate-pulse" />
@@ -151,7 +94,7 @@ export default function PortfolioPage() {
           {categories.map((cat) => (
             <button
               key={cat.id}
-              onClick={() => setFilter(cat.id as any)}
+              onClick={() => setFilter(cat.id)}
               className={`px-6 py-2.5 rounded-full text-[13px] font-medium transition-all duration-300 cursor-pointer ${
                 filter === cat.id
                   ? "bg-foreground text-background shadow-[0_4px_12px_rgba(0,0,0,0.1)] font-semibold scale-102"
@@ -203,11 +146,18 @@ export default function PortfolioPage() {
                       top: "50%",
                       left: "50%",
                       transform: "translate(-50%, -50%)",
-                      background: getGlowColor(p.cat, theme),
+                      background: getGlowColor(p.category, theme),
                       filter: "blur(20px)",
                       pointerEvents: "none"
                     }}
                   />
+
+                  {/* Concept badge */}
+                  {p.concept && (
+                    <span className="absolute top-3 right-3 text-[9px] font-bold text-amber-400 tracking-wider uppercase bg-amber-400/10 border border-amber-400/20 px-2 py-0.5 rounded-full z-30">
+                      Concept
+                    </span>
+                  )}
 
                   <div className="text-2xl md:text-3xl font-serif text-foreground font-normal tracking-tight relative z-10 drop-shadow-sm">
                     {p.result}
@@ -216,10 +166,10 @@ export default function PortfolioPage() {
                   {/* Absolute hover glass link overlay */}
                   <div className="absolute inset-0 bg-[#041423]/60 backdrop-blur-[6px] flex flex-col items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-400 z-20">
                     <span className="text-[11px] font-bold text-accent tracking-[0.12em] uppercase bg-accent/20 border border-accent/30 px-3.5 py-1.5 rounded-full">
-                      {p.catLabel}
+                      {p.categoryLabel}
                     </span>
                     <Link
-                      href="/case-studies"
+                      href={`/portfolio/${p.id}`}
                       className="bg-foreground text-background font-semibold text-[13px] px-6 py-2.5 rounded-full flex items-center gap-2 hover:scale-[1.05] transition-transform duration-300"
                     >
                       <Eye size={14} />

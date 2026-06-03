@@ -69,6 +69,7 @@ export default function Navigation({ activeRoute }: NavigationProps) {
             <li><Link href="/services" className={getLinkClass("services")}>Services</Link></li>
             <li><Link href="/portfolio" className={getLinkClass("portfolio")}>Work</Link></li>
             <li><Link href="/case-studies" className={getLinkClass("case-studies")}>Case Studies</Link></li>
+            <li><Link href="/pricing" className={getLinkClass("other")}>Pricing</Link></li>
             <li><Link href="/blog" className={getLinkClass("other")}>Resources</Link></li>
             <li><Link href="/tools" className={getLinkClass("other")}>Tools</Link></li>
             <li><Link href="/about" className={getLinkClass("about")}>About</Link></li>
@@ -128,6 +129,7 @@ export default function Navigation({ activeRoute }: NavigationProps) {
         <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className={`font-serif text-[32px] transition-colors ${activeRoute === 'other' ? 'text-foreground font-medium' : 'text-foreground/70 hover:text-foreground'}`}>Journal</Link>
         <Link href="/tools" onClick={() => setMobileMenuOpen(false)} className={`font-serif text-[32px] transition-colors ${activeRoute === 'other' ? 'text-foreground font-medium' : 'text-foreground/70 hover:text-foreground'}`}>Tools</Link>
         <Link href="/portfolio" onClick={() => setMobileMenuOpen(false)} className={`font-serif text-[32px] transition-colors ${activeRoute === 'portfolio' ? 'text-foreground font-medium' : 'text-foreground/70 hover:text-foreground'}`}>Work</Link>
+        <Link href="/pricing" onClick={() => setMobileMenuOpen(false)} className={`font-serif text-[32px] transition-colors text-foreground/70 hover:text-foreground`}>Pricing</Link>
         <a href="/#contact" onClick={() => setMobileMenuOpen(false)} className="font-serif text-[32px] text-foreground/70 hover:text-foreground transition-colors">Contact</a>
       </div>
 

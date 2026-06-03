@@ -6,6 +6,7 @@ import CustomCursor from "../components/CustomCursor";
 import ScrollProgress from "../components/ScrollProgress";
 import CookieConsent from "../components/CookieConsent";
 import ThemeProvider from "../components/ThemeProvider";
+import FloatingContactWidget from "../components/FloatingContactWidget";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -80,7 +81,7 @@ const schemaMarkup = {
       "name": "NexaGrowth",
       "image": "https://nexagrowth.xyz/logo.png",
       "url": "https://nexagrowth.xyz",
-      "telephone": "+923000000000",
+      "telephone": "+923390061165",
       "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
@@ -156,6 +157,7 @@ export default function RootLayout({
           <ScrollProgress />
           <div className="noise-overlay" aria-hidden="true" />
           {children}
+          <FloatingContactWidget />
           <CookieConsent />
         </ThemeProvider>
         <Analytics />

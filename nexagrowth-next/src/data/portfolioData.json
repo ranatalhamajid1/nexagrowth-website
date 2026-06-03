@@ -1,0 +1,202 @@
+[
+  {
+    "id": "luxevibe-fashion",
+    "title": "LuxeVibe Fashion",
+    "category": "social-media",
+    "categoryLabel": "Social Media",
+    "concept": false,
+    "desc": "Meta & Google campaigns generating massive ROAS in 3 months for fashion brand in Lahore.",
+    "result": "+340% ROAS",
+    "gradient": "linear-gradient(135deg, #7c3aed 0%, #a855f7 100%)",
+    "tags": ["340% ROAS", "PKR 5.5M Rev", "3 Months"],
+    "media": { "type": "image", "url": null },
+    "detail": {
+      "client": "LuxeVibe Fashion",
+      "industry": "Fashion E-Commerce",
+      "location": "Lahore, Pakistan",
+      "duration": "3 Months",
+      "challenge": "LuxeVibe was spending PKR 50,000/month on Facebook boosted posts but only generating PKR 70,000 in monthly revenue (1.4x ROAS). They had no retargeting funnels or professional product photography.",
+      "solution": "We restructured their ad campaigns from boosted posts to proper conversion campaigns, segmented audiences by high-purchasing cities, shot new lifestyle creative assets, and implemented retargeting funnels.",
+      "results": [
+        { "val": "+280%", "lbl": "ROAS Improvement" },
+        { "val": "PKR 550K", "lbl": "Monthly Revenue" },
+        { "val": "-42%", "lbl": "Cost Per Purchase" }
+      ]
+    }
+  },
+  {
+    "id": "greenearth-organics",
+    "title": "GreenEarth Organics",
+    "category": "social-media",
+    "categoryLabel": "Social Media",
+    "concept": false,
+    "desc": "Organic reach grew from 10K to 500K in 6 months through customized content strategies.",
+    "result": "500K Reach",
+    "gradient": "linear-gradient(135deg, #047857 0%, #10b981 100%)",
+    "tags": ["50× Growth", "500K Reach", "6 Months"],
+    "media": { "type": "image", "url": null },
+    "detail": {
+      "client": "GreenEarth Organics",
+      "industry": "Organic Food",
+      "location": "Islamabad, Pakistan",
+      "duration": "6 Months",
+      "challenge": "The brand had minimal social media presence with only 10K organic reach across all platforms. Their content lacked a cohesive strategy and professional copywriting.",
+      "solution": "We developed a full-scale content strategy with Urdu and English scripting, scheduled consistent posting grids, and created viral-ready short video templates.",
+      "results": [
+        { "val": "500K", "lbl": "Organic Reach" },
+        { "val": "50×", "lbl": "Engagement Growth" },
+        { "val": "12K", "lbl": "New Followers" }
+      ]
+    }
+  },
+  {
+    "id": "nexabuild-saas",
+    "title": "NexaBuild SaaS",
+    "category": "web-development",
+    "categoryLabel": "Web Development",
+    "concept": true,
+    "desc": "Conversion-optimized software redesign increasing signups by 220% in 30 days of launch.",
+    "result": "+220% CVR",
+    "gradient": "linear-gradient(135deg, #0369a1 0%, #38bdf8 100%)",
+    "tags": ["+220% CVR", "30 Days", "React SaaS"],
+    "media": { "type": "image", "url": null },
+    "detail": {
+      "client": "NexaBuild",
+      "industry": "SaaS / Project Management",
+      "location": "Pakistan",
+      "duration": "30 Days",
+      "challenge": "The existing website was slow (4.2s load), had poor mobile responsiveness, and no clear conversion flow from landing to signup.",
+      "solution": "We rebuilt the entire frontend in Next.js with a conversion-optimized layout, achieving sub-2s load times and a clear CTA funnel from hero to signup.",
+      "results": [
+        { "val": "+220%", "lbl": "Signup Conversion" },
+        { "val": "1.8s", "lbl": "Load Time" },
+        { "val": "95+", "lbl": "Lighthouse Score" }
+      ]
+    }
+  },
+  {
+    "id": "sparkfit-apparel",
+    "title": "SparkFit Apparel",
+    "category": "social-media",
+    "categoryLabel": "Social Media",
+    "concept": false,
+    "desc": "Coordinated 40+ creators generating 10.2K impressions and 15K new customers in one campaign.",
+    "result": "10.2K Impressions",
+    "gradient": "linear-gradient(135deg, #dc2626 0%, #f97316 100%)",
+    "tags": ["10.2K Impressions", "15K Customers", "40+ Creators"],
+    "media": { "type": "image", "url": null },
+    "detail": {
+      "client": "SparkFit Apparel",
+      "industry": "Sportswear",
+      "location": "Karachi, Pakistan",
+      "duration": "2 Months",
+      "challenge": "The brand needed rapid awareness in a saturated market without massive ad budgets.",
+      "solution": "We coordinated micro-influencer placements across Pakistan, managing outreach, briefs, content approval, and performance analytics for 40+ creators.",
+      "results": [
+        { "val": "10.2K", "lbl": "Impressions" },
+        { "val": "15K", "lbl": "New Customers" },
+        { "val": "40+", "lbl": "Creator Partnerships" }
+      ]
+    }
+  },
+  {
+    "id": "techstart-b2b",
+    "title": "TechStart B2B",
+    "category": "web-development",
+    "categoryLabel": "Web Development",
+    "concept": true,
+    "desc": "LinkedIn lead gen campaign that cut cost-per-acquisition by 60% while tripling qualified leads.",
+    "result": "-60% CPA",
+    "gradient": "linear-gradient(135deg, #1d4ed8 0%, #6366f1 100%)",
+    "tags": ["-60% CPA", "3× Leads", "B2B Funnels"],
+    "media": { "type": "image", "url": null },
+    "detail": {
+      "client": "TechStart",
+      "industry": "B2B Technology",
+      "location": "Islamabad, Pakistan",
+      "duration": "4 Months",
+      "challenge": "High cost-per-acquisition on LinkedIn with low lead quality and no funnel optimization.",
+      "solution": "We designed precision B2B LinkedIn targeting campaigns, built custom landing pages with lead qualification forms, and implemented retargeting sequences.",
+      "results": [
+        { "val": "-60%", "lbl": "CPA Reduction" },
+        { "val": "3×", "lbl": "Qualified Leads" },
+        { "val": "4 Months", "lbl": "Timeline" }
+      ]
+    }
+  },
+  {
+    "id": "bloom-beauty",
+    "title": "Bloom Beauty",
+    "category": "video-editing",
+    "categoryLabel": "Video Editing",
+    "concept": false,
+    "desc": "Viral TikTok & Reels strategy driving 1M+ views and 200% growth in monthly sales for beauty brand.",
+    "result": "1M+ Views",
+    "gradient": "linear-gradient(135deg, #be185d 0%, #ec4899 100%)",
+    "tags": ["1M+ Views", "+200% Sales", "TikTok Viral"],
+    "media": { "type": "video", "url": null },
+    "detail": {
+      "client": "Bloom Beauty",
+      "industry": "Cosmetics",
+      "location": "Lahore, Pakistan",
+      "duration": "3 Months",
+      "challenge": "Zero video marketing presence. All sales were driven by static image posts with declining engagement.",
+      "solution": "We created a viral TikTok and Reels content strategy with professional editing, trend-jacking hooks, and consistent weekly uploads.",
+      "results": [
+        { "val": "1M+", "lbl": "Video Views" },
+        { "val": "+200%", "lbl": "Monthly Sales" },
+        { "val": "50+", "lbl": "Videos Created" }
+      ]
+    }
+  },
+  {
+    "id": "artisan-shopify",
+    "title": "Artisan Collective",
+    "category": "shopify",
+    "categoryLabel": "Shopify",
+    "concept": true,
+    "desc": "Premium Shopify 2.0 store with custom sections, automated inventory, and PKR checkout integration.",
+    "result": "PKR 1.2M/mo",
+    "gradient": "linear-gradient(135deg, #059669 0%, #34d399 100%)",
+    "tags": ["Shopify 2.0", "Custom Theme", "PKR Checkout"],
+    "media": { "type": "image", "url": null },
+    "detail": {
+      "client": "Artisan Collective",
+      "industry": "Handmade Crafts",
+      "location": "Multan, Pakistan",
+      "duration": "6 Weeks",
+      "challenge": "Selling on Instagram DMs with no proper storefront, inventory management, or payment processing.",
+      "solution": "We built a fully customized Shopify 2.0 store with bespoke sections, automated inventory tracking, and integrated PKR payment gateways.",
+      "results": [
+        { "val": "PKR 1.2M", "lbl": "Monthly Revenue" },
+        { "val": "3.2s", "lbl": "Avg Load Time" },
+        { "val": "45%", "lbl": "Conversion Rate" }
+      ]
+    }
+  },
+  {
+    "id": "heritage-brand",
+    "title": "Heritage Pakistan",
+    "category": "branding",
+    "categoryLabel": "Branding",
+    "concept": true,
+    "desc": "Complete brand identity overhaul including logo, guidelines, packaging, and digital presence.",
+    "result": "Full Rebrand",
+    "gradient": "linear-gradient(135deg, #92400e 0%, #f59e0b 100%)",
+    "tags": ["Logo Design", "Brand Guide", "Packaging"],
+    "media": { "type": "image", "url": null },
+    "detail": {
+      "client": "Heritage Pakistan",
+      "industry": "Cultural Tourism",
+      "location": "Lahore, Pakistan",
+      "duration": "8 Weeks",
+      "challenge": "Outdated visual identity that didn't reflect the premium cultural tourism experience they offered.",
+      "solution": "We designed a complete brand identity system including logo, color palette, typography, brand guidelines, packaging templates, and social media kit.",
+      "results": [
+        { "val": "100%", "lbl": "Brand Consistency" },
+        { "val": "3×", "lbl": "Brand Recognition" },
+        { "val": "8 Weeks", "lbl": "Delivery Time" }
+      ]
+    }
+  }
+]
