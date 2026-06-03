@@ -57,9 +57,9 @@
     const text=input.value;
     if(!text){output.value='';origSize.textContent='Original Size: 0 bytes';miniSize.textContent='Minified Size: 0 bytes';savingsBadge.style.display='none';return}
     let minified=text
-      .replace(/<!--[\s\S]*?-->/g,'') // remove comments
+      .replace(new RegExp('<!--[\\s\\S]*?-->', 'g'), '') // remove comments
       .replace(/\s+/g,' ') // collapse whitespace
-      .replace(/>\s+</g,'><') // collapse whitespace between tags
+      .replace(new RegExp('>\\s+<', 'g'), '><') // collapse whitespace between tags
       .trim();
     output.value=minified;
     const origBytes=new Blob([text]).size;
