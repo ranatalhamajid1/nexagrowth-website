@@ -87,7 +87,7 @@ export default function ResourcesPage() {
           {resources.map((r, i) => (
             <div
               key={i}
-              className="glass p-7 rounded-[20px] border border-white/8 bg-white/[0.02] hover:border-accent/25 transition-all duration-300 group hover:translate-y-[-2px] flex flex-col"
+              className="glass p-7 rounded-[20px] border border-glass-border bg-glass-bg hover:border-accent/25 transition-all duration-300 group hover:translate-y-[-2px] flex flex-col"
             >
               <div className="flex items-start gap-4 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent flex-shrink-0 group-hover:scale-110 transition-transform">
@@ -110,7 +110,7 @@ export default function ResourcesPage() {
         </div>
 
         {/* Newsletter */}
-        <div className="mt-16 glass p-8 md:p-10 rounded-[24px] border border-white/8 bg-white/[0.02] text-center">
+        <div className="mt-16 glass p-8 md:p-10 rounded-[24px] border border-glass-border bg-glass-bg text-center">
           <h3 className="font-serif text-2xl text-foreground mb-3">Get Notified</h3>
           <p className="text-[13.5px] text-foreground/55 leading-relaxed mb-6 max-w-[450px] mx-auto">
             Subscribe to be the first to know when new resources, guides, and templates are published.
@@ -119,9 +119,9 @@ export default function ResourcesPage() {
             <input
               type="email"
               placeholder="Your email"
-              className="flex-1 bg-white/[0.03] border border-white/10 rounded-full px-5 py-3 text-[13px] text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-2 focus:ring-accent/40"
+              className="flex-1 bg-background/50 border border-glass-border rounded-full px-5 py-3 text-[13px] text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-2 focus:ring-accent/40"
             />
-            <button className="text-[13px] font-medium text-[#001f3d] bg-white px-6 py-3 rounded-full hover:scale-[1.03] transition-all duration-300 flex items-center justify-center gap-1.5">
+            <button className="text-[13px] font-medium text-background bg-foreground px-6 py-3 rounded-full hover:scale-[1.03] hover:bg-foreground/90 transition-all duration-300 flex items-center justify-center gap-1.5">
               Subscribe <ArrowRight size={13} />
             </button>
           </div>

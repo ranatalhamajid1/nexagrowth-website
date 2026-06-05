@@ -160,22 +160,22 @@ export default function FAQPage() {
             <HelpCircle size={12} className="text-accent animate-pulse" />
             Help Center
           </div>
-          <h1 className="font-serif text-[48px] sm:text-[68px] md:text-[80px] font-normal leading-[1.0] tracking-[-2px] text-white mb-6 fade-rise-headline">
+          <h1 className="font-serif text-[48px] sm:text-[68px] md:text-[80px] font-normal leading-[1.0] tracking-[-2px] text-foreground mb-6 fade-rise-headline">
             Frequently Asked Questions
           </h1>
-          <p className="text-[15px] sm:text-[17px] md:text-[18px] font-normal text-white/52 leading-[1.7] max-w-[640px] mb-8 fade-rise-subheadline">
+          <p className="text-[15px] sm:text-[17px] md:text-[18px] font-normal text-foreground/60 leading-[1.7] max-w-[640px] mb-8 fade-rise-subheadline">
             Everything you need to know about scaling your brand with NexaGrowth. Can't find what you need? WhatsApp us directly.
           </p>
 
           {/* Search bar inside Hero */}
-          <div className="w-full max-w-[500px] relative glass rounded-full border border-white/10 hover:border-accent/40 bg-white/[0.01] px-5 py-3.5 flex items-center transition-all duration-300 shadow-lg">
-            <Search size={18} className="text-white/40 mr-3 flex-shrink-0" />
+          <div className="w-full max-w-[500px] relative glass rounded-full border border-glass-border hover:border-accent/40 bg-glass-bg px-5 py-3.5 flex items-center transition-all duration-300 shadow-lg">
+            <Search size={18} className="text-foreground/40 mr-3 flex-shrink-0" />
             <input
               type="text"
               placeholder="Search questions or keywords..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-transparent outline-none border-none text-[14.5px] text-white placeholder-white/30"
+              className="w-full bg-transparent outline-none border-none text-[14.5px] text-foreground placeholder:text-foreground/30"
             />
           </div>
         </div>
@@ -183,7 +183,7 @@ export default function FAQPage() {
 
       {/* ── Category Filters ── */}
       <nav className="w-full relative z-20 flex justify-center px-6 mb-12">
-        <div className="flex flex-wrap gap-2 justify-center p-1.5 rounded-full glass border border-white/8 bg-white/[0.02]">
+        <div className="flex flex-wrap gap-2 justify-center p-1.5 rounded-full glass border border-glass-border bg-glass-bg">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -193,8 +193,8 @@ export default function FAQPage() {
               }}
               className={`px-5 py-2 rounded-full text-[12.5px] font-medium transition-all duration-300 cursor-pointer ${
                 activeCategory === cat
-                  ? "bg-white text-[#001f3d] font-semibold scale-102"
-                  : "text-white/52 hover:text-white"
+                  ? "bg-foreground text-background font-semibold scale-102"
+                  : "text-foreground/60 hover:text-foreground"
               }`}
             >
               {cat}
@@ -219,7 +219,7 @@ export default function FAQPage() {
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                     className={`glass rounded-[18px] border transition-all duration-300 overflow-hidden ${
-                      isOpen ? "border-accent/40 bg-white/[0.03]" : "border-white/8 hover:border-white/15 bg-white/[0.01]"
+                      isOpen ? "border-accent/40 bg-glass-hover" : "border-glass-border hover:border-foreground/15 bg-glass-bg"
                     }`}
                   >
                     <button
@@ -229,12 +229,12 @@ export default function FAQPage() {
                       aria-controls={`${faq.id}-content`}
                     >
                       <h2 className={`text-[15.5px] md:text-[17px] font-medium tracking-tight transition-colors duration-300 font-serif ${
-                        isOpen ? "text-accent" : "text-white"
+                        isOpen ? "text-accent" : "text-foreground"
                       }`}>
                         {faq.q}
                       </h2>
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center border border-white/8 transition-transform duration-500 ${
-                        isOpen ? "rotate-180 border-accent/30 text-accent bg-accent/10" : "text-white/40 bg-white/[0.02]"
+                      <div className={`w-8 h-8 rounded-full flex items-center justify-center border border-glass-border transition-transform duration-500 ${
+                        isOpen ? "rotate-180 border-accent/30 text-accent bg-accent/10" : "text-foreground/40 bg-glass-hover"
                       }`}>
                         <ChevronDown size={15} />
                       </div>
@@ -249,7 +249,7 @@ export default function FAQPage() {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3, ease: "easeInOut" }}
                         >
-                          <div className="px-6 pb-6 md:px-8 md:pb-7 text-[13.5px] md:text-[14.5px] text-white/52 leading-relaxed border-t border-white/6 pt-4">
+                          <div className="px-6 pb-6 md:px-8 md:pb-7 text-[13.5px] md:text-[14.5px] text-foreground/60 leading-relaxed border-t border-glass-border pt-4">
                             <p>{faq.a}</p>
                           </div>
                         </motion.div>
@@ -259,7 +259,7 @@ export default function FAQPage() {
                 );
               })
             ) : (
-              <div className="text-center py-16 text-white/40 text-[14.5px] font-serif">
+              <div className="text-center py-16 text-foreground/40 text-[14.5px] font-serif">
                 No matching questions found. Try searching for other keywords.
               </div>
             )}
@@ -268,15 +268,15 @@ export default function FAQPage() {
 
         {/* ── consultation CTA ── */}
         <section
-          className="mt-16 glass p-8 md:p-12 rounded-[24px] text-center relative overflow-hidden border border-white/12 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+          className="mt-16 glass p-8 md:p-12 rounded-[24px] text-center relative overflow-hidden border border-glass-border shadow-md"
           style={{
             background: "linear-gradient(135deg, rgba(32, 210, 190, 0.08) 0%, rgba(139, 92, 246, 0.05) 100%)",
           }}
         >
-          <h3 className="font-serif text-2xl md:text-3xl text-white font-normal mb-3">
+          <h3 className="font-serif text-2xl md:text-3xl text-foreground font-normal mb-3">
             Still Have Questions?
           </h3>
-          <p className="text-[13.5px] md:text-[14.5px] text-white/70 leading-relaxed max-w-[500px] mx-auto mb-6">
+          <p className="text-[13.5px] md:text-[14.5px] text-foreground/75 leading-relaxed max-w-[500px] mx-auto mb-6">
             We are always here to help. Reach out and Talha will personally reply to you on WhatsApp within a few hours.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
@@ -284,14 +284,14 @@ export default function FAQPage() {
               href="https://wa.me/923390061165?text=Hi%20NexaGrowth,%20I%20have%20a%20question%20about%20your%20services!"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-sans text-[13px] font-medium text-[#001f3d] bg-white px-6 py-3 rounded-full hover:scale-[1.03] transition-all duration-300"
+              className="inline-flex items-center gap-2 font-sans text-[13px] font-medium text-background bg-foreground px-6 py-3 rounded-full hover:scale-[1.03] transition-all duration-300"
             >
               <MessageSquare size={13} />
               <span>Instant WhatsApp Chat</span>
             </a>
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-1 text-[13px] font-normal text-white px-6 py-3 rounded-full glass border border-white/12 hover:bg-white/8 transition-all duration-300"
+              className="inline-flex items-center gap-1 text-[13px] font-normal text-foreground px-7 py-3 rounded-full glass border border-glass-border hover:bg-glass-hover bg-glass-bg transition-all duration-300"
             >
               <span>Get Free Audit</span>
               <ArrowRight size={13} />

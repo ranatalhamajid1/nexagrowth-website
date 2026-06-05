@@ -21,7 +21,7 @@ export default function ThankYouPage() {
 
       <main className="flex-1 flex items-center justify-center px-6 py-20">
         <div
-          className={`glass p-10 md:p-14 rounded-[32px] text-center max-w-[520px] w-full border border-white/10 transition-all duration-700 ${
+          className={`glass p-10 md:p-14 rounded-[32px] text-center max-w-[520px] w-full border border-glass-border transition-all duration-700 ${
             visible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
           }`}
         >
@@ -43,7 +43,7 @@ export default function ThankYouPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-[14px] font-medium text-[#001f3d] bg-white px-7 py-3.5 rounded-full hover:scale-[1.03] transition-all duration-300"
+              className="inline-flex items-center gap-2 text-[14px] font-medium text-background bg-foreground px-7 py-3.5 rounded-full hover:scale-[1.03] hover:bg-foreground/90 transition-all duration-300"
             >
               <span>Back to Home</span>
               <ArrowRight size={14} />

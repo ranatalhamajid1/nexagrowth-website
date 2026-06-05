@@ -23,16 +23,16 @@ const STRENGTHS = [
 
 export default function AboutFounder() {
   return (
-    <section id="about" className="w-full bg-[#020c1b] py-24 md:py-32 border-t border-white/5 relative">
+    <section id="about" className="w-full bg-background py-24 md:py-32 border-t border-glass-border relative">
       <div className="w-full max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
         <div className="w-full max-w-3xl mb-20">
-          <div className="inline-flex items-center gap-2 bg-white/3 border border-white/8 rounded-full px-4 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-text-muted mb-6">
+          <div className="inline-flex items-center gap-2 bg-glass-bg border border-glass-border rounded-full px-4 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-text-muted mb-6">
             <span>Authority & EEAT</span>
           </div>
-          <h2 className="font-serif text-[36px] sm:text-[48px] md:text-[54px] font-normal leading-[1.15] text-white mb-6">
-            Why partner with NexaGrowth? <em className="italic text-white/58">Our story & growth philosophy</em>.
+          <h2 className="font-serif text-[36px] sm:text-[48px] md:text-[54px] font-normal leading-[1.15] text-foreground mb-6">
+            Why partner with NexaGrowth? <em className="italic text-foreground/60">Our story & growth philosophy</em>.
           </h2>
         </div>
 
@@ -43,13 +43,13 @@ export default function AboutFounder() {
             return (
               <div 
                 key={s.title}
-                className="p-8 rounded-3xl bg-surface border border-white/5 hover:border-white/10 transition-all duration-300 flex flex-col justify-between"
+                className="p-8 rounded-3xl bg-glass-bg border border-glass-border hover:border-glass-hover transition-all duration-300 flex flex-col justify-between"
               >
-                <div className="h-10 w-10 rounded-xl bg-accent-teal/5 text-accent-teal flex items-center justify-center mb-6">
+                <div className="h-10 w-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-6">
                   <Icon size={18} />
                 </div>
                 <div>
-                  <h3 className="text-[18px] font-semibold text-white mb-3">
+                  <h3 className="text-[18px] font-semibold text-foreground mb-3">
                     {s.title}
                   </h3>
                   <p className="text-[13px] text-text-muted leading-relaxed">
@@ -62,30 +62,30 @@ export default function AboutFounder() {
         </div>
 
         {/* Part B: Founder Story Column Grid */}
-        <div className="p-8 md:p-12 rounded-[32px] bg-white/2 border border-white/5 relative overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-accent-gold/2 rounded-full filter blur-[100px] pointer-events-none" />
+        <div className="p-8 md:p-12 rounded-[32px] bg-glass-bg border border-glass-border relative overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gold/5 rounded-full filter blur-[100px] pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
             {/* Left Card: Profile Overview */}
-            <div className="lg:col-span-5 flex flex-col justify-between p-6 md:p-8 rounded-2xl bg-surface border border-white/5">
+            <div className="lg:col-span-5 flex flex-col justify-between p-6 md:p-8 rounded-2xl bg-surface border border-glass-border">
               <div>
-                <span className="block text-[10px] font-semibold tracking-widest text-accent-gold uppercase mb-3">Agency Leadership</span>
-                <h3 className="font-serif text-[28px] text-white leading-tight mb-2">Rana Muhammad Talha Majid</h3>
+                <span className="block text-[10px] font-semibold tracking-widest text-gold uppercase mb-3">Agency Leadership</span>
+                <h3 className="font-serif text-[28px] text-foreground leading-tight mb-2">Rana Muhammad Talha Majid</h3>
                 <span className="block text-[13px] text-text-muted font-medium mb-6">Founder & Digital Growth Strategist</span>
                 
                 {/* Credentials */}
-                <div className="flex flex-col gap-4 border-t border-white/5 pt-6">
+                <div className="flex flex-col gap-4 border-t border-glass-border pt-6">
                   <div className="flex items-center gap-3">
-                    <GraduationCap size={16} className="text-accent-teal flex-shrink-0" />
-                    <span className="text-[12px] text-white/90">BS Computer Science, UET Taxila (2023–2027)</span>
+                    <GraduationCap size={16} className="text-accent flex-shrink-0" />
+                    <span className="text-[12px] text-foreground/90">BS Computer Science, UET Taxila (2023–2027)</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Code size={16} className="text-accent-teal flex-shrink-0" />
-                    <span className="text-[12px] text-white/90">Web Development Intern, Capxa E-Commerce</span>
+                    <Code size={16} className="text-accent flex-shrink-0" />
+                    <span className="text-[12px] text-foreground/90">Web Development Intern, Capxa E-Commerce</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Award size={16} className="text-accent-teal flex-shrink-0" />
-                    <span className="text-[12px] text-white/90">Media Club Leadership, UET Taxila</span>
+                    <Award size={16} className="text-accent flex-shrink-0" />
+                    <span className="text-[12px] text-foreground/90">Media Club Leadership, UET Taxila</span>
                   </div>
                 </div>
               </div>
@@ -98,8 +98,8 @@ export default function AboutFounder() {
 
             {/* Right Card: Quote Content */}
             <div className="lg:col-span-7 flex flex-col justify-center">
-              <span className="text-[11px] font-bold text-accent-teal uppercase tracking-widest mb-3">Our Mission Statement</span>
-              <blockquote className="font-serif text-[20px] sm:text-[24px] text-white/90 leading-relaxed italic mb-8">
+              <span className="text-[11px] font-bold text-accent uppercase tracking-widest mb-3">Our Mission Statement</span>
+              <blockquote className="font-serif text-[20px] sm:text-[24px] text-foreground/90 leading-relaxed italic mb-8">
                 "I started NexaGrowth because I saw Pakistani businesses losing customers to poor digital presence. We combine technical expertise with real growth strategy — no fluff, no fake numbers, just results."
               </blockquote>
               

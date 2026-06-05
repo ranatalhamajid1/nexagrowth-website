@@ -9,7 +9,7 @@ interface ThemeContextValue {
 }
 
 const ThemeContext = createContext<ThemeContextValue>({
-  theme: "light",
+  theme: "dark",
   toggleTheme: () => {},
 });
 
@@ -18,13 +18,15 @@ export function useTheme() {
 }
 
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>("dark");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const stored = localStorage.getItem("ng-theme") as Theme | null;
     if (stored === "dark" || stored === "light") {
       setTheme(stored);
+    } else {
+      setTheme("dark");
     }
     setMounted(true);
   }, []);

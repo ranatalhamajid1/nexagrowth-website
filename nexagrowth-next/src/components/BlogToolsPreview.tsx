@@ -56,19 +56,19 @@ const PREVIEW_TOOLS = [
 
 export default function BlogToolsPreview() {
   return (
-    <section id="resources" className="w-full bg-[#020c1b] py-24 md:py-32 border-t border-white/5 relative">
+    <section id="resources" className="w-full bg-background py-24 md:py-32 border-t border-glass-border relative">
       <div className="w-full max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* PART A: 14+ Tools Preview */}
         <div className="mb-24">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 bg-accent-teal/5 border border-accent-teal/20 rounded-full px-4 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-accent-teal mb-6">
+              <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/25 rounded-full px-4 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-accent mb-6">
                 <Wrench size={12} />
                 <span>14+ Free Online Utilities</span>
               </div>
-              <h2 className="font-serif text-[36px] sm:text-[48px] font-normal leading-tight text-white mb-4">
-                SaaS-quality web widgets <em className="italic text-white/58">built for immediate utility</em>.
+              <h2 className="font-serif text-[36px] sm:text-[48px] font-normal leading-tight text-foreground mb-4">
+                SaaS-quality web widgets <em className="italic text-foreground/60">built for immediate utility</em>.
               </h2>
               <p className="text-[14px] text-text-muted leading-relaxed">
                 We've engineered 14+ completely free, lightning-fast utilities to audit your SEO, generate assets, or analyze code with zero signups required.
@@ -77,7 +77,7 @@ export default function BlogToolsPreview() {
             
             <a 
               href="/tools/" 
-              className="inline-flex items-center gap-2 text-[13px] font-semibold text-white/90 hover:text-white bg-white/3 border border-white/8 rounded-full px-6 py-3 hover:bg-white/6 hover:translate-y-[-1px] transition-all duration-300 w-fit shrink-0"
+              className="inline-flex items-center gap-2 text-[13px] font-semibold text-foreground bg-glass-bg border border-glass-border rounded-full px-6 py-3 hover:bg-glass-hover hover:translate-y-[-1px] transition-all duration-300 w-fit shrink-0"
             >
               <span>Explore all 14+ free tools</span>
               <ArrowUpRight size={14} className="opacity-60" />
@@ -91,20 +91,20 @@ export default function BlogToolsPreview() {
                 <a
                   key={t.name}
                   href={t.href}
-                  className="group p-6 rounded-2xl bg-surface border border-white/5 hover:border-accent-teal/25 hover:bg-white/3 transition-all duration-300 flex flex-col justify-between"
+                  className="group p-6 rounded-2xl bg-glass-bg border border-glass-border hover:border-accent/30 hover:bg-glass-hover transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
-                    <div className="h-10 w-10 rounded-xl bg-accent-teal/5 text-accent-teal flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
+                    <div className="h-10 w-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
                       <Icon size={18} />
                     </div>
-                    <h3 className="text-[16px] font-semibold text-white mb-2 group-hover:text-accent-teal transition-colors duration-300">
+                    <h3 className="text-[16px] font-semibold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">
                       {t.name}
                     </h3>
                     <p className="text-[12px] text-text-muted leading-relaxed">
                       {t.desc}
                     </p>
                   </div>
-                  <div className="mt-8 text-[11px] font-semibold text-text-subtle group-hover:text-white flex items-center gap-1 transition-colors duration-300">
+                  <div className="mt-8 text-[11px] font-semibold text-text-subtle group-hover:text-foreground flex items-center gap-1 transition-colors duration-300">
                     <span>Run widget</span>
                     <ArrowUpRight size={12} className="opacity-40 group-hover:opacity-80" />
                   </div>
@@ -115,15 +115,15 @@ export default function BlogToolsPreview() {
         </div>
 
         {/* PART B: 25+ Blog Hub Preview */}
-        <div className="border-t border-white/5 pt-24">
+        <div className="border-t border-glass-border pt-24">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 bg-accent-gold/5 border border-accent-gold/25 rounded-full px-4 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-accent-gold mb-6">
+              <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/25 rounded-full px-4 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-gold mb-6">
                 <BookOpen size={12} />
                 <span>NexaGrowth Intelligence</span>
               </div>
-              <h2 className="font-serif text-[36px] sm:text-[48px] font-normal leading-tight text-white mb-4">
-                Latest strategies from <em className="italic text-white/58">our digital research hub</em>.
+              <h2 className="font-serif text-[36px] sm:text-[48px] font-normal leading-tight text-foreground mb-4">
+                Latest strategies from <em className="italic text-foreground/60">our digital research hub</em>.
               </h2>
               <p className="text-[14px] text-text-muted leading-relaxed">
                 Actionable digital growth insights, sitemaps architectures, and technical analysis drafted by digital strategic professionals.
@@ -132,7 +132,7 @@ export default function BlogToolsPreview() {
             
             <a 
               href="/blog/" 
-              className="inline-flex items-center gap-2 text-[13px] font-semibold text-white/90 hover:text-white bg-white/3 border border-white/8 rounded-full px-6 py-3 hover:bg-white/6 hover:translate-y-[-1px] transition-all duration-300 w-fit shrink-0"
+              className="inline-flex items-center gap-2 text-[13px] font-semibold text-foreground bg-glass-bg border border-glass-border rounded-full px-6 py-3 hover:bg-glass-hover hover:translate-y-[-1px] transition-all duration-300 w-fit shrink-0"
             >
               <span>Visit blog hub (25+ posts)</span>
               <ArrowUpRight size={14} className="opacity-60" />
@@ -144,11 +144,11 @@ export default function BlogToolsPreview() {
               <a
                 key={post.title}
                 href="/blog/"
-                className="group p-8 rounded-3xl bg-surface border border-white/5 hover:border-accent-gold/20 hover:bg-white/3 transition-all duration-300 flex flex-col justify-between"
+                className="group p-8 rounded-3xl bg-glass-bg border border-glass-border hover:border-gold/30 hover:bg-glass-hover transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-6">
-                    <span className="text-[10px] font-semibold text-accent-gold uppercase tracking-wider">
+                    <span className="text-[10px] font-semibold text-gold uppercase tracking-wider">
                       {post.category}
                     </span>
                     <span className="text-[11px] text-text-subtle flex items-center gap-1.5">
@@ -157,7 +157,7 @@ export default function BlogToolsPreview() {
                     </span>
                   </div>
                   
-                  <h3 className="font-serif text-[20px] sm:text-[22px] text-white leading-snug mb-4 group-hover:text-accent-gold transition-colors duration-300">
+                  <h3 className="font-serif text-[20px] sm:text-[22px] text-foreground leading-snug mb-4 group-hover:text-gold transition-colors duration-300">
                     {post.title}
                   </h3>
                   
@@ -166,7 +166,7 @@ export default function BlogToolsPreview() {
                   </p>
                 </div>
                 
-                <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-semibold text-text-subtle group-hover:text-white transition-all duration-300">
+                <div className="mt-8 pt-4 border-t border-glass-border flex items-center justify-between text-[11px] font-semibold text-text-subtle group-hover:text-foreground transition-all duration-300">
                   <span>Read full analysis</span>
                   <ArrowUpRight size={13} className="opacity-40 group-hover:opacity-80" />
                 </div>

@@ -1,6 +1,6 @@
 "use client";
 import Footer from "../../components/Footer";
-import React from "react";
+import React, { useState, useMemo } from "react";
 import Background from "../../components/Background";
 import Navigation from "../../components/Navigation";
 import Link from "next/link";
@@ -12,9 +12,13 @@ interface ToolItem {
   icon: React.ReactNode;
   url: string;
   tag: string;
+  featured?: boolean;
 }
 
 export default function ToolsHubPage() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useState("All");
+
   const tools: ToolItem[] = [
     {
       title: "QR Code Generator",
@@ -22,6 +26,7 @@ export default function ToolsHubPage() {
       icon: <QrCode className="w-5 h-5" />,
       url: "/tools/qr-code-generator",
       tag: "Utility",
+      featured: true
     },
     {
       title: "AI Caption Generator",
@@ -29,6 +34,7 @@ export default function ToolsHubPage() {
       icon: <Smile className="w-5 h-5" />,
       url: "/tools/ai-caption-generator",
       tag: "Marketing",
+      featured: true
     },
     {
       title: "Meta Tag Generator",
@@ -36,6 +42,7 @@ export default function ToolsHubPage() {
       icon: <Search className="w-5 h-5" />,
       url: "/tools/meta-tag-generator",
       tag: "SEO",
+      featured: true
     },
     {
       title: "Slug Generator",
@@ -92,6 +99,7 @@ export default function ToolsHubPage() {
       icon: <Palette className="w-5 h-5" />,
       url: "/tools/css-gradient-generator",
       tag: "Design",
+      featured: true
     },
     {
       title: "Password Generator",
@@ -155,6 +163,7 @@ export default function ToolsHubPage() {
       icon: <FileText className="w-5 h-5" />,
       url: "/tools/pdf-merger",
       tag: "PDF",
+      featured: true
     },
     {
       title: "PDF Page Extractor",
@@ -190,6 +199,7 @@ export default function ToolsHubPage() {
       icon: <Image className="w-5 h-5" />,
       url: "/tools/image-compressor",
       tag: "Image",
+      featured: true
     },
     {
       title: "Image Resizer",
@@ -365,8 +375,30 @@ export default function ToolsHubPage() {
       icon: <FileText className="w-5 h-5" />,
       url: "/tools/invoice-generator",
       tag: "Utility",
+      featured: true
     },
   ];
+
+  // Extract unique categories (excluding Utility, Math, Writing if they have small counts, or group them logically)
+  const categories = useMemo(() => {
+    const list = new Set(tools.map(t => t.tag));
+    return ["All", ...Array.from(list)];
+  }, [tools]);
+
+  // Filter tools based on search query and active category
+  const filteredTools = useMemo(() => {
+    return tools.filter(t => {
+      const matchesSearch = t.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                            t.desc.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesCat = activeCategory === "All" || t.tag === activeCategory;
+      return matchesSearch && matchesCat;
+    });
+  }, [searchQuery, activeCategory, tools]);
+
+  // Featured tools list
+  const featuredTools = useMemo(() => {
+    return tools.filter(t => t.featured);
+  }, [tools]);
 
   return (
     <div className="relative z-10 min-h-screen flex flex-col">
@@ -388,71 +420,154 @@ export default function ToolsHubPage() {
           <p className="text-[15px] sm:text-[17px] md:text-[18px] font-normal text-foreground/60 leading-[1.7] max-w-[640px] fade-rise-subheadline">
             No signup. No hidden trials. Just highly optimized online utility tools for SEO, content creation, copywriting, design, and calculations.
           </p>
+
+          {/* Search bar inside hero */}
+          <div className="w-full max-w-[500px] mt-8 relative">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search 50+ free tools (e.g. 'pdf', 'seo', 'gradient')..."
+              className="w-full glass border border-glass-border focus:border-accent hover:border-foreground/20 bg-glass-bg text-foreground placeholder:text-foreground/45 px-6 py-4 rounded-full text-[14.5px] outline-none transition-colors pr-12"
+            />
+            <Search className="absolute right-4 top-1/2 -translate-y-1/2 text-foreground/40 w-5 h-5 pointer-events-none" />
+          </div>
         </div>
       </header>
 
-      {/* ── Grid List ── */}
       <main className="flex-1 w-full max-w-[1100px] mx-auto px-6 py-4 pb-24 relative z-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {tools.map((t, idx) => (
-            <article
-              key={idx}
-              className="glass p-6 md:p-8 rounded-[20px] border border-glass-border hover:border-accent/40 bg-glass-bg flex flex-col overflow-hidden group hover:translate-y-[-4px] transition-all duration-500 shadow-[0_10px_30px_rgba(0,0,0,0.15)]"
-              style={{
-                backdropFilter: "blur(16px) saturate(1.6)",
-              }}
+        
+        {/* ── Category Filters ── */}
+        <div className="flex gap-2 mb-12 overflow-x-auto pb-3 scrollbar-none justify-start md:justify-center">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-4.5 py-2.5 rounded-full text-[12.5px] font-semibold transition-all duration-300 border flex-shrink-0 cursor-pointer ${
+                activeCategory === cat
+                  ? "bg-accent/15 border-accent/40 text-accent shadow-[0_0_15px_rgba(51,214,200,0.15)]"
+                  : "border-glass-border text-foreground/60 hover:text-foreground hover:border-foreground/25 hover:bg-glass-hover glass"
+              }`}
             >
-              <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-accent/15 border border-accent/25 text-accent flex items-center justify-center">
-                  {t.icon}
-                </div>
-                <div>
-                  <span className="text-[10px] font-bold text-accent tracking-wider uppercase bg-accent/10 border border-accent/20 px-2 py-0.5 rounded-md">
-                    {t.tag}
-                  </span>
-                </div>
-              </div>
-
-              <h2 className="text-[18px] font-serif text-foreground font-normal mb-2 tracking-tight group-hover:text-accent transition-colors">
-                {t.title}
-              </h2>
-              <p className="text-[13px] text-foreground/60 leading-relaxed flex-1 mb-6">
-                {t.desc}
-              </p>
-
-              <a
-                href={t.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[13px] font-medium text-foreground hover:text-accent transition-colors group/link mt-auto self-start"
-              >
-                <span>Launch Tool</span>
-                <ArrowRight size={13} className="transition-transform group-hover/link:translate-x-0.5" />
-              </a>
-            </article>
+              {cat}
+            </button>
           ))}
         </div>
 
-        {/* ── Consultation CTA Block ── */}
+        {/* ── Featured Section (Only displays when category is All and search is empty) ── */}
+        {activeCategory === "All" && searchQuery === "" && (
+          <section className="mb-16">
+            <h2 className="font-serif text-2xl text-foreground font-normal mb-6 flex items-center gap-2">
+              <Sparkles size={18} className="text-accent-gold" />
+              Featured Tools
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {featuredTools.map((t, idx) => (
+                <article
+                  key={idx}
+                  className="glass p-6 md:p-8 rounded-[24px] border border-glass-border bg-glass-bg hover:border-accent/40 flex flex-col justify-between group hover:translate-y-[-2px] transition-all duration-300"
+                >
+                  <div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-accent/15 border border-accent/25 text-accent flex items-center justify-center">
+                        {t.icon}
+                      </div>
+                      <span className="text-[9px] font-bold text-accent tracking-wider uppercase bg-accent/10 border border-accent/20 px-2 py-0.5 rounded-md">
+                        {t.tag}
+                      </span>
+                    </div>
+                    <h3 className="text-[18px] font-serif text-foreground font-semibold mb-2 group-hover:text-accent transition-colors">
+                      {t.title}
+                    </h3>
+                    <p className="text-[13px] text-foreground/60 leading-relaxed mb-6">
+                      {t.desc}
+                    </p>
+                  </div>
+                  <a
+                    href={t.url}
+                    className="inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-accent hover:text-foreground transition-colors self-start"
+                  >
+                    <span>Launch Free Tool</span>
+                    <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
+                  </a>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ── Grid List ── */}
+        <section>
+          <h2 className="font-serif text-2xl text-foreground font-normal mb-6">
+            {activeCategory === "All" ? "All Online Utilities" : `${activeCategory} Tools`} ({filteredTools.length})
+          </h2>
+
+          {filteredTools.length === 0 ? (
+            <div className="text-center py-12 glass rounded-[20px] border border-glass-border">
+              <p className="text-[14.5px] text-foreground/50">No tools match your search query. Try another keyword.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {filteredTools.map((t, idx) => (
+                <article
+                  key={idx}
+                  className="glass p-6 md:p-8 rounded-[20px] border border-glass-border hover:border-accent/40 bg-glass-bg flex flex-col overflow-hidden group hover:translate-y-[-3px] transition-all duration-500 shadow-[0_10px_30px_rgba(0,0,0,0.15)]"
+                  style={{
+                    backdropFilter: "blur(16px) saturate(1.6)",
+                  }}
+                >
+                  <div className="flex items-center gap-3.5 mb-5">
+                    <div className="w-10 h-10 rounded-xl bg-accent/15 border border-accent/25 text-accent flex items-center justify-center">
+                      {t.icon}
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold text-accent tracking-wider uppercase bg-accent/10 border border-accent/20 px-2.5 py-0.5 rounded-md">
+                        {t.tag}
+                      </span>
+                    </div>
+                  </div>
+
+                  <h3 className="text-[18px] font-serif text-foreground font-normal mb-2 tracking-tight group-hover:text-accent transition-colors">
+                    {t.title}
+                  </h3>
+                  <p className="text-[13px] text-foreground/60 leading-relaxed flex-1 mb-6">
+                    {t.desc}
+                  </p>
+
+                  <a
+                    href={t.url}
+                    className="inline-flex items-center gap-2 text-[13px] font-medium text-foreground hover:text-accent transition-colors group/link mt-auto self-start"
+                  >
+                    <span>Launch Tool</span>
+                    <ArrowRight size={13} className="transition-transform group-hover/link:translate-x-0.5" />
+                  </a>
+                </article>
+              ))}
+            </div>
+          )}
+        </section>
+
+        {/* ── Consultation CTA Block (Lead Capture Asset) ── */}
         <section
           className="mt-20 glass p-10 md:p-14 rounded-[24px] text-center relative overflow-hidden border border-glass-border shadow-[0_30px_60px_rgba(0,0,0,0.3)]"
           style={{
             background: "linear-gradient(135deg, rgba(32, 210, 190, 0.08) 0%, rgba(139, 92, 246, 0.05) 100%)",
           }}
         >
+          <span className="text-[10px] font-bold text-accent tracking-[0.2em] uppercase block mb-2">CUSTOM SOFTWARE ENGINEERING</span>
           <h3 className="font-serif text-3xl md:text-4xl text-foreground font-normal mb-4">
-            Need Custom Tools or Systems?
+            Need Custom Tools or Calculation APIs?
           </h3>
           <p className="text-[15px] md:text-base text-foreground/70 leading-relaxed max-w-[600px] mx-auto mb-8">
-            Whether you need custom lead capture calculators, custom React platforms, internal databases, or advanced analytics — we build robust software built to scale.
+            Whether you need custom lead capture calculators for your site, custom React applications, secure database integrations, or internal productivity tools — we build high-performance systems to scale your operations.
           </p>
           <a
             href="https://wa.me/923390061165?text=Hi%20NexaGrowth,%20I'd%20like%20to%20discuss%20a%20custom%20software%20project!"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-sans text-[14px] font-medium text-background bg-foreground px-8 py-4 rounded-full hover:scale-[1.03] hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] transition-all duration-300"
+            className="inline-flex items-center gap-2 font-sans text-[14.5px] font-semibold text-background bg-foreground px-8 py-4 rounded-full hover:scale-[1.03] hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] transition-all duration-300"
           >
-            <span>Start Custom Software Consult</span>
+            <span>Discuss Custom Software Project</span>
             <ArrowRight size={15} />
           </a>
         </section>

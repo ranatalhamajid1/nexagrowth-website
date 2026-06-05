@@ -19,7 +19,7 @@ const techStack = [
 
 export default function TechStack() {
   return (
-    <section className="mx-auto max-w-[1100px] px-6 py-20 border-t border-white/6" id="tech-stack">
+    <section className="mx-auto max-w-[1100px] px-6 py-20 border-t border-glass-border" id="tech-stack">
       <div className="text-center flex flex-col items-center mb-14">
         <div className="inline-flex items-center gap-2 text-[12px] font-medium text-accent px-4 py-1.5 rounded-full glass tracking-[0.06em] uppercase mb-4">
           <Code2 size={12} className="text-accent animate-pulse" />
@@ -33,23 +33,30 @@ export default function TechStack() {
         </p>
       </div>
 
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
-        {techStack.map((tech) => (
-          <div
-            key={tech.name}
-            className="glass p-5 rounded-[16px] border border-white/8 hover:border-accent/30 bg-white/[0.02] flex flex-col items-center gap-3 group hover:translate-y-[-3px] transition-all duration-300 cursor-default"
-          >
+      <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_15%,white_85%,transparent)] py-4">
+        <div 
+          className="flex gap-4 w-max whitespace-nowrap hover:[animation-play-state:paused]"
+          style={{ 
+            animation: "marqueeScroll 35s linear infinite"
+          }}
+        >
+          {[...techStack, ...techStack, ...techStack].map((tech, idx) => (
             <div
-              className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[18px] font-bold font-serif group-hover:scale-110 transition-transform duration-300"
-              style={{ color: tech.color }}
+              key={`${tech.name}-${idx}`}
+              className="glass p-5 rounded-[16px] border border-glass-border hover:border-accent/30 bg-glass-bg flex flex-col items-center gap-3 group hover:translate-y-[-3px] transition-all duration-300 cursor-default w-[120px] sm:w-[140px] flex-shrink-0"
             >
-              {tech.name.charAt(0)}
+              <div
+                className="w-10 h-10 rounded-xl bg-glass-hover border border-glass-border flex items-center justify-center text-[18px] font-bold font-serif group-hover:scale-110 transition-transform duration-300"
+                style={{ color: tech.color === "#ffffff" ? "var(--fg)" : tech.color }}
+              >
+                {tech.name.charAt(0)}
+              </div>
+              <span className="text-[11px] font-medium text-foreground/70 group-hover:text-foreground transition-colors text-center leading-tight">
+                {tech.name}
+              </span>
             </div>
-            <span className="text-[11px] font-medium text-foreground/70 group-hover:text-foreground transition-colors text-center leading-tight">
-              {tech.name}
-            </span>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

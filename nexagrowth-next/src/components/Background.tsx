@@ -33,7 +33,7 @@ export default function Background() {
           inset: 0,
           zIndex: 0,
           background: theme === "dark"
-            ? "radial-gradient(circle at 50% 0%, hsl(201, 80%, 14%) 0%, hsl(201, 100%, 6%) 100%)"
+            ? "radial-gradient(circle at 50% 0%, #07111F 0%, #030712 100%)"
             : "radial-gradient(circle at 50% 0%, #e0f2fe 0%, #f8fafc 100%)",
           transition: "background 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
           pointerEvents: "none"

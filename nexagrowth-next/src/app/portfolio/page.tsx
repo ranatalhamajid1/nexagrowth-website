@@ -219,7 +219,7 @@ export default function PortfolioPage() {
             href="https://wa.me/923390061165?text=Hi%20NexaGrowth,%20I'd%20like%20to%20discuss%20partnering%20with%20you!"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-sans text-[14px] font-medium text-[#001f3d] bg-white px-8 py-4 rounded-full hover:scale-[1.03] hover:shadow-[0_12px_40px_rgba(255,255,255,0.15)] transition-all duration-300"
+            className="inline-flex items-center gap-2 font-sans text-[14px] font-medium text-background bg-foreground px-8 py-4 rounded-full hover:scale-[1.03] hover:shadow-md transition-all duration-300"
           >
             <span>Start Free Consultation</span>
             <ArrowRight size={15} />

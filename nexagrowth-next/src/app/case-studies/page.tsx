@@ -120,10 +120,10 @@ export default function CaseStudiesPage() {
             <Sparkles size={12} className="text-accent animate-pulse" />
             Proven Results
           </div>
-          <h1 className="font-serif text-[48px] sm:text-[68px] md:text-[80px] font-normal leading-[1.0] tracking-[-2px] text-white mb-6 fade-rise-headline">
+          <h1 className="font-serif text-[48px] sm:text-[68px] md:text-[80px] font-normal leading-[1.0] tracking-[-2px] text-foreground mb-6 fade-rise-headline">
             Case Studies
           </h1>
-          <p className="text-[15px] sm:text-[17px] md:text-[18px] font-normal text-white/52 leading-[1.7] max-w-[640px] fade-rise-subheadline">
+          <p className="text-[15px] sm:text-[17px] md:text-[18px] font-normal text-foreground/60 leading-[1.7] max-w-[640px] fade-rise-subheadline">
             Real data. Real business impact. Explore the comprehensive digital marketing frameworks, creative plans, and search strategies driving brand growth.
           </p>
         </div>
@@ -135,13 +135,13 @@ export default function CaseStudiesPage() {
           {caseStudies.map((cs, idx) => (
             <article
               key={idx}
-              className="glass rounded-[24px] overflow-hidden border border-white/8 bg-white/[0.02] shadow-[0_15px_40px_rgba(0,0,0,0.2)]"
+              className="glass rounded-[24px] overflow-hidden border border-glass-border bg-glass-bg shadow-md"
               style={{
                 backdropFilter: "blur(16px) saturate(1.6)",
               }}
             >
               {/* Card visual mockup window bar */}
-              <div className="px-6 py-4 flex items-center gap-2 bg-white/[0.03] border-b border-white/8 select-none">
+              <div className="px-6 py-4 flex items-center gap-2 bg-glass-hover border-b border-glass-border select-none">
                 <div className="w-2.5 h-2.5 rounded-full bg-[#f43f5e]" />
                 <div className="w-2.5 h-2.5 rounded-full bg-[#fbbf24]" />
                 <div className="w-2.5 h-2.5 rounded-full bg-[#10b981]" />
@@ -153,30 +153,30 @@ export default function CaseStudiesPage() {
                   {cs.catBadge}
                 </span>
 
-                <h2 className="text-2xl md:text-3.5xl font-serif text-white font-normal mb-6 tracking-tight">
+                <h2 className="text-2xl md:text-3.5xl font-serif text-foreground font-normal mb-6 tracking-tight">
                   {cs.title}
                 </h2>
 
                 {/* Problem */}
                 <div className="mb-8">
-                  <h3 className="text-[14px] font-medium text-white/90 tracking-wider uppercase mb-3 flex items-center gap-2">
+                  <h3 className="text-[14px] font-medium text-foreground/90 tracking-wider uppercase mb-3 flex items-center gap-2">
                     <Target size={14} className="text-accent" />
                     <span>The Challenge</span>
                   </h3>
-                  <p className="text-[15px] text-white/70 leading-relaxed">
+                  <p className="text-[15px] text-foreground/75 leading-relaxed">
                     {cs.problem}
                   </p>
                 </div>
 
                 {/* Strategy */}
                 <div className="mb-8">
-                  <h3 className="text-[14px] font-medium text-white/90 tracking-wider uppercase mb-3 flex items-center gap-2">
+                  <h3 className="text-[14px] font-medium text-foreground/90 tracking-wider uppercase mb-3 flex items-center gap-2">
                     <CheckCircle2 size={14} className="text-accent" />
                     <span>Our Strategic Approach</span>
                   </h3>
                   <ul className="flex flex-col gap-3">
                     {cs.strategy.map((strat, i) => (
-                      <li key={i} className="text-[14.5px] text-white/52 leading-relaxed flex items-start gap-2.5">
+                      <li key={i} className="text-[14.5px] text-foreground/60 leading-relaxed flex items-start gap-2.5">
                         <span className="text-accent font-bold mt-0.5">•</span>
                         <span>{strat}</span>
                       </li>
@@ -189,12 +189,12 @@ export default function CaseStudiesPage() {
                   {cs.results.map((stat, i) => (
                     <div 
                       key={i} 
-                      className="glass p-5 rounded-[16px] text-center border border-white/6 hover:border-accent/30 transition-all duration-300 bg-white/[0.01]"
+                      className="glass p-5 rounded-[16px] text-center border border-glass-border hover:border-accent/30 transition-all duration-300 bg-glass-bg"
                     >
                       <div className="text-2xl md:text-3xl font-extrabold font-serif bg-gradient-to-r from-accent to-accent-glow bg-clip-text text-transparent">
                         {stat.val}
                       </div>
-                      <div className="text-[10px] text-white/40 tracking-[0.08em] uppercase mt-2 leading-tight">
+                      <div className="text-[10px] text-foreground/45 tracking-[0.08em] uppercase mt-2 leading-tight">
                         {stat.lbl}
                       </div>
                     </div>
@@ -203,7 +203,7 @@ export default function CaseStudiesPage() {
 
                 {/* Timeline phases */}
                 <div className="mb-8">
-                  <h3 className="text-[14px] font-medium text-white/90 tracking-wider uppercase mb-4 flex items-center gap-2">
+                  <h3 className="text-[14px] font-medium text-foreground/90 tracking-wider uppercase mb-4 flex items-center gap-2">
                     <Calendar size={14} className="text-accent" />
                     <span>Campaign Implementation Timeline</span>
                   </h3>
@@ -211,12 +211,12 @@ export default function CaseStudiesPage() {
                     {cs.timeline.map((time, i) => (
                       <div 
                         key={i} 
-                        className="flex-1 glass p-5 rounded-[14px] text-center border border-white/6 bg-white/[0.01]"
+                        className="flex-1 glass p-5 rounded-[14px] text-center border border-glass-border bg-glass-bg"
                       >
                         <strong className="block text-[13px] font-semibold text-accent mb-1 uppercase tracking-wider">
                           {time.title}
                         </strong>
-                        <span className="text-[13px] text-white/52 leading-relaxed">
+                        <span className="text-[13px] text-foreground/60 leading-relaxed">
                           {time.desc}
                         </span>
                       </div>
@@ -225,7 +225,7 @@ export default function CaseStudiesPage() {
                 </div>
 
                 {/* Key Takeaway box */}
-                <div className="p-5 rounded-[14px] bg-accent/5 border border-accent/15 text-[14.5px] text-white/70 leading-relaxed">
+                <div className="p-5 rounded-[14px] bg-accent/5 border border-accent/15 text-[14.5px] text-foreground/75 leading-relaxed">
                   {cs.takeaway}
                 </div>
               </div>
@@ -235,15 +235,15 @@ export default function CaseStudiesPage() {
 
         {/* ── Consultation CTA Block ── */}
         <section
-          className="mt-20 glass p-10 md:p-14 rounded-[24px] text-center relative overflow-hidden border border-white/12 shadow-[0_30px_60px_rgba(0,0,0,0.3)]"
+          className="mt-20 glass p-10 md:p-14 rounded-[24px] text-center relative overflow-hidden border border-glass-border shadow-md"
           style={{
             background: "linear-gradient(135deg, rgba(32, 210, 190, 0.08) 0%, rgba(139, 92, 246, 0.05) 100%)",
           }}
         >
-          <h3 className="font-serif text-3xl md:text-4xl text-white font-normal mb-4">
+          <h3 className="font-serif text-3xl md:text-4xl text-foreground font-normal mb-4">
             Want Growth Results Like These?
           </h3>
-          <p className="text-[15px] md:text-base text-white/70 leading-relaxed max-w-[600px] mx-auto mb-8">
+          <p className="text-[15px] md:text-base text-foreground/75 leading-relaxed max-w-[600px] mx-auto mb-8">
             Every business has a distinct audience. We do not apply generic formulas; we customize and build exact metrics loops for your industry.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -251,14 +251,14 @@ export default function CaseStudiesPage() {
               href="https://wa.me/923390061165?text=Hi%20NexaGrowth,%20I'd%20like%20to%20discuss%20partnering%20with%20you!"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-sans text-[14px] font-medium text-[#001f3d] bg-white px-8 py-4 rounded-full hover:scale-[1.03] hover:shadow-[0_12px_40px_rgba(255,255,255,0.15)] transition-all duration-300"
+              className="inline-flex items-center gap-2 font-sans text-[14px] font-medium text-background bg-foreground px-8 py-4 rounded-full hover:scale-[1.03] hover:shadow-md transition-all duration-300"
             >
               <span>Get Free Strategy Session</span>
               <TrendingUp size={15} />
             </a>
             <Link
               href="/services"
-              className="font-sans text-[14px] font-normal text-white px-7 py-4 rounded-full glass border border-white/12 hover:bg-white/8 hover:scale-[1.02] transition-all duration-300"
+              className="font-sans text-[14px] font-normal text-foreground px-7 py-4 rounded-full glass border border-glass-border hover:bg-glass-hover hover:scale-[1.02] bg-glass-bg transition-all duration-300"
             >
               Explore Our Services
             </Link>

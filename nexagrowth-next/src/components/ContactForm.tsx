@@ -111,8 +111,8 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="w-full bg-[#020c1b] py-24 md:py-32 border-t border-white/5 relative">
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent-gold/2 rounded-full filter blur-[120px] pointer-events-none" />
+    <section id="contact" className="w-full bg-background py-24 md:py-32 border-t border-glass-border relative">
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full filter blur-[120px] pointer-events-none" />
 
       <div className="w-full max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20">
@@ -120,11 +120,11 @@ export default function ContactForm() {
           {/* Left Column: Direct Consultation Copy */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
-              <div className="inline-flex items-center gap-2 bg-white/3 border border-white/8 rounded-full px-4 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-text-muted mb-6">
+              <div className="inline-flex items-center gap-2 bg-glass-bg border border-glass-border rounded-full px-4 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-text-muted mb-6">
                 <span>Direct Funnel Pipeline</span>
               </div>
-              <h2 className="font-serif text-[36px] sm:text-[48px] md:text-[54px] font-normal leading-[1.15] text-white mb-6">
-                Let's scale your brand <em className="italic text-white/58">without any fluff or generic strategy</em>.
+              <h2 className="font-serif text-[36px] sm:text-[48px] md:text-[54px] font-normal leading-[1.15] text-foreground mb-6">
+                Let's scale your brand <em className="italic text-foreground/60">without any fluff or generic strategy</em>.
               </h2>
               <p className="text-[14px] text-text-muted leading-relaxed mb-12">
                 Book a completely free 15-minute diagnostic growth audit or structural consulting session. We'll audit your code speed, sitemap rankings, and performance campaigns in real time.
@@ -136,51 +136,51 @@ export default function ContactForm() {
                   href="https://wa.me/923390061165?text=Hi%20NexaGrowth,%20I'd%20like%20to%20book%20a%20free%20growth%20audit!"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 group p-4 rounded-xl border border-white/5 bg-white/2 hover:bg-white/4 hover:border-white/10 transition-all duration-300 w-fit"
+                  className="flex items-center gap-4 group p-4 rounded-xl border border-glass-border bg-glass-bg hover:bg-glass-hover hover:border-foreground/20 transition-all duration-300 w-fit"
                 >
                   <div className="h-10 w-10 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center">
                     <Phone size={18} />
                   </div>
                   <div>
                     <span className="block text-[10px] font-semibold uppercase tracking-wider text-text-subtle">WhatsApp Direct</span>
-                    <span className="text-[14px] font-semibold text-white group-hover:text-emerald-500 transition-colors duration-300">+92 339 0061165</span>
+                    <span className="text-[14px] font-semibold text-foreground group-hover:text-emerald-500 transition-colors duration-300">+92 339 0061165</span>
                   </div>
                 </a>
 
                 <div className="flex items-center gap-4 p-4 w-fit">
-                  <div className="h-10 w-10 rounded-full bg-accent-teal/10 text-accent-teal flex items-center justify-center">
+                  <div className="h-10 w-10 rounded-full bg-accent/10 text-accent flex items-center justify-center">
                     <MapPin size={18} />
                   </div>
                   <div>
                     <span className="block text-[10px] font-semibold uppercase tracking-wider text-text-subtle">Location Base</span>
-                    <span className="text-[14px] font-semibold text-white">Pakistan (Remote-First Global)</span>
+                    <span className="text-[14px] font-semibold text-foreground">Pakistan (Remote-First Global)</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="text-[11px] text-text-subtle flex items-center gap-2 border-t border-white/5 pt-6">
-              <Shield size={14} className="text-accent-teal" />
+            <div className="text-[11px] text-text-subtle flex items-center gap-2 border-t border-glass-border pt-6">
+              <Shield size={14} className="text-accent" />
               <span>We never spam. Strict data privacy NDA active.</span>
             </div>
           </div>
 
           {/* Right Column: Direct Glass Form */}
           <div className="lg:col-span-7">
-            <div className="p-8 md:p-10 rounded-[32px] bg-surface border border-white/5 shadow-2xl relative">
+            <div className="p-8 md:p-10 rounded-[32px] bg-glass-bg border border-glass-border shadow-2xl relative">
               
               {isSuccess ? (
                 <div className="py-16 text-center flex flex-col items-center justify-center">
-                  <div className="h-16 w-16 rounded-full bg-accent-teal/15 text-accent-teal flex items-center justify-center mb-6 animate-bounce">
+                  <div className="h-16 w-16 rounded-full bg-accent/15 text-accent flex items-center justify-center mb-6 animate-bounce">
                     <CheckCircle size={32} />
                   </div>
-                  <h3 className="font-serif text-[28px] text-white leading-tight mb-3">Audit requested successfully!</h3>
+                  <h3 className="font-serif text-[28px] text-foreground leading-tight mb-3">Audit requested successfully!</h3>
                   <p className="text-[13px] text-text-muted leading-relaxed max-w-sm mx-auto mb-8">
                     Thank you. We will analyze your page and reach out via email or WhatsApp within 12 hours with your free growth blueprint.
                   </p>
                   <button 
                     onClick={() => setIsSuccess(false)}
-                    className="text-[13px] font-semibold text-accent-teal hover:underline flex items-center gap-1.5"
+                    className="text-[13px] font-semibold text-accent hover:underline flex items-center gap-1.5"
                   >
                     <span>Request another audit</span>
                     <ArrowRight size={12} />
@@ -199,7 +199,7 @@ export default function ContactForm() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`w-full bg-[#020c1b] border ${errors.name ? "border-red-500" : "border-white/10 focus:border-accent-teal"} rounded-full px-5 py-3 text-[13px] text-white outline-none transition-all duration-300`}
+                        className={`w-full bg-background/50 border ${errors.name ? "border-red-500" : "border-glass-border focus:border-accent"} rounded-full px-5 py-3 text-[13px] text-foreground outline-none transition-all duration-300`}
                         placeholder="Rana Talha"
                       />
                       {errors.name && <span className="block text-[11px] text-red-500 mt-1">{errors.name}</span>}
@@ -213,7 +213,7 @@ export default function ContactForm() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full bg-[#020c1b] border ${errors.email ? "border-red-500" : "border-white/10 focus:border-accent-teal"} rounded-full px-5 py-3 text-[13px] text-white outline-none transition-all duration-300`}
+                        className={`w-full bg-background/50 border ${errors.email ? "border-red-500" : "border-glass-border focus:border-accent"} rounded-full px-5 py-3 text-[13px] text-foreground outline-none transition-all duration-300`}
                         placeholder="talha@brand.com"
                       />
                       {errors.email && <span className="block text-[11px] text-red-500 mt-1">{errors.email}</span>}
@@ -229,7 +229,7 @@ export default function ContactForm() {
                       name="website"
                       value={formData.website}
                       onChange={handleChange}
-                      className={`w-full bg-[#020c1b] border ${errors.website ? "border-red-500" : "border-white/10 focus:border-accent-teal"} rounded-full px-5 py-3 text-[13px] text-white outline-none transition-all duration-300`}
+                      className={`w-full bg-background/50 border ${errors.website ? "border-red-500" : "border-glass-border focus:border-accent"} rounded-full px-5 py-3 text-[13px] text-foreground outline-none transition-all duration-300`}
                       placeholder="https://mybrand.com"
                     />
                     {errors.website && <span className="block text-[11px] text-red-500 mt-1">{errors.website}</span>}
@@ -244,11 +244,11 @@ export default function ContactForm() {
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
-                        className="w-full bg-[#020c1b] border border-white/10 focus:border-accent-teal rounded-full px-5 py-3 text-[13px] text-white outline-none transition-all duration-300 cursor-pointer appearance-none"
+                        className="w-full bg-background/50 border border-glass-border focus:border-accent rounded-full px-5 py-3 text-[13px] text-foreground outline-none transition-all duration-300 cursor-pointer appearance-none"
                       >
-                        <option value="">Select service...</option>
+                        <option value="" className="bg-background text-foreground">Select service...</option>
                         {SERVICES.map((s) => (
-                          <option key={s} value={s}>{s}</option>
+                          <option key={s} value={s} className="bg-background text-foreground">{s}</option>
                         ))}
                       </select>
                       {errors.service && <span className="block text-[11px] text-red-500 mt-1">{errors.service}</span>}
@@ -261,11 +261,11 @@ export default function ContactForm() {
                         name="budget"
                         value={formData.budget}
                         onChange={handleChange}
-                        className="w-full bg-[#020c1b] border border-white/10 focus:border-accent-teal rounded-full px-5 py-3 text-[13px] text-white outline-none transition-all duration-300 cursor-pointer appearance-none"
+                        className="w-full bg-background/50 border border-glass-border focus:border-accent rounded-full px-5 py-3 text-[13px] text-foreground outline-none transition-all duration-300 cursor-pointer appearance-none"
                       >
-                        <option value="">Select budget range...</option>
+                        <option value="" className="bg-background text-foreground">Select budget range...</option>
                         {BUDGETS.map((b) => (
-                          <option key={b} value={b}>{b}</option>
+                          <option key={b} value={b} className="bg-background text-foreground">{b}</option>
                         ))}
                       </select>
                     </div>
@@ -280,7 +280,7 @@ export default function ContactForm() {
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
-                      className={`w-full bg-[#020c1b] border ${errors.message ? "border-red-500" : "border-white/10 focus:border-accent-teal"} rounded-2xl px-5 py-3 text-[13px] text-white outline-none transition-all duration-300 resize-none`}
+                      className={`w-full bg-background/50 border ${errors.message ? "border-red-500" : "border-glass-border focus:border-accent"} rounded-2xl px-5 py-3 text-[13px] text-foreground outline-none transition-all duration-300 resize-none`}
                       placeholder="My e-commerce store drops cart conversions at the checkout stage, or my Google search ranking has dropped..."
                     />
                     {errors.message && <span className="block text-[11px] text-red-500 mt-1">{errors.message}</span>}
@@ -292,7 +292,7 @@ export default function ContactForm() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full text-[15px] font-semibold text-[#020c1b] bg-white rounded-full py-4 flex items-center justify-center transition-all duration-300 hover:bg-white/90 disabled:opacity-50 cursor-pointer group"
+                        className="w-full text-[15px] font-semibold text-background bg-foreground rounded-full py-4 flex items-center justify-center transition-all duration-300 hover:bg-foreground/90 disabled:opacity-50 cursor-pointer group"
                       >
                         <span>{isSubmitting ? "Generating pipeline request..." : "Request Free Diagnostic Audit"}</span>
                         <Send size={14} className="ml-2.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
